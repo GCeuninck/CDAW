@@ -63,3 +63,4 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 [Tue Nov 09 13:10:12.592071 2021] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.51 (Debian) PHP/8.0.12 configured -- resuming normal operations
 [Tue Nov 09 13:10:12.592571 2021] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
 [Tue Nov 09 13:10:34.663305 2021] [php:notice] [pid 19] [client 172.18.0.1:38480] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 172.18.0.1:9003 (from REMOTE_ADDR HTTP header), localhost:9003 (fallback through xdebug.client_host/xdebug.client_port) :-(, referer: http://localhost:8080/
+[Tue Nov 09 16:08:27.085759 2021] [php:notice] [pid 19] [client 172.18.0.1:39102] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 172.18.0.1:9003 (from REMOTE_ADDR HTTP header), localhost:9003 (fallback through xdebug.client_host/xdebug.client_port) :-(, referer: http://localhost:8080/
