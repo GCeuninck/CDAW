@@ -9,6 +9,9 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -32,45 +35,266 @@
                 <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
             </div>
         </header>
-        <!-- About section-->
-        <section id="about">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>About this page</h2>
-                        <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                        <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                        </ul>
+        
+        <!-- Films Section -->
+        <div class="container px-4">
+            <h1>Films</h1>
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                    <div class="MultiCarousel-inner">
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre1
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre2
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre3
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
                     </div>
+                    <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button>
                 </div>
             </div>
-        </section>
-        <!-- Services section-->
-        <section class="bg-light" id="services">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Services we offer</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+        </div>
+
+        <hr/>
+
+        <!-- Series Section-->
+        <div class="container px-4">
+            <h1>Séries</h1>
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                    <div class="MultiCarousel-inner">
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre1
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre2
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre3
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
                     </div>
+                    <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button>
                 </div>
             </div>
-        </section>
-        <!-- Contact section-->
-        <section id="contact">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Contact us</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+        </div>
+
+        <hr/>
+
+        <!-- Anime Section-->
+        <div class="container px-4">
+            <h1>Anime</h1>
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                    <div class="MultiCarousel-inner">
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre1
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre2
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre3
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                        <div class="card item" style="width: 18rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71wbalyU7tL._AC_SY606_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text lead text-truncate">Titre4
+                                </p>
+                                <a href="#"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
                     </div>
+                    <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button>
                 </div>
             </div>
-        </section>
+        </div>
+        
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
