@@ -4518,6 +4518,11 @@ textarea.form-control-lg {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
+
+.card.item{
+  margin: 10px;
+}
+
 .card > hr {
   margin-right: 0;
   margin-left: 0;
@@ -5985,6 +5990,7 @@ textarea.form-control-lg {
   padding: 1rem 1rem;
   color: #212529;
 }
+
 
 .carousel {
   position: relative;
@@ -11298,4 +11304,24 @@ header {
 section {
   padding-top: 9rem;
   padding-bottom: 9rem;
+}
+
+
+
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
+.glyphicon-heart-empty{
+  color: grey;
+}
+
+.glyphicon-heart{
+  color: red;
 }
