@@ -37,7 +37,11 @@
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item me-3"><a class="nav-link" href="#">Help</a></li>
-                        <li class="nav-item"><button type="button" class="btn btn-warning">Connexion</button></li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="modal" data-bs-target="#connexionModal">
+                                <button type="button" class="btn btn-warning">Connexion</button>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -50,6 +54,33 @@
                 <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
             </div>
         </header>
+            <!-- Modal -->
+            <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title fadeIn first" id="exampleModalLabel">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" style="margin-bottom: 1em;"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
+                                </div>
+                                <div class="form-group">
+                                    <input  type="password" class="form-control" style="margin-bottom: 1em;" id="exampleInputPassword1" placeholder="Mot de passe">
+                                </div>
+                            </form>  
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="margin-bottom: 1em; margin:0 auto; display: block;">Se connecter</button>  
+                            <hr>
+                            <div style="text-align: center;">
+                                <div style="margin-bottom: 1em;">OU</div>
+                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" style="margin:0 auto; display: block;" >Créer un compte</button>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         <!-- About section-->
         <section id="about">
             <div class="container px-4">
