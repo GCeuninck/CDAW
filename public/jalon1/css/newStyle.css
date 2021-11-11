@@ -1,4 +1,3 @@
-
 .MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
 .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
     .MultiCarousel .MultiCarousel-inner .item { float: left;}
@@ -25,6 +24,18 @@ border-right: 2px  solid rgb(146, 146, 146);
 width: 18rem;
 }
 
+.width-50{
+    width: 50% !important; 
+}
+
 .bottom-1{
 margin-bottom: 1em;
+}
+
+.col-37-5{
+    width:37.5% !important;
+}
+
+h4{
+    text-align: center;
 }
