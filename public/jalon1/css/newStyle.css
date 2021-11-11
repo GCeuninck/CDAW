@@ -1,27 +1,61 @@
-.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
-.MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
-    .MultiCarousel .MultiCarousel-inner .item { float: left;}
-    .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
-.MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
-.MultiCarousel .leftLst { left:0; }
-.MultiCarousel .rightLst { right:0; }
+.MultiCarousel { 
+    float: left; 
+    overflow: hidden; 
+    padding: 15px; 
+    width: 100%; 
+    position:relative; 
+}
 
-    .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+.MultiCarousel .MultiCarousel-inner { 
+    transition: 1s ease all; 
+    float: left; 
+}
+
+.MultiCarousel .MultiCarousel-inner .item { 
+    float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item > div { 
+    text-align: center; 
+    padding:10px; 
+    margin:10px; 
+    background:#f1f1f1; 
+    color:#666;
+}
+
+.MultiCarousel .leftLst, .MultiCarousel .rightLst { 
+    position:absolute; 
+    border-radius:50%;
+    top:calc(50% - 20px); 
+}
+
+.MultiCarousel .leftLst { 
+    left:0; 
+}
+
+.MultiCarousel .rightLst { 
+    right:0; 
+}
+
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { 
+    pointer-events: none; 
+    background:#ccc; 
+}
 
 .glyphicon-heart-empty{
-color: grey;
+    color: grey !important;
 }
 
 .glyphicon-heart{
-color: red;
+    color: red !important;
 }
 
 .border-right{
-border-right: 2px  solid rgb(146, 146, 146);
+    border-right: 2px  solid rgb(146, 146, 146);
 }
 
 .width-18{
-width: 18rem;
+    width: 18rem;
 }
 
 .width-50{
@@ -29,7 +63,7 @@ width: 18rem;
 }
 
 .bottom-1{
-margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .col-37-5{
