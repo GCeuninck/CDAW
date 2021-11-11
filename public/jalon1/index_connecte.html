@@ -44,7 +44,7 @@
 
                         <li class="nav-item me-2"><div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              GuitouDu59
+                              Jedi Velloper
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                               <li><a class="dropdown-item" href="#">Profil</a></li>
@@ -62,33 +62,65 @@
             </div>
         </nav>
         
-        <!-- Modal -->
-        <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title fadeIn first" id="exampleModalLabel">Connexion</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="email" class="form-control bottom-1" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
+               <!-- Modal Connexion-->
+               <div class="modal " id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title  " id="exampleModalLabel">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control bottom-1"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
+                                </div>
+                                <div class="form-group">
+                                    <input  type="password" class="form-control bottom-1" id="exampleInputPassword1" placeholder="Mot de passe">
+                                </div>
+                            </form>  
+                            <a class="nav-link text-center" href="index_connecte.html">
+                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Se connecter</button>  
+                            </a>
+                            <hr>
+                            <div class="text-center">
+                                <div class="bottom-1">OU</div>
+                                <a data-bs-toggle="modal" data-bs-target="#inscriptionModal">
+                                    <button type="button" class="btn btn-warning " data-bs-dismiss="modal" >Créer un compte</button>
+                                </a>
                             </div>
-                            <div class="form-group">
-                                <input  type="password" class="form-control bottom-1" id="exampleInputPassword1" placeholder="Mot de passe">
-                            </div>
-                        </form>  
-                        <button type="button" class="btn btn-dark bottom-1 center-button" data-bs-dismiss="modal">Se connecter</button>  
-                        <hr>
-                        <div class="text-center">
-                            <div class="bottom-1">OU</div>
-                            <button type="button" class="btn btn-warning center-button" data-bs-dismiss="modal">Créer un compte</button>
-                        </div>
-                </div>
+                    </div>
+                    </div>
                 </div>
             </div>
-        </div>
+    
+            <!-- Modal Inscription-->
+            <div class="modal" id="inscriptionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title  " id="exampleModalLabel">Inscription</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="pseudo" class="form-control bottom-1"  id="exampleInputPseudo1" aria-describedby="pseudoHelp" placeholder="Pseudo">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control bottom-1"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
+                                </div>
+                                <div class="form-group">
+                                    <input  type="password" class="form-control bottom-1" id="exampleInputPassword1" placeholder="Mot de passe">
+                                </div>
+                            </form>  
+                            <a class="nav-link text-center" href="index_connecte.html">
+                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">S'inscrire</button>  
+                            </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
         
         <br/>
         <br/>
