@@ -16,7 +16,6 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
-                <!-- <button type="button" class="btn btn-info"><a class="navbar-brand" href="#page-top">Logo</a></button> -->
                 <a class="navbar-brand" href="#"> 
                     <img src="assets/logo.png" alt="" width="40" height="40">
                 </a>
@@ -38,12 +37,63 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item me-3"><a class="nav-link" href="#">Help</a></li>
-                        <li class="nav-item"><button type="button" class="btn">Profil</button></li>
+                        <li class="nav-item me-3 border-right"><div class="border-right">
+                            <a class="nav-link border-right" href="#">Playlist</a>
+                        </div>
+                        </li>
+                        <li class="nav-item me-3 border-right"><a class="nav-link border-right" href="#">Historique</a>
+
+                        </li>
+                        <li class="nav-item me-3"><a class="nav-link" href="#">Aide</a>
+
+                        </li>
+                        <li class="nav-item"><div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              GuitouDu59
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="#">Profil</a></li>
+                              <li><a class="dropdown-item" href="#">Paramètres</a></li>
+                              <li><a class="dropdown-item" href="index.html">Déconnexion</a></li>
+                            </ul>
+                          </div></a>
+                        </li>
                     </ul>
                 </div>
+                <a class="navbar-brand" href="#" > 
+                    <!-- API Avatar generator -->
+                    <img src="https://avatars.dicebear.com/api/bottts/.svg?colors=yellow" alt="" width="40" height="40">
+                </a>
             </div>
         </nav>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title fadeIn first" id="exampleModalLabel">Connexion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" style="margin-bottom: 1em;"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
+                            </div>
+                            <div class="form-group">
+                                <input  type="password" class="form-control" style="margin-bottom: 1em;" id="exampleInputPassword1" placeholder="Mot de passe">
+                            </div>
+                        </form>  
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" style="margin-bottom: 1em; margin:0 auto; display: block;">Se connecter</button>  
+                        <hr>
+                        <div style="text-align: center;">
+                            <div style="margin-bottom: 1em;">OU</div>
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" style="margin:0 auto; display: block;" >Créer un compte</button>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </div>
         
         <br/>
         <br/>
@@ -128,8 +178,8 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary leftLst"><</button>
-                    <button class="btn btn-primary rightLst">></button>
+                    <button class="btn btn-warning leftLst"><</button>
+                    <button class="btn btn-warning rightLst">></button>
                 </div>
             </div>
         </div>
@@ -215,8 +265,8 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary leftLst"><</button>
-                    <button class="btn btn-primary rightLst">></button>
+                    <button class="btn btn-warning leftLst"><</button>
+                    <button class="btn btn-warning rightLst">></button>
                 </div>
             </div>
         </div>
@@ -302,8 +352,8 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary leftLst"><</button>
-                    <button class="btn btn-primary rightLst">></button>
+                    <button class="btn btn-warning leftLst"><</button>
+                    <button class="btn btn-warning rightLst">></button>
                 </div>
             </div>
         </div>
