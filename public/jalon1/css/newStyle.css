@@ -66,6 +66,10 @@
     width: 50% !important; 
 }
 
+.width-70{
+    width: 70% !important; 
+}
+
 .bottom-1{
     margin-bottom: 1em;
 }
@@ -76,4 +80,8 @@
 
 h4{
     text-align: center;
+}
+
+.p-justified{
+    text-align: justify;
 }
