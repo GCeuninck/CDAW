@@ -65,7 +65,10 @@ $(document).ready(function () {
         var itemsSplit = '';
         var sampwidth = $(itemsMainDiv).width();
         var bodyWidth = $('body').width();
-        var itemMargin = document.querySelector('.card.item').offsetWidth;
+        var itemMargin;
+        if(document.querySelector('.card.item')!=null){
+            itemMargin = document.querySelector('.card.item').offsetWidth;
+        }
         $(itemsDiv).each(function () {
             id = id + 1;
             var itemNumbers = $(this).find(itemClass).length;
