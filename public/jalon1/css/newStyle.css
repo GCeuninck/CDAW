@@ -85,3 +85,15 @@ h4{
 .p-justified{
     text-align: justify;
 }
+
+.fa-heart{
+    color:rgb(255, 193, 6);
+}
+
+.card-link{
+    margin-bottom:0 ;
+}
+
+.black{
+    color: black;
+}
