@@ -5,22 +5,14 @@
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	class MovieClass
 	{
-
-		// class-side method to render an array of movies as an HTML table
-		public static function showMoviesAsTable($movies) {
-			echo '<table><thead>
-					<tr><th>Id</th><th>Titre</th></tr></thead><tbody>';
-			foreach($movies as $movie) {
-				echo "<tr>"
-				. "<td>". $movie["id"] . "</td>"
-				. "<td>". $movie["title"] . "</td></tr>";
-			}
-			echo '</tbody></table>';
+		// constructor
+		public function __construct($id, $title) {
+			$this->id = $id;
+			$this->title = $title;
 		}
 
-		public static function showAllMoviesAsTable() {
-
-            include 'AccessKey.php';
+		public static function getMovies(){
+			include 'AccessKey.php';
             
             $curl = curl_init();
     
@@ -35,9 +27,32 @@
             CURLOPT_CUSTOMREQUEST => "GET",
             ));
             
-            $response = json_decode(curl_exec($curl), true)["items"];
-            
-            curl_close($curl);
+           	$response = json_decode(curl_exec($curl), true)["items"];
+			curl_close($curl);
+
+			$movieArray = array();
+			
+			foreach($response as $i => $movie){
+				$movieArray[$i] = new MovieClass($movie["id"], $movie["title"]);
+			};
+
+			return $movieArray;
+		}
+
+		// class-side method to render an array of movies as an HTML table
+		public static function showMoviesAsTable($movies) {
+			echo '<table><thead>
+					<tr><th>Id</th><th>Titre</th></tr></thead><tbody>';
+			foreach($movies as $movie) {
+				echo "<tr>"
+				. "<td>". $movie->id . "</td>"
+				. "<td>". $movie->title . "</td></tr>";
+			}
+			echo '</tbody></table>';
+		}
+
+		public static function showAllMoviesAsTable() {
+            $response = MovieClass::getMovies();
             static::showMoviesAsTable($response);
 		}
 	}
