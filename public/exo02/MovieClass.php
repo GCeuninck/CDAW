@@ -17,7 +17,7 @@
             $curl = curl_init();
     
             curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://imdb-api.com/fr/API/Top250Movies/" . $key,
+            CURLOPT_URL => "https://imdb-api.com/fr/API/Top250Movies/" . $key, //key is private, replace $key with your personal key if required
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
