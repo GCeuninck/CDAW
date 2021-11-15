@@ -6,6 +6,7 @@
     // class-side method to render an array of movies as an HTML table
     function showAllMoviesAsTable() {
 		$imdb = new imdbClass();
+		$imdb->getMoviesFromIMDB();
 
         echo '<table><thead>
                 <tr><th>Id</th><th>Titre</th></tr></thead><tbody>';

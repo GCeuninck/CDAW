@@ -7,7 +7,7 @@
             include 'AccessKey.php';
 
 			$this->url = "https://imdb-api.com/fr/API/Top250Movies/" . $key; //key is private, replace $key with your personal key if required;
-			$this->imdbMovies = imdbClass::getMoviesFromIMDB();
+			$this->imdbMovies = array();
 		}
 
         public function getMoviesFromIMDB(){
@@ -27,14 +27,12 @@
             
             $response = json_decode(curl_exec($curl), true)["items"];
             curl_close($curl);
-
-            $movieArray = array();
 			
 			foreach($response as $i => $movie){
-				$movieArray[$i] = new MovieClass($movie["id"], $movie["title"]);
+				$this->imdbMovies[$i] = new MovieClass($movie["id"], $movie["title"]);
 			};
 
-			return $movieArray;
+			return $this;
         }
     }
     
