@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/{type}/{annee}', 'App\Http\Controllers\listeMediasController@getListeMediasWithParameters');
+Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategories'); //TODO
+
 Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 
 
