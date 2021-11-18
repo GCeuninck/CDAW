@@ -98,8 +98,14 @@ h4{
     color: black;
 }
 
+body{
+    min-height: 100vh;
+    display: block;
+}
+
 #footer {
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
+    margin-top: auto;
     width: 100%;
 }
