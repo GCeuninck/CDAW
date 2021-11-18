@@ -6,20 +6,20 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Binge Watch</title>
-        <link rel="icon" type="image/x-icon" href="assets/logo.ico" />
-        <link href="css/newStyle.css" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{{asset('../resources/assets/logo.ico')}}" />
+        <link href="{{asset('../resources/css/newStyle.css')}}" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="https://kit.fontawesome.com/e7a617acf5.js" crossorigin="anonymous"></script>   
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="{{asset('../resources/css/styles.css')}}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-static-top" id="mainNav">
             <div class="container px-4">
                 <a class="navbar-brand" href="index.html"> 
-                    <img src="assets/logo.png" alt="" width="40" height="40">
+                    <img src="{{asset('../resources/assets/logo.png')}}" alt="" width="40" height="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -121,6 +121,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{{asset('../resources/js/scripts.js')}}"></script>
     </body>
 </html>

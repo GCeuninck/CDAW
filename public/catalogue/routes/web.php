@@ -13,15 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{name}/{firstname}', function ($name, $firstname) {
-    echo 'Nom :' . $name . ' Prénom :' . $firstname;
-})->whereAlpha('name')-> whereAlpha('firstname');
+// Route::get('/{name}/{firstname}', function ($name, $firstname) {
+//     echo 'Nom :' . $name . ' Prénom :' . $firstname;
+// })->whereAlpha('name')-> whereAlpha('firstname');
+// Route::get('/', function () {
+//     return view('listeMedias');
+// });
 
-Route::get('/medias', 'App\Http\Controllers\listeMediasController@getListeMedias');
 
-Route::get('/', function () {
-    return view('listeMedias');
-});
+Route::get('/{type}/{annee}', 'App\Http\Controllers\listeMediasController@getListeMediasWithParameters');
+Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
+
+
 
 
 
