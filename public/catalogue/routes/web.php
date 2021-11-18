@@ -17,7 +17,11 @@ Route::get('/{name}/{firstname}', function ($name, $firstname) {
     echo 'Nom :' . $name . ' Prénom :' . $firstname;
 })->whereAlpha('name')-> whereAlpha('firstname');
 
+Route::get('/medias', 'App\Http\Controllers\listeMediasController@getListeMedias');
+
 Route::get('/', function () {
     return view('listeMedias');
 });
+
+
 
