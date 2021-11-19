@@ -20,4 +20,10 @@ class listeMediasController extends Controller
         $categories = Category::all();
         return view('listeCategories', ["categories" => $categories]);
     }
+
+    public function getIndex()
+    {
+
+        return view('index');
+    }
 }
