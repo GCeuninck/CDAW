@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class CategorySeeder extends Seeder
+class FilmSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +16,16 @@ class CategorySeeder extends Seeder
     public function run()
     {
         //Etape 1
-        DB::table('categories')->insert([
-             'name' => Str::random(10)
-            ]);
 
-        //Etape 2
-        \App\Models\Category::factory(10)->create();
+        $i=3;
+        DB::table('films')->insert([
+            'name' => 'Title' . $i,
+            'director' => 'director' . $i,
+            'category_id' => $i
+            ]
+        );
+
+        // //Etape 2
+        // \App\Models\Category::factory(10)->create();
     }
 }
