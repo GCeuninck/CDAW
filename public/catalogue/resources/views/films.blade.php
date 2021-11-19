@@ -47,6 +47,7 @@
                     <th>Nom</th>
                     <th>Director</th>
                     <th>Categorie</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,6 +56,11 @@
                     <td>{{$film->name}}</td>
                     <td>{{$film->director}}</td>
                     <td>{{$film->category->name}}</td>
+                    <td>
+                        <a data-bs-toggle="modal" data-bs-target="#createFilm">
+                            <button type="button" class="btn btn-warning">Modifier</button>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
