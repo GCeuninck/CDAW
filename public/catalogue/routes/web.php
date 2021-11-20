@@ -29,9 +29,4 @@ Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategor
 Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 Route::get('/index', 'App\Http\Controllers\listeMediasController@getIndex');
 
-
-
-
-
-
-
+Route::delete('/films/{id}','App\Http\Controllers\ShowFilmsController@destroy');

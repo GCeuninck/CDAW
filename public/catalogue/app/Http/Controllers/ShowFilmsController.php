@@ -41,13 +41,26 @@ class ShowFilmsController extends Controller
         $director = $request->input('directorMovie');
         $categoryId = $request->input('category');
 
-        $data = [
-            "name" => $name,
-            "director" => $director,
-            "category_id" => $categoryId
-        ];
+        // $data = [
+        //     "name" => $name,
+        //     "director" => $director,
+        //     "category_id" => $categoryId
+        // ];
 
-        Film::create($data);
+        $validatedData = $request->validate([
+            'name' => 'required|max:20',
+            'director' => 'required|max:30',
+            'category_id' => 'required'
+        ]);
+
+        Film::create($validatedData);
+
+        return redirect('/films')->with('success','Film créé');
+    }
+
+    public function destroy($id) {
+        $film = Film::findOrFail($id);
+        $film->delete();
 
         return redirect('/films');
     }

@@ -4,7 +4,7 @@
     <a data-bs-toggle="modal" data-bs-target="#createFilm">
         <button type="button" class="btn btn-warning">Créer un film</button>
     </a>
-    <!-- Create-->
+    <!-- Create Modal-->
     <div class="modal " id="createFilm" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -17,15 +17,15 @@
                         @csrf
                         <div class="form-group">
                             <label for="titleMovie"> Titre : </label>
-                            <input type="Titre" class="form-control bottom-1" name="titleMovie" id="titleMovie" aria-describedby="title" placeholder="Titre">
+                            <input type="Titre" class="form-control bottom-1" name="name" id="name" aria-describedby="title" placeholder="Titre">
                         </div>
                         <div class="form-group">
                             <label for="directorMovie"> Director : </label>
-                            <input type="Director" class="form-control bottom-1" name="directorMovie" id="directorMovie" placeholder="Director">
+                            <input type="Director" class="form-control bottom-1" name="director" id="director" placeholder="Director">
                         </div>
                         <div class="form-group">
                             <label for="category"> Genre : </label>
-                            <select id="category" name="category">
+                            <select id="category_id" name="category_id">
                                 <option value=''>------------------</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -41,7 +41,16 @@
 
     <div class="container">
         <h1>Liste des films</h1>
-        <table id="table_id" class="display">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div><br />
+        @endif
+        <table id="table_id" class="display" cellpadding="10" cellspacing="10">
             <thead>
                 <tr>
                     <th>Nom</th>
@@ -60,6 +69,13 @@
                         <a data-bs-toggle="modal" data-bs-target="#createFilm">
                             <button type="button" class="btn btn-warning">Modifier</button>
                         </a>
+                    </td>   
+                    <td>
+                        <form action="{{ url('/films', $film->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
