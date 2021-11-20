@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/films/{idFilm}', 'App\Http\Controllers\ShowFilmsController@updateFilm');
 Route::get('/films', 'App\Http\Controllers\ShowFilmsController@showAllFilms');
 Route::post('/films', 'App\Http\Controllers\ShowFilmsController@addFilm');
+Route::get('/films/edit/{id}', 'App\Http\Controllers\ShowFilmsController@edit');
+Route::patch('/films/edit/{id}', 'App\Http\Controllers\ShowFilmsController@update');
 Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategories');
 
 Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');

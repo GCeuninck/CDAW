@@ -16,15 +16,15 @@
                     <form id="addFilm" action="{{url('#')}}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="titleMovie"> Titre : </label>
+                            <label for="titleMovie"> Titre</label>
                             <input type="Titre" class="form-control bottom-1" name="name" id="name" aria-describedby="title" placeholder="Titre">
                         </div>
                         <div class="form-group">
-                            <label for="directorMovie"> Director : </label>
+                            <label for="directorMovie"> Directeur</label>
                             <input type="Director" class="form-control bottom-1" name="director" id="director" placeholder="Director">
                         </div>
                         <div class="form-group">
-                            <label for="category"> Genre : </label>
+                            <label for="category"> Categorie :</label>
                             <select id="category_id" name="category_id">
                                 <option value=''>------------------</option>
                                 @foreach ($categories as $category)
@@ -32,6 +32,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <br>
                         <input type="submit" value="Créer le film"/>
                     </form>
                 </div>
@@ -66,9 +67,7 @@
                     <td>{{$film->director}}</td>
                     <td>{{$film->category->name}}</td>
                     <td>
-                        <a data-bs-toggle="modal" data-bs-target="#createFilm">
-                            <button type="button" class="btn btn-warning">Modifier</button>
-                        </a>
+                        <a href="{{ url('/films/edit', $film->id)}}" class="btn btn-warning">Modifier</a>
                     </td>   
                     <td>
                         <form action="{{ url('/films', $film->id)}}" method="post">

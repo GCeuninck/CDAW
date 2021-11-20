@@ -20,26 +20,49 @@ class ShowFilmsController extends Controller
         return view('films', $data);
     }
 
-    public function UpdateFilm(Request $request, Film $film) {
-        $name = $request->input('titleMovie');
-        $director = $request->input('directorMovie');
-        $categoryId = $request->input('category');
+    // public function UpdateFilm(Request $request, Film $film) {
+    //     $name = $request->input('titleMovie');
+    //     $director = $request->input('directorMovie');
+    //     $categoryId = $request->input('category');
 
-        $data = [
-            "name" => $name,
-            "director" => $director,
-            "category_id" => $categoryId
-        ];
+    //     $data = [
+    //         "name" => $name,
+    //         "director" => $director,
+    //         "category_id" => $categoryId
+    //     ];
 
-        $film->update($data);
+    //     $film->update($data);
 
-        return redirect('/films');
+    //     return view('/films');
+    // }
+
+    //edit view
+    public function edit($id)
+
+    {
+        $film = Film::findOrFail($id);
+        $categories = Category::all();
+    
+        return view('edit',compact('film','categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:20',
+            'director' => 'required|max:30',
+            'category_id' => 'required'
+        ]);
+
+        Film::whereId($id)->update($validatedData);
+
+        return redirect('/films')->with('success', 'Film mis à jour avec succès');
     }
 
     public function addFilm(Request $request) {
-        $name = $request->input('titleMovie');
-        $director = $request->input('directorMovie');
-        $categoryId = $request->input('category');
+        // $name = $request->input('titleMovie');
+        // $director = $request->input('directorMovie');
+        // $categoryId = $request->input('category');
 
         // $data = [
         //     "name" => $name,
