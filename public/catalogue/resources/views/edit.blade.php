@@ -19,11 +19,14 @@
               <label for="name">Titre</label>
               <input type="text" class="form-control" name="name" value="{{ $film->name }}"/>
           </div>
+          <br>
 
           <div class="form-group">
               <label for="director">Directeur</label>
               <input type="text" class="form-control" name="director" value="{{ $film->director }}"/>
           </div>
+          <br>
+
           <div class="form-group">
             <label for="category"> Categorie :</label>
             <select class="selectpicker" id="category_picker" name="category_id">

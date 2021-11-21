@@ -1,9 +1,6 @@
 @extends("template")
 
 @section("contentBody")
-    <a data-bs-toggle="modal" data-bs-target="#createFilm">
-        <button type="button" class="btn btn-warning">Créer un film</button>
-    </a>
     <!-- Create Modal-->
     <div class="modal " id="createFilm" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
@@ -41,6 +38,10 @@
     </div>
 
     <div class="container">
+        <a data-bs-toggle="modal" data-bs-target="#createFilm">
+            <button type="button" class="btn btn-warning btn-lg">Ajouter un film</button>
+        </a>
+        </br></br>
         <h1>Liste des films</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
