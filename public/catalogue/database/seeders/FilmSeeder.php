@@ -16,12 +16,25 @@ class FilmSeeder extends Seeder
     public function run()
     {
         //Etape 1
-
-        $i=3;
+        //Coder en dur juste pour l'exemple du jalon2
         DB::table('films')->insert([
-            'name' => 'Title' . $i,
-            'director' => 'director' . $i,
-            'category_id' => $i
+            'name' => 'Retour vers le passé',
+            'director' => 'Gérard Menvussa',
+            'category_id' => 1
+            ]
+        );
+
+        DB::table('films')->insert([
+            'name' => 'Le seigneur des agneaux',
+            'director' => 'Judas Nanas',
+            'category_id' => 2
+            ]
+        );
+
+        DB::table('films')->insert([
+            'name' => 'La guerre des étoiles de mer',
+            'director' => 'Terry Golo',
+            'category_id' => 3
             ]
         );
 

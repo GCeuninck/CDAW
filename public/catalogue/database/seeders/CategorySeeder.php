@@ -16,11 +16,17 @@ class CategorySeeder extends Seeder
     public function run()
     {
         //Etape 1
-        // DB::table('categories')->insert([
-        //      'name' => Str::random(10)
-        //     ]);
+        DB::table('categories')->insert([
+             'name' =>'Fantastique'
+            ]);
+        DB::table('categories')->insert([
+            'name' =>'Action'
+            ]); 
+        DB::table('categories')->insert([
+            'name' =>'Documentaire'
+            ]); 
 
         //Etape 2
-        \App\Models\Category::factory(10)->create();
+        //\App\Models\Category::factory(10)->create();
     }
 }
