@@ -13,22 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/{name}/{firstname}', function ($name, $firstname) {
-//     echo 'Nom :' . $name . ' Prénom :' . $firstname;
-// })->whereAlpha('name')-> whereAlpha('firstname');
-// Route::get('/', function () {
-//     return view('listeMedias');
-// });
-
-
-Route::get('/films/{idFilm}', 'App\Http\Controllers\ShowFilmsController@updateFilm');
+//GET FILMS ROUTE
 Route::get('/films', 'App\Http\Controllers\ShowFilmsController@showAllFilms');
+
+//CREATE FILM ROUTE
 Route::post('/films', 'App\Http\Controllers\ShowFilmsController@addFilm');
+
+//EDIT FILM ROUTE
 Route::get('/films/edit/{id}', 'App\Http\Controllers\ShowFilmsController@edit');
-Route::patch('/films/edit/{id}', 'App\Http\Controllers\ShowFilmsController@update');
+Route::put('/films/edit/{id}', 'App\Http\Controllers\ShowFilmsController@update');
+
+//DELETE FILM ROUTE
+Route::delete('/films/{id}','App\Http\Controllers\ShowFilmsController@destroy');
+
+//GET CATEGORIES ROUTE
 Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategories');
 
+//GET MEDIAS LIST ROUTE
 Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
+
 Route::get('/index', 'App\Http\Controllers\listeMediasController@getIndex');
 
-Route::delete('/films/{id}','App\Http\Controllers\ShowFilmsController@destroy');
+

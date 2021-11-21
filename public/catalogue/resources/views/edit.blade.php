@@ -15,7 +15,7 @@
         <form method="post" action="{{ url('/films/edit', $film->id ) }}">
           <div class="form-group">
               @csrf
-              @method('PATCH')
+              @method('PUT')
               <label for="name">Titre</label>
               <input type="text" class="form-control" name="name" value="{{ $film->name }}"/>
           </div>
@@ -26,7 +26,7 @@
           </div>
           <div class="form-group">
             <label for="category"> Categorie :</label>
-            <select id="category_id" name="category_id">
+            <select class="selectpicker" id="category_picker" name="category_id">
                 <option value='{{$film->category->id}}'>{{$film->category->name}}</option>
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>

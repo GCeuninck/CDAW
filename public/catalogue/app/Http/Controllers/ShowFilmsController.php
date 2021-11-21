@@ -20,29 +20,13 @@ class ShowFilmsController extends Controller
         return view('films', $data);
     }
 
-    // public function UpdateFilm(Request $request, Film $film) {
-    //     $name = $request->input('titleMovie');
-    //     $director = $request->input('directorMovie');
-    //     $categoryId = $request->input('category');
-
-    //     $data = [
-    //         "name" => $name,
-    //         "director" => $director,
-    //         "category_id" => $categoryId
-    //     ];
-
-    //     $film->update($data);
-
-    //     return view('/films');
-    // }
-
     //edit view
     public function edit($id)
 
     {
         $film = Film::findOrFail($id);
-        $categories = Category::all();
-    
+        $categories = Category::where('id', '!=' , $film->category_id)->get();
+
         return view('edit',compact('film','categories'));
     }
 
@@ -60,15 +44,6 @@ class ShowFilmsController extends Controller
     }
 
     public function addFilm(Request $request) {
-        // $name = $request->input('titleMovie');
-        // $director = $request->input('directorMovie');
-        // $categoryId = $request->input('category');
-
-        // $data = [
-        //     "name" => $name,
-        //     "director" => $director,
-        //     "category_id" => $categoryId
-        // ];
 
         $validatedData = $request->validate([
             'name' => 'required|max:20',
