@@ -35,3 +35,7 @@ Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 Route::get('/index', 'App\Http\Controllers\listeMediasController@getIndex');
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
