@@ -1,1 +1,5 @@
-alert("Number 2");
+let maVar2 = 1;
+
+function numberTwoFunction(){
+    alert("Number Two");
+}
