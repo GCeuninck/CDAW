@@ -39,13 +39,13 @@ class Jalon3Test extends TestCase
             'category_id' => 2
         ];
 
-        Film::create($data);
+        $this->post('/films',$data);
         $match = ['name' => 'test_name', 'director' => 'test_director', 'category_id' => 2];
         $film = Film::where($match)->first();
         $this->assertNotNull($film);
     }
 
-    public function test_create_post()
+    public function test_create_redirection()
     {
         $response = $this->post('/films',[
             'name' => 'post_name',
@@ -68,9 +68,21 @@ class Jalon3Test extends TestCase
         $film = Film::where($match)->first();
         $id = $film->id;
         $this->assertNotNull($film);
-        $film->delete();
+        
+        $film->delete(); //DELETE 
+
+
         $deleted_film = Film::find($id);
         $this->assertNull($deleted_film);
     }
 
+    public function test_update()
+    {
+        $film = Film::all()->first();
+        $id = $film->id;
+        $this->assertNotNull($film);
+        $film->delete();
+        $deleted_film = Film::find($id);
+        $this->assertNull($deleted_film);
+    }
 }
