@@ -16,7 +16,7 @@ class CreateTagTable extends Migration
         Schema::create('tag', function (Blueprint $table) {
             $table->string('type_tag');
             $table->integer('code_tag');
-            $table->bigInteger('id_media_tag');
+            $table->unsignedBigInteger('id_media_tag');
             $table->timestamps();
             $table->primary(['type_tag', 'code_tag', 'id_media_tag']);
         });

@@ -15,7 +15,7 @@ class CreateSubscriptionTable extends Migration
     {
         Schema::create('subscription', function (Blueprint $table) {
             $table->string('pseudo_subcription');
-            $table->bigInteger('id_playlist_subcription');
+            $table->unsignedBigInteger('id_playlist_subcription');
             $table->timestamps();
             $table->primary(['pseudo_subcription', 'id_playlist_subcription']);
         });
