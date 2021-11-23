@@ -69,7 +69,7 @@ class Jalon3Test extends TestCase
         $id = $film->id;
         $this->assertNotNull($film);
         
-        $film->delete(); //DELETE 
+        $this->delete('/films/'. $id);
 
 
         $deleted_film = Film::find($id);
