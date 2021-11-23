@@ -10,16 +10,6 @@ use App\Models\Category;
 
 class Jalon3Test extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function test_example_jalon()
-    {
-        $this->assertTrue(true);
-    }
-
     public function test_index_route()
     {
         $response = $this->get('/index');
@@ -34,6 +24,13 @@ class Jalon3Test extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_mauvaise_route()
+    {
+        $response = $this->get('/cetteRouteNeDevraitPasExisterNormalmeentEtSiElleExisteCestQuilYaUnGrosProbleme');
+
+        $response->assertStatus(404); 
+    }
+
     public function test_create()
     {
         $data = [
@@ -44,8 +41,18 @@ class Jalon3Test extends TestCase
 
         Film::create($data);
         $match = ['name' => 'test_name', 'director' => 'test_director', 'category_id' => 2];
-        $film = Film::where($match)->get()->first();
-        $this->assertTrue(isset($film));
+        $film = Film::where($match)->first();
+        $this->assertNotNull($film);
+    }
+
+    public function test_create_post()
+    {
+        $response = $this->post('/films',[
+            'name' => 'post_name',
+            'director' => 'post_director',
+            'category_id' => 2]);
+
+        $response->assertStatus(302);
     }
 
     public function test_delete()
@@ -58,13 +65,12 @@ class Jalon3Test extends TestCase
 
         Film::create($data);
         $match = ['name' => 'test_name_delete', 'director' => 'test_director_del', 'category_id' => 1];
-        //first pour ne pas avoir une collection
-        $film = Film::where($match)->get()->first();
+        $film = Film::where($match)->first();
         $id = $film->id;
-        $this->assertTrue(isset($film));
+        $this->assertNotNull($film);
         $film->delete();
         $deleted_film = Film::find($id);
-        $this->assertFalse(isset($deleted_film));
+        $this->assertNull($deleted_film);
     }
 
 }
