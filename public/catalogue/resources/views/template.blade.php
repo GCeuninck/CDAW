@@ -9,6 +9,9 @@
         <link rel="icon" type="image/x-icon" href="{{asset('../resources/assets/logo.ico')}}" />
         <link href="{{asset('../resources/css/newStyle.css')}}" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://kit.fontawesome.com/e7a617acf5.js" crossorigin="anonymous"></script>   
         <link href="{{asset('../resources/css/styles.css')}}" rel="stylesheet" />
     </head>
     <body id="page-top">
@@ -118,9 +121,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="https://kit.fontawesome.com/e7a617acf5.js" crossorigin="anonymous"></script>   
         <script src="{{asset('../resources/js/scripts.js')}}"></script>
     </body>
 </html>
