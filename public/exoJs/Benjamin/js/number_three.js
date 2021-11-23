@@ -1,1 +1,0 @@
-alert("Number 3");
