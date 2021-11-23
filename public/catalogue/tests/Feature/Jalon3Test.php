@@ -40,7 +40,7 @@ class Jalon3Test extends TestCase
         ];
 
         $this->post('/films',$data);
-        $match = ['name' => 'test_name', 'director' => 'test_director', 'category_id' => 2];
+        $match = ['name' => $data['name'], 'director' => $data['director'], 'category_id' => $data['category_id']];
         $film = Film::where($match)->first();
         $this->assertNotNull($film);
     }
@@ -64,7 +64,7 @@ class Jalon3Test extends TestCase
         ];
 
         Film::create($data);
-        $match = ['name' => 'test_name_delete', 'director' => 'test_director_del', 'category_id' => 1];
+        $match = ['name' => $data['name'], 'director' => $data['director'], 'category_id' => $data['category_id']];
         $film = Film::where($match)->first();
         $id = $film->id;
         $this->assertNotNull($film);
@@ -78,11 +78,26 @@ class Jalon3Test extends TestCase
 
     public function test_update()
     {
-        $film = Film::all()->first();
+        $data = [
+            'name' => 'name_not_modified',
+            'director' => 'dir_not_modified',
+            'category_id' => 1
+        ];
+
+        $film = Film::create($data);
         $id = $film->id;
-        $this->assertNotNull($film);
-        $film->delete();
-        $deleted_film = Film::find($id);
-        $this->assertNull($deleted_film);
+
+        $request = [
+            'name' => 'modified_name',
+            'director' => 'modified_director',
+            'category_id' => 2
+        ];
+
+        $this->put('/films/edit/' . $id, $request);
+        $edit_film = Film::find($id);
+
+        $this->assertEquals($edit_film['name'], $request['name']);
+        $this->assertEquals($edit_film['director'], $request['director']);
+        $this->assertEquals($edit_film['category_id'], $request['category_id']);
     }
 }

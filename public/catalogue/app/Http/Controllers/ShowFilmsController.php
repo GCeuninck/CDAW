@@ -31,7 +31,8 @@ class ShowFilmsController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
+    {       
+
         $validatedData = $request->validate([
             'name' => 'required|max:30',
             'director' => 'required|max:30',
