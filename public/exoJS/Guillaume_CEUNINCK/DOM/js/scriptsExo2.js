@@ -10,5 +10,10 @@ function colorCaroussel(){
     monCaroussel.style.background = "blue";
 }
 
+function hide() {
+    document.getElementById("p3").hidden=true;
+}
+
 colorClassDescr();
 colorCaroussel();
+hide();
