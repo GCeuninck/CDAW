@@ -23,8 +23,28 @@ document.getElementById("addNew").addEventListener("click", function(e){
     {
         newId = 1;
     }
-    let content = "<div id='user" + newId + "'><h4>Bloc ajouté</h4><p>Commentaire ajouté</p><button class='modify'>Modify Comment</button><button class='remove'>Remove Comment</button></div>";
-    users.innerHTML += content;
+    let title = document.createElement('h4');
+    title.innerHTML = "Bloc ajouté";
+
+    let paragraph = document.createElement('p');
+    paragraph.innerHTML = "Commentaire ajouté";
+
+    let buttonEdit = document.createElement('button');
+    buttonEdit.innerHTML = "Modify Comment";
+    buttonEdit.className = "modify";
+
+    let buttonRemove = document.createElement('button');
+    buttonRemove.innerHTML = "Remove Comment";
+    buttonRemove.className = "remove";
+
+    let content = document.createElement('div');
+    content.id = "user" + newId;
+    content.append(title);
+    content.append(paragraph);
+    content.append(buttonEdit);
+    content.append(buttonRemove);
+
+    users.appendChild(content);
 })
 
 let modifiers = document.getElementsByClassName("modify");
