@@ -22,7 +22,7 @@ class CreateMediaTable extends Migration
             $table->string('duration');
             $table->string('genre');
             $table->string('synopsis');
-            $table->unsignedBigInteger('type');
+            $table->unsignedBigInteger('id_type');
             $table->timestamps();
         });
     }
