@@ -14,12 +14,11 @@ class CreateKeyvalueTable extends Migration
     public function up()
     {
         Schema::create('keyvalue', function (Blueprint $table) {
+            $table->id('id_keyvalue');
             $table->string('type');
             $table->integer('code');
             $table->string('label');
             $table->timestamps();
-
-            $table->primary(['type', 'code']);
         });
     }
 
