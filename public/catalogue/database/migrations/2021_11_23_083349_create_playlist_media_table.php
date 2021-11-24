@@ -14,8 +14,8 @@ class CreatePlaylistMediaTable extends Migration
     public function up()
     {
         Schema::create('playlist_media', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_playlist_pm');
-            $table->unsignedBigInteger('id_media_pm');
+            $table->foreignId('id_playlist_pm');
+            $table->foreignId('id_media_pm');
             $table->timestamps();
             $table->primary(['id_playlist_pm', 'id_media_pm']);
         });

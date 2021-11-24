@@ -14,8 +14,8 @@ class CreateTagTable extends Migration
     public function up()
     {
         Schema::create('tag', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_keyvalue_tag');
-            $table->unsignedBigInteger('id_media_tag');
+            $table->foreignId('id_keyvalue_tag');
+            $table->foreignId('id_media_tag');
             $table->timestamps();
             $table->primary(['id_keyvalue_tag', 'id_media_tag']);
         });

@@ -18,9 +18,9 @@ class CreateActionTable extends Migration
             $table->string('label_action');
             $table->string('date_action');
             $table->string('pseudo_action');
-            $table->unsignedBigInteger('id_media_action');
+            $table->foreignId('id_media_action');
             $table->string('comment');
-            $table->unsignedBigInteger('id_status');
+            $table->foreignId('id_status');
             $table->timestamps();
 
             $table->primary(['code_action', 'pseudo_action', 'id_media_action']);
