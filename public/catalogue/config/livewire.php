@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost:8080/catalogue/public/',
+    'asset_url' => 'http://localhost:8080/catalogue/public',
 
     /*
     |--------------------------------------------------------------------------

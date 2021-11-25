@@ -48,7 +48,7 @@
                                 {{ Auth::user()->pseudo }}
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="#">Profil</a></li>
+                              <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profil</a></li>
                               <li><a class="dropdown-item" href="#">Paramètres</a></li>
                               <li>
                                     <!-- Authentication -->
