@@ -25,4 +25,9 @@ class listeMediasController extends Controller
     {
         return view('index');
     }
+
+    public function getProfile()
+    {
+        return view('profile');
+    }
 }
