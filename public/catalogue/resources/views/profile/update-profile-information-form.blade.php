@@ -12,7 +12,7 @@
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
+                <input type="file" class=""
                             wire:model="photo"
                             x-ref="photo"
                             x-on:change="
@@ -55,42 +55,42 @@
         <!-- Pseudo -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="pseudo" value="{{ __('Pseudo') }}" />
-            <x-jet-input id="pseudo" type="text" class="mt-1 block w-full" wire:model.defer="state.pseudo" autocomplete="pseudo" />
+            <x-jet-input id="pseudo" type="text" class="mt-1 block w-full" wire:model.defer="state.pseudo" autocomplete="pseudo" value="{{$this->user->pseudo}}" />
             <x-jet-input-error for="pseudo" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />
-            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
+            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" value="{{$this->user->email}}" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Nom') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
+            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" value="{{$this->user->name}}" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
         <!-- FirstName -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="prenom" value="{{ __('Prénom') }}" />
-            <x-jet-input id="prenom" type="email" class="mt-1 block w-full" wire:model.defer="state.prenom" />
+            <x-jet-input id="prenom" type="email" class="mt-1 block w-full" wire:model.defer="state.prenom" value="{{$this->user->firstname}}" />
             <x-jet-input-error for="prenom" class="mt-2" />
         </div>
 
         <!-- Birth date -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="birthDate" value="{{ __('Date de naissance') }}" />
-            <x-jet-input id="birthDate" type="date" class="mt-1 block w-full" wire:model.defer="state.birthDate" />
+            <x-jet-input id="birthDate" type="date" class="mt-1 block w-full" wire:model.defer="state.birthDate" value="{{$this->user->birthday}}"  />
             <x-jet-input-error for="birthDate" class="mt-2" />
         </div>
 
         <!-- Avatar -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="avatar" value="{{ __('Avatar') }}" />
-            <x-jet-input id="avatar" type="file" class="mt-1 block w-full" wire:model.defer="state.avatar" />
+            <x-jet-input id="avatar" type="file" class="mt-1 block w-full" wire:model.defer="state.avatar" value="{{$this->user->profile_photo_path}}" />
             <x-jet-input-error for="avatar" class="mt-2" />
         </div>
     </x-slot>
