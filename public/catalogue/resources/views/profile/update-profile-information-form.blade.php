@@ -1,10 +1,10 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('Utilisateur') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __("Mettez à jour les informations du profil et l'adresse électronique de votre compte.") }}
     </x-slot>
 
     <x-slot name="form">
@@ -52,11 +52,11 @@
             </div>
         @endif
 
-        <!-- Name -->
+        <!-- Pseudo -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
-            <x-jet-input-error for="name" class="mt-2" />
+            <x-jet-label for="pseudo" value="{{ __('Pseudo') }}" />
+            <x-jet-input id="pseudo" type="text" class="mt-1 block w-full" wire:model.defer="state.pseudo" autocomplete="pseudo" />
+            <x-jet-input-error for="pseudo" class="mt-2" />
         </div>
 
         <!-- Email -->
@@ -65,15 +65,43 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+
+        <!-- Name -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="name" value="{{ __('Nom') }}" />
+            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
+            <x-jet-input-error for="name" class="mt-2" />
+        </div>
+
+        <!-- FirstName -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="prenom" value="{{ __('Prénom') }}" />
+            <x-jet-input id="prenom" type="email" class="mt-1 block w-full" wire:model.defer="state.prenom" />
+            <x-jet-input-error for="prenom" class="mt-2" />
+        </div>
+
+        <!-- Birth date -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="birthDate" value="{{ __('Date de naissance') }}" />
+            <x-jet-input id="birthDate" type="date" class="mt-1 block w-full" wire:model.defer="state.birthDate" />
+            <x-jet-input-error for="birthDate" class="mt-2" />
+        </div>
+
+        <!-- Avatar -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="avatar" value="{{ __('Avatar') }}" />
+            <x-jet-input id="avatar" type="file" class="mt-1 block w-full" wire:model.defer="state.avatar" />
+            <x-jet-input-error for="avatar" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
+            {{ __('Sauvegardé.') }}
         </x-jet-action-message>
 
         <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
+            {{ __('Sauvegarder') }}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
