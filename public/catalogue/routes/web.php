@@ -30,10 +30,10 @@ Route::delete('/films/{id}','App\Http\Controllers\ShowFilmsController@destroy');
 Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategories');
 
 //GET MEDIAS LIST ROUTE
-Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
+//Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 
-Route::get('/index', 'App\Http\Controllers\listeMediasController@getIndex');
-
+Route::get('/', 'App\Http\Controllers\listeMediasController@getIndex');
+Route::get('/profile', 'App\Http\Controllers\listeMediasController@getProfile');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

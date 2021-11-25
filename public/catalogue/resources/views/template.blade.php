@@ -18,7 +18,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-static-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="index.html"> 
+                <a class="navbar-brand" href="#"> 
                     <img src="{{asset('../resources/assets/logo.png')}}" alt="" width="40" height="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -67,7 +67,7 @@
                                 <input  type="password" class="form-control bottom-1" id="exampleInputPassword1" placeholder="Mot de passe">
                             </div>
                         </form>  
-                        <a class="nav-link text-center" href="index_connecte.html">
+                        <a class="nav-link text-center" href="#">
                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Se connecter</button>  
                         </a>
                         <hr>
@@ -102,7 +102,7 @@
                                 <input  type="password" class="form-control bottom-1" id="exampleInputPassword1" placeholder="Mot de passe">
                             </div>
                         </form>  
-                        <a class="nav-link text-center" href="index_connecte.html">
+                        <a class="nav-link text-center" href="#">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal">S'inscrire</button>  
                         </a>
                 </div>

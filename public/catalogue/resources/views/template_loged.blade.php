@@ -18,8 +18,8 @@
        <!-- Navigation-->
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-static-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="index_connecte.html"> 
-                    <img src="assets/logo.png" alt="logo" width="40" height="40">
+                <a class="navbar-brand" href="#"> 
+                    <img src="{{asset('../resources/assets/logo.png')}}" alt="logo" width="40" height="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -48,9 +48,9 @@
                               Jedi Velloper
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="profil.html">Profil</a></li>
+                              <li><a class="dropdown-item" href="#">Profil</a></li>
                               <li><a class="dropdown-item" href="#">Paramètres</a></li>
-                              <li><a class="dropdown-item" href="index.html">Déconnexion</a></li>
+                              <li><a class="dropdown-item" href="#">Déconnexion</a></li>
                             </ul>
                           </div></a>
                         </li>
