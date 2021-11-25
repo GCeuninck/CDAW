@@ -41,7 +41,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item me-3"><a class="nav-link" href="#">Aide</a></li>
                         <li class="nav-item">
-                            <a data-bs-toggle="modal" data-bs-target="#connexionModal">
+                            <a href="{{ route('login') }}">
                                 <button type="button" class="btn btn-warning">Connexion</button>
                             </a>
                         </li>
@@ -49,66 +49,6 @@
                 </div>
             </div>
         </nav>
-        
-        <!-- Modal Connexion-->
-        <div class="modal " id="connexionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title  " id="exampleModalLabel">Connexion</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="email" class="form-control bottom-1"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
-                            </div>
-                            <div class="form-group">
-                                <input  type="password" class="form-control bottom-1" id="exampleInputPassword1" placeholder="Mot de passe">
-                            </div>
-                        </form>  
-                        <a class="nav-link text-center" href="#">
-                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Se connecter</button>  
-                        </a>
-                        <hr>
-                        <div class="text-center">
-                            <div class="bottom-1">OU</div>
-                            <a data-bs-toggle="modal" data-bs-target="#inscriptionModal">
-                                <button type="button" class="btn btn-warning " data-bs-dismiss="modal" >Créer un compte</button>
-                            </a>
-                        </div>
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Inscription-->
-        <div class="modal" id="inscriptionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title  " id="exampleModalLabel">Inscription</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="pseudo" class="form-control bottom-1"  id="exampleInputPseudo1" aria-describedby="pseudoHelp" placeholder="Pseudo">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control bottom-1"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
-                            </div>
-                            <div class="form-group">
-                                <input  type="password" class="form-control bottom-1" id="exampleInputPassword1" placeholder="Mot de passe">
-                            </div>
-                        </form>  
-                        <a class="nav-link text-center" href="#">
-                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">S'inscrire</button>  
-                        </a>
-                </div>
-                </div>
-            </div>
-        </div>
         
         <br/>
 

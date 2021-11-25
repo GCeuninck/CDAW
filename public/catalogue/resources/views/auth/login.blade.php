@@ -45,12 +45,17 @@
             </div>
         </form>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-jet-button class="ml-4">
-                <a href="{{ route('register') }}">
-                    {{ __("Créer un compte") }}
-                </a>
-            </x-jet-button>
+        <hr/>
+
+        <div class="flex items-center justify-end mt-4 text-center">
+            <div class="bottom-1">OU</div>
+            <div class="bottom-1">
+                <x-jet-button class="ml-4">
+                    <a href="{{ route('register') }}">
+                        {{ __("Créer un compte") }}
+                    </a>
+                </x-jet-button>
+            </div>
         </div>
         
     </x-jet-authentication-card>
