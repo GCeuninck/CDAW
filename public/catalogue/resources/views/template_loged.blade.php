@@ -45,12 +45,22 @@
 
                         <li class="nav-item me-2"><div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              Jedi Velloper
+                                {{ Auth::user()->pseudo }}
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                               <li><a class="dropdown-item" href="#">Profil</a></li>
                               <li><a class="dropdown-item" href="#">Paramètres</a></li>
-                              <li><a class="dropdown-item" href="#">Déconnexion</a></li>
+                              <li>
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                            {{ __('Déconnexion') }}
+                                        </a>
+                                    </form>
+                                </li>
                             </ul>
                           </div></a>
                         </li>
