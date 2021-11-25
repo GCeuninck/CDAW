@@ -12,7 +12,7 @@
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
-                <input type="file" class=""
+                <input type="file" class="hidden"
                             wire:model="photo"
                             x-ref="photo"
                             x-on:change="
@@ -75,24 +75,24 @@
 
         <!-- FirstName -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="prenom" value="{{ __('Prénom') }}" />
-            <x-jet-input id="prenom" type="email" class="mt-1 block w-full" wire:model.defer="state.prenom" value="{{$this->user->firstname}}" />
-            <x-jet-input-error for="prenom" class="mt-2" />
+            <x-jet-label for="first_name" value="{{ __('Prénom') }}" />
+            <x-jet-input id="first_name" type="text" class="mt-1 block w-full" wire:model.defer="state.first_name" value="{{$this->user->firstname}}" />
+            <x-jet-input-error for="first_name" class="mt-2" />
         </div>
 
         <!-- Birth date -->
-        <div class="col-span-6 sm:col-span-4">
+        <!-- <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="birthDate" value="{{ __('Date de naissance') }}" />
             <x-jet-input id="birthDate" type="date" class="mt-1 block w-full" wire:model.defer="state.birthDate" value="{{$this->user->birthday}}"  />
             <x-jet-input-error for="birthDate" class="mt-2" />
         </div>
 
-        <!-- Avatar -->
-        <div class="col-span-6 sm:col-span-4">
+        Avatar -->
+        <!-- <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="avatar" value="{{ __('Avatar') }}" />
             <x-jet-input id="avatar" type="file" class="mt-1 block w-full" wire:model.defer="state.avatar" value="{{$this->user->profile_photo_path}}" />
             <x-jet-input-error for="avatar" class="mt-2" />
-        </div>
+        </div> --> 
     </x-slot>
 
     <x-slot name="actions">
