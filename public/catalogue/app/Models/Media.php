@@ -16,9 +16,9 @@ class Media extends Model
 
     // constructor
     public function __construct($media) {
-        $this->title = $title;
-        $this->release_date = $year;
-        $this->poster_link = $image;
+        $this->title = $media['title'];
+        $this->release_date = $media['year'];
+        $this->poster_link = $media['image'];
     }
 
     public function category(){

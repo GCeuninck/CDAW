@@ -14,11 +14,11 @@ class MediaList extends Model
     public function __construct() {
         $key = "k_hd33v3x9";
 
-			$this->urlMovies = "https://imdb-api.com/fr/API/Top250Movies/" . $key; //key is private, replace $key with your personal key if required;
-			$this->MoviesList = array();
+        $this->urlMovies = "https://imdb-api.com/fr/API/Top250Movies/" . $key; //key is private, replace $key with your personal key if required;
+        $this->MoviesList = array();
 
-            $this->urlSeries = "https://imdb-api.com/fr/API/MostPopularTVs/" . $key; //key is private, replace $key with your personal key if required;
-			$this->SeriesList = array();
+        $this->urlSeries = "https://imdb-api.com/fr/API/MostPopularTVs/" . $key; //key is private, replace $key with your personal key if required;
+        $this->SeriesList = array();
     }
 
     public function getMediaFromIMDB(){
