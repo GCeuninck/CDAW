@@ -14,6 +14,13 @@ class Media extends Model
     protected $guarded = ['id_media'];
     protected $hidden = [];
 
+    // constructor
+    public function __construct($media) {
+        $this->title = $title;
+        $this->release_date = $year;
+        $this->poster_link = $image;
+    }
+
     public function category(){
         return $this->belongsTo(Category::class, "category_id", "id"); //Objet retourné, Id permettant d'identifier l'objet, la clé qui fait référence à l'id
     }
