@@ -45,6 +45,7 @@ class KeyValue extends Model
         return KeyValue::getRoles()->where('code','=', '0')->first();
     }
 
+    // Status KeyValue
     public function createPendingStatus(){
         return KeyValue::create([
             'type' => 'status',
