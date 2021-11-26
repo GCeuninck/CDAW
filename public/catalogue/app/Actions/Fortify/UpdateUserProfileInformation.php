@@ -19,13 +19,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'pseudo' => ['required', 'string', 'max:255', 'unique:users'],
+            'pseudo' => ['required', 'string', 'max:255',  Rule::unique('users')->ignore($user->id)],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-            // 'name' => ['required', 'string', 'max:255'],
-            // 'first_name' => ['required', 'string', 'max:255'],
+            'name' => ['nullable', 'string', 'max:255'],
+            'firstname' => ['nullable', 'string', 'max:255'],
+            'birthday' => ['nullable', 'date'],
 
-            
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -39,6 +39,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'pseudo' => $input['pseudo'],
                 'email' => $input['email'],
+                'name' => $input['name'],
+                'firstname' => $input['firstname'],
+                'birthday' => $input['birthday'],
             ])->save();
         }
     }
@@ -55,6 +58,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'pseudo' => $input['pseudo'],
             'email' => $input['email'],
+            'name' => $input['name'],
+            'firstname' => $input['firstname'],
+            'birthday' => $input['birthday'],
             'email_verified_at' => null,
         ])->save();
 
