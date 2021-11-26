@@ -75,24 +75,24 @@
 
         <!-- FirstName -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="first_name" value="{{ __('Prénom') }}" />
-            <x-jet-input id="first_name" type="text" class="mt-1 block w-full" wire:model.defer="state.first_name" value="{{$this->user->firstname}}" />
-            <x-jet-input-error for="first_name" class="mt-2" />
+            <x-jet-label for="firstname" value="{{ __('Prénom') }}" />
+            <x-jet-input id="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname" value="{{$this->user->firstname}}" />
+            <x-jet-input-error for="firstname" class="mt-2" />
         </div>
 
         <!-- Birth date -->
-        <!-- <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="birthDate" value="{{ __('Date de naissance') }}" />
-            <x-jet-input id="birthDate" type="date" class="mt-1 block w-full" wire:model.defer="state.birthDate" value="{{$this->user->birthday}}"  />
-            <x-jet-input-error for="birthDate" class="mt-2" />
-        </div>
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="birthday" value="{{ __('Date de naissance') }}" />
+            <x-jet-input id="birthday" type="date" class="mt-1 block w-full" wire:model.defer="state.birthday" value="{{$this->user->birthday}}"  />
+            <x-jet-input-error for="birthday" class="mt-2" />
+        </div> 
 
-        Avatar -->
-        <!-- <div class="col-span-6 sm:col-span-4">
+        <!--Avatar -->
+        <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="avatar" value="{{ __('Avatar') }}" />
             <x-jet-input id="avatar" type="file" class="mt-1 block w-full" wire:model.defer="state.avatar" value="{{$this->user->profile_photo_path}}" />
             <x-jet-input-error for="avatar" class="mt-2" />
-        </div> --> 
+        </div> 
     </x-slot>
 
     <x-slot name="actions">
