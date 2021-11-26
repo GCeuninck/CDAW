@@ -38,7 +38,7 @@
                 @endif
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-center mt-4">
                 <x-jet-button class="ml-4">
                     {{ __('Se connecter') }}
                 </x-jet-button>
@@ -46,17 +46,22 @@
         </form>
 
         <hr/>
-
-        <div class="flex items-center justify-end mt-4 text-center">
-            <div class="bottom-1">OU</div>
-            <div class="bottom-1">
-                <x-jet-button class="ml-4">
-                    <a href="{{ route('register') }}">
-                        {{ __("Créer un compte") }}
+        <div class="flex items-center justify-center mt-2 text-center">
+            <div >OU</div>
+        </div>     
+        <form method="GET" action="{{ route('register') }}">
+            @csrf
+            
+            <div class="flex items-center justify-center mt-2 text-center">
+                <div class="bottom-1">
+                    <a >
+                        <x-jet-button class="ml-4" href="{{ route('register') }}">
+                            {{ __("Créer un compte") }}
+                        </x-jet-button>
                     </a>
-                </x-jet-button>
+                </div>
             </div>
-        </div>
+        </form>
         
     </x-jet-authentication-card>
 </x-guest-layout>
