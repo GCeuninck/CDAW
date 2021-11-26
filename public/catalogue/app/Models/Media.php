@@ -15,10 +15,11 @@ class Media extends Model
     protected $hidden = [];
 
     // constructor
-    public function __construct($media) {
+    public function __construct($media, $type) {
         $this->title = $media['title'];
         $this->release_date = $media['year'];
         $this->poster_link = $media['image'];
+        $this->code_type = $type;
     }
 
     public function category(){

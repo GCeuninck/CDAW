@@ -36,6 +36,10 @@ class KeyValue extends Model
         return KeyValue::getMediaTypes()->where('code','=', '0')->first();
     }
 
+    public static function getSerieType(){
+        return KeyValue::getMediaTypes()->where('code','=', '1')->first();
+    }
+
     // Role KeyValue
     public static function getRoles(){
         return KeyValue::where('type','=', 'role');

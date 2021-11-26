@@ -3,11 +3,14 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models;
-use App\Models\MediaList;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
+use App\Models;
+use App\Models\MediaList;
+use App\Models\KeyValue;
 use App\Models\Media;
+
 
 class IMDBSeeder extends Seeder
 {
@@ -30,8 +33,9 @@ class IMDBSeeder extends Seeder
         {
             DB::table('media')->insert([
                 'title' => $movie->title,
-                'poster_link' => $movie->image,
-                'release_date' => $movie->year,
+                'poster_link' => $movie->poster_link,
+                'release_date' => $movie->release_date,
+                'code_type' => $movie->code_type,
                 ]
             );
 
@@ -45,6 +49,7 @@ class IMDBSeeder extends Seeder
                 'title' => $serie->title,
                 'poster_link' => $serie->image,
                 'release_date' => $serie->year,
+                'code_type' => $serie->code_type,
                 ]
             );
 

@@ -32,8 +32,10 @@ class MediaList extends Model
         $response = json_decode(curl_exec($curl), true)["items"];
         curl_close($curl);
         
+        $type = KeyValue::getMovieType();
+
         foreach($response as $i => $movie){
-            $MoviesList[$i] = new Media($movie);
+            $MoviesList[$i] = new Media($movie, '0'); //$type['code']
         };
 
         return $MoviesList;
@@ -58,8 +60,10 @@ class MediaList extends Model
         $response = json_decode(curl_exec($curl), true)["items"];
         curl_close($curl);
         
+        $type = KeyValue::getSerieType();
+
         foreach($response as $i => $movie){
-            $SeriesList[$i] = new Media($movie);
+            $SeriesList[$i] = new Media($movie, '1'); //$type['code']
         };
 
         return $SeriesList;

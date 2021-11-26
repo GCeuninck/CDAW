@@ -16,12 +16,12 @@ class CreateMediaTable extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id('id_media');
             $table->string('title');
-            $table->string('poster_link');
-            $table->string('release_date');
-            $table->string('actors');
-            $table->string('duration');
-            $table->string('genre');
-            $table->string('synopsis');
+            $table->string('poster_link')->nullable();
+            $table->string('release_date')->nullable();
+            $table->string('actors')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('genre')->nullable();
+            $table->string('synopsis')->nullable();
             $table->foreignId('code_type')->references('code')->on('keyvalue');
             $table->timestamps();
         });
