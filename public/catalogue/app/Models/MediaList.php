@@ -20,7 +20,7 @@ class MediaList extends Model
 			$this->SeriesList = array();
     }
 
-    public function getMoviesFromIMDB(){
+    public function getMediaFromIMDB(){
                 
         $curl = curl_init();
     
