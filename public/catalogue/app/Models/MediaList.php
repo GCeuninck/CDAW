@@ -10,24 +10,16 @@ class MediaList extends Model
 {
     use HasFactory;
 
-    // constructor
-    public function __construct() {
+    protected $MoviesList = array();
+    protected $SeriesList = array();
+
+    public static function getMoviesFromIMDB(){
         $key = "k_hd33v3x9";
-
-        $this->urlMovies = "https://imdb-api.com/fr/API/Top250Movies/" . $key; //key is private, replace $key with your personal key if required;
-        $this->MoviesList = array();
-
-        $this->urlSeries = "https://imdb-api.com/fr/API/MostPopularTVs/" . $key; //key is private, replace $key with your personal key if required;
-        $this->SeriesList = array();
-    }
-
-    public function getMediaFromIMDB(){
-                
         $curl = curl_init();
     
         //Generate MoviesList
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->urlMovies,
+            CURLOPT_URL => "https://imdb-api.com/fr/API/Top250Movies/" . $key,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -41,12 +33,19 @@ class MediaList extends Model
         curl_close($curl);
         
         foreach($response as $i => $movie){
-            $this->MoviesList[$i] = new Media($movie);
+            $MoviesList[$i] = new Media($movie);
         };
+
+        return $MoviesList;
+    }
+
+    public static function getSeriesFromIMDB(){
+        $key = "k_hd33v3x9";
+        $curl = curl_init();
 
         //Generate SeriesList
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->urlSeries,
+            CURLOPT_URL => "https://imdb-api.com/fr/API/MostPopularTVs/" . $key,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -60,9 +59,9 @@ class MediaList extends Model
         curl_close($curl);
         
         foreach($response as $i => $movie){
-            $this->SeriesList[$i] = new Media($movie);
+            $SeriesList[$i] = new Media($movie);
         };
 
-        return $this;
+        return $SeriesList;
     }
 }

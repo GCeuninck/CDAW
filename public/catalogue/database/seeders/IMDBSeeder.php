@@ -20,17 +20,31 @@ class IMDBSeeder extends Seeder
     {
         //Etape 1
         $seeder = null;
-        $imdb = new MediaList();
-        $imdb->getMediaFromIMDB();
+        
+        $imdbMovies = MediaList::getMoviesFromIMDB();
+        $imdbSeries = MediaList::getSeriesFromIMDB();
 
        // $series = [];
 
-        foreach($imdb->MoviesList as $movie)
+        foreach($imdbMovies as $movie)
         {
             DB::table('media')->insert([
                 'title' => $movie->title,
                 'poster_link' => $movie->image,
                 'release_date' => $movie->year,
+                ]
+            );
+
+            // data $validate blabla
+          //  Media::create()
+        }
+
+        foreach($imdbSeries as $serie)
+        {
+            DB::table('media')->insert([
+                'title' => $serie->title,
+                'poster_link' => $serie->image,
+                'release_date' => $serie->year,
                 ]
             );
 
