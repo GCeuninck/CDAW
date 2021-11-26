@@ -14,7 +14,8 @@ class CreateSubscriptionTable extends Migration
     public function up()
     {
         Schema::create('subscription', function (Blueprint $table) {
-            $table->string('pseudo_sub')->references('pseudo')->on('users');
+            $table->string('pseudo_sub');
+            $table->foreign('pseudo_sub')->references('pseudo')->on('users');
             $table->foreignId('id_playlist_sub')->references('id_playlist')->on('playlist');
             $table->timestamps();
             $table->primary(['pseudo_sub', 'id_playlist_sub']);
