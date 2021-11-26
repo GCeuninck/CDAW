@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Media;
@@ -18,6 +19,8 @@ class IMDBSeeder extends Seeder
     {
         //Etape 1
         $seeder = null;
+        $imdb = new imdbClass();
+		$imdb->getMoviesFromIMDB();
 
         $movies = [];
         $series = [];
