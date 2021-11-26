@@ -12,4 +12,21 @@ class KeyValue extends Model
     protected $table = 'keyvalue';
 
     protected $guarded = ['id_keyvalue'];
+    
+
+    public function createUserRole(){
+        return KeyValue::create([
+            'type' => 'role',
+            'code' => '0',
+            'label' => 'user'
+        ]);
+    }
+
+    public static function getRoles(){
+        return KeyValue::where('type','=', 'role');
+    }
+
+    public static function getUserRole(){
+        return KeyValue::getRoles()->where('code','=', '0')->first();
+    }
 }

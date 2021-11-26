@@ -22,7 +22,7 @@ class CreateMediaTable extends Migration
             $table->string('duration');
             $table->string('genre');
             $table->string('synopsis');
-            $table->foreignId('id_type')->references('id_keyvalue')->on('keyvalue');
+            $table->foreignId('code_type')->references('code')->on('keyvalue');
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ class CreateActionTable extends Migration
             $table->foreign('pseudo_action')->references('pseudo')->on('users');
             $table->foreignId('id_media_action')->references('id_media')->on('media');
             $table->string('comment');
-            $table->foreignId('id_status')->references('id_keyvalue')->on('keyvalue');
+            $table->foreignId('code_status')->references('code')->on('keyvalue');
             $table->timestamps();
 
             $table->primary(['code_action', 'pseudo_action', 'id_media_action']);

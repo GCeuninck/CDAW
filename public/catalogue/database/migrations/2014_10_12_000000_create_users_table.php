@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('id_role')->nullable()->references('id_keyvalue')->on('keyvalue');
+            $table->foreignId('code_role')->references('code')->on('keyvalue');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             // $table->string('avatar_link');

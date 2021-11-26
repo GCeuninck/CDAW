@@ -14,10 +14,10 @@ class CreateTagTable extends Migration
     public function up()
     {
         Schema::create('tag', function (Blueprint $table) {
-            $table->foreignId('id_keyvalue_tag')->references('id_keyvalue')->on('keyvalue');
+            $table->foreignId('code_keyvalue_tag')->references('code')->on('keyvalue');
             $table->foreignId('id_media_tag')->references('id_media')->on('media');
             $table->timestamps();
-            $table->primary(['id_keyvalue_tag', 'id_media_tag']);
+            $table->primary(['code_keyvalue_tag', 'id_media_tag']);
         });
     }
 
