@@ -44,4 +44,20 @@ class KeyValue extends Model
     public static function getUserRole(){
         return KeyValue::getRoles()->where('code','=', '0')->first();
     }
+
+    public function createPendingStatus(){
+        return KeyValue::create([
+            'type' => 'status',
+            'code' => '0',
+            'label' => 'pending'
+        ]);
+    }
+
+    public static function getStatus(){
+        return KeyValue::where('type','=', 'status');
+    }
+
+    public static function getPendingStatus(){
+        return KeyValue::getStatus()->where('code','=', '0')->first();
+    }
 }
