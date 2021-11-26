@@ -11,5 +11,5 @@ class Tag extends Model
 
     protected $table = 'tag';
 
-    protected $guarded = ['id_keyvalue_tag', 'id_media_tag'];
+    protected $guarded = ['code_keyvalue_tag', 'id_media_tag'];
 }

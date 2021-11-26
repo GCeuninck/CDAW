@@ -9,10 +9,7 @@ class KeyValue extends Model
 {
     use HasFactory;
 
-    protected $table = 'keyvalue';
-
-    protected $guarded = ['id_keyvalue'];
-    
+    protected $table = 'keyvalue';    
 
     public function createUserRole(){
         return KeyValue::create([
