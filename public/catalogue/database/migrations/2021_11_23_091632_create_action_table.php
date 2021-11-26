@@ -17,10 +17,10 @@ class CreateActionTable extends Migration
             $table->integer('code_action');
             $table->string('label_action');
             $table->string('date_action');
-            $table->string('pseudo_action');
-            $table->foreignId('id_media_action');
+            $table->string('pseudo_action')->references('pseudo')->on('users');
+            $table->foreignId('id_media_action')->references('id_media')->on('media');
             $table->string('comment');
-            $table->foreignId('id_status');
+            $table->foreignId('id_status')->references('id_keyvalue')->on('keyvalue');
             $table->timestamps();
 
             $table->primary(['code_action', 'pseudo_action', 'id_media_action']);
