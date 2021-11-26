@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Media;
 
 class MediaList extends Model
 {
@@ -40,7 +41,7 @@ class MediaList extends Model
         curl_close($curl);
         
         foreach($response as $i => $movie){
-            $this->MoviesList[$i] = new MovieClass($movie);
+            $this->MoviesList[$i] = new Media($movie);
         };
 
         //Generate SeriesList
@@ -59,7 +60,7 @@ class MediaList extends Model
         curl_close($curl);
         
         foreach($response as $i => $movie){
-            $this->SeriesList[$i] = new MovieClass($movie);
+            $this->SeriesList[$i] = new Media($movie);
         };
 
         return $this;

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models;
+use App\Models\MediaList;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Media;
@@ -19,13 +20,12 @@ class IMDBSeeder extends Seeder
     {
         //Etape 1
         $seeder = null;
-        $imdb = new imdbClass();
-		$imdb->getMoviesFromIMDB();
+        $imdb = new MediaList();
+        $imdb->getMediaFromIMDB();
 
-        $movies = [];
-        $series = [];
+       // $series = [];
 
-        foreach($movies as $movie)
+        foreach($imdb->MoviesList as $movie)
         {
             DB::table('media')->insert([
                 'title' => $movie->title,
