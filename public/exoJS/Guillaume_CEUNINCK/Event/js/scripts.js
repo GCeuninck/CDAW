@@ -10,7 +10,7 @@ function buttonEvent(e){
         b1.addEventListener("click", buttonEvent);
         b2.removeEventListener("click", buttonEvent);
     }
-    stopPropagation();
+    e.stopPropagation();
 };
 
 var b1 = document.getElementById("b1");
