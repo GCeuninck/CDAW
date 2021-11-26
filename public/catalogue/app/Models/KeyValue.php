@@ -19,6 +19,24 @@ class KeyValue extends Model
         ]);
     }
 
+    public function createMovieType(){
+        return KeyValue::create([
+            'type' => 'media_type',
+            'code' => '0',
+            'label' => 'movie'
+        ]);
+    }
+
+    // Media KeyValue
+    public static function getMediaTypes(){
+        return KeyValue::where('type','=', 'media_type');
+    }
+
+    public static function getMovieType(){
+        return KeyValue::getMediaTypes()->where('code','=', '0')->first();
+    }
+
+    // Role KeyValue
     public static function getRoles(){
         return KeyValue::where('type','=', 'role');
     }
