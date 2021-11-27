@@ -89,4 +89,5 @@
         <!-- Core theme JS-->
         <script src="{{asset('../resources/js/scripts.js')}}"></script>
     </body>
+    <script src="{{asset('../resources/js/scriptsPhoto.js')}}"></script>
 </html>

@@ -52,6 +52,8 @@
             </div>
         @endif
 
+
+
         <!-- Pseudo -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="pseudo" value="{{ __('Pseudo') }}" />
@@ -88,11 +90,14 @@
         </div> 
 
         <!--Avatar -->
-        <!-- <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="avatar" value="{{ __('Avatar') }}" />
-            <x-jet-input id="avatar" type="file" class="mt-1 block w-full" wire:model.defer="state.avatar" value="{{$this->user->profile_photo_path}}" />
+
+            <div id="preview"></div>
+
+            <x-jet-input id="upload" type="file" class="mt-1 block w-full"  value="Upload" />
             <x-jet-input-error for="avatar" class="mt-2" />
-        </div>  -->
+        </div>  
     </x-slot>
 
     <x-slot name="actions">
