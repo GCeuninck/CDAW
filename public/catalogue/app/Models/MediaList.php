@@ -35,7 +35,7 @@ class MediaList extends Model
         $type = KeyValue::getMovieType();
 
         foreach($response as $i => $movie){
-            $MoviesList[$i] = new Media($movie, '0'); //$type['code']
+            $MoviesList[$i] = Media::createMedia($movie, $type['code']);
         };
 
         return $MoviesList;
@@ -63,7 +63,7 @@ class MediaList extends Model
         $type = KeyValue::getSerieType();
 
         foreach($response as $i => $movie){
-            $SeriesList[$i] = new Media($movie, '1'); //$type['code']
+            $SeriesList[$i] = Media::createMedia($movie, $type['code']);
         };
 
         return $SeriesList;

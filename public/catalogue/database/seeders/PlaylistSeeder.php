@@ -25,14 +25,11 @@ class PlaylistSeeder extends Seeder
 
         //add conditions    
 
-        $nbMedia = 50;
-
         $users = User::getUsers();
-        $medias = Media::take($nbMedia)->get();
-
         $playlists = array();
         
         foreach ($users as $user){
+            
             $i = 1;
             while ($i <= 3){
                 $playlistData = [
@@ -55,6 +52,33 @@ class PlaylistSeeder extends Seeder
             );
         }
 
+        
+        $nbMedia = 50;
+        $medias = Media::take($nbMedia)->get();
+        $playlists = Playlist::getPlaylists();
+        $playlists_media = array();
+
+        foreach ($playlists as $playlist){
+            $j = 1;
+            foreach ($medias as $media){
+                array_push($playlists_media, Playlist_media::addMediaPlaylist($media['id_media'], $playlist['id_playlist']));
+                if($j == 3) { 
+                    break; 
+                }
+                else{
+                    $j++;
+                }
+            }
+        }
+
+        foreach($playlists_media as $playlist_media)
+        {
+            DB::table('playlist_media')->insert([
+                'id_playlist_pm' => $playlist_media['id_playlist_pm'],
+                'id_media_pm' => $playlist_media['id_media_pm']
+                ]
+            );
+        }
         
     }
 }

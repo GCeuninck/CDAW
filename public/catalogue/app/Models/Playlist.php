@@ -21,4 +21,8 @@ class Playlist extends Model
         ];
         return $data;
     }
+
+    public static function getPlaylists() {
+        return Playlist::all();
+    }
 }
