@@ -18,7 +18,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-static-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="#"> 
+                <a class="navbar-brand" href="{{url('')}}"> 
                     <img src="{{asset('../resources/assets/logo.png')}}" alt="" width="40" height="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -31,7 +31,7 @@
                                     <option value="1">Tous</option>
                                     <option value="2">Films</option>
                                     <option value="3">Séries</option>
-                                    <option value="4">Animes</option>
+                                    <!-- <option value="4">Animes</option> -->
                                   </select>
                                 <input class="form-control ms-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
                                 <button class="btn btn-outline-light ms-2" type="submit">Rechercher</button>
