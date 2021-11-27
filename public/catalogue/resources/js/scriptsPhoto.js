@@ -19,11 +19,11 @@ var uploadButton = document.getElementById("upload");
 if(uploadButton!=null)
 {
     uploadButton.addEventListener("change", 
-    function(e)
-    { 
-        handleFiles(e.currentTarget.files); 
-    }
-);
+        function(e)
+        { 
+            handleFiles(e.currentTarget.files); 
+        }
+    );
 }
 
 
