@@ -66,9 +66,9 @@
                         </li>
                     </ul>
                 </div>
-                <a class="navbar-brand" href="#" > 
+                <a class="navbar-brand" href="{{ route('profile.show') }}" > 
                     <!-- API Avatar generator -->
-                    <img src="https://avatars.dicebear.com/api/bottts/.svg?colors=yellow" alt="image de profil" width="40" height="40">
+                    <img src="https://avatars.dicebear.com/api/bottts/'+ {{ Auth::user()->pseudo }} + '.svg?colors=yellow" alt="image de profil" width="40" height="40">
                 </a>
             </div>
         </nav>
