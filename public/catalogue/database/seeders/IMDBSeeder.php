@@ -46,8 +46,5 @@ class IMDBSeeder extends Seeder
                 ]
             );
         }
-
-        // //Etape 2
-        // \App\Models\Category::factory(10)->create();
     }
 }

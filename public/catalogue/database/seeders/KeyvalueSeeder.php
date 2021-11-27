@@ -6,11 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-use App\Models;
-use App\Models\MediaList;
 use App\Models\KeyValue;
-use App\Models\Media;
-
 
 class KeyvalueSeeder extends Seeder
 {
@@ -21,10 +17,6 @@ class KeyvalueSeeder extends Seeder
      */
     public function run()
     {
-        //Etape 1
-
-        //add conditions    
-
         KeyValue::createMovieType();
         KeyValue::createSerieType();
 
