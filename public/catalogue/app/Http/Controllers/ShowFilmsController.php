@@ -11,9 +11,10 @@ use App\Models\Media;
 class ShowFilmsController extends Controller
 {
     public function showAllMedias() {
-        $medias = Media::all();
+        $movies = Media::where('code_type', '=' , 0)->get();
+        $series = Media::where('code_type', '=' , 1)->get();
 
-        return view('index', $medias);
+        return view('index', compact('movies','series'));
     }
 
     public function showAllFilms() {
