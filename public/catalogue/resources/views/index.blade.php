@@ -1,6 +1,8 @@
 @extends( Auth::user()  ?  'template_loged' : 'template' )
 
+
 @section("contentBody")        
+
 
         <!-- Films Section -->
         <div class="container px-4">
@@ -8,11 +10,12 @@
             <div class="row">
                 <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
                     <div class="MultiCarousel-inner">
+
                         <a class="card-link" href="detail.html">
                             <div class="card item width-18">
                                 <img class="card-img-top" src="https://resizing.flixster.com/BJdoV9gCUvC4IfGhFuO9gOzvPHo=/206x305/v2/https://resizing.flixster.com/NpxNMdoSptZ9wsRtc7xs5atNC9k=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzZlZmZhNjViLWZkNGQtNDZiNS1iNjkwLTY5OGE1MzkxMDk4Ni53ZWJw" alt="Card image cap">
                                 <div class="card-body">
-                                    <p class="item-center text-truncate">Star Wars : Le dernier Jedi<br>
+                                    <p class="item-center text-truncate">{{$medias->first()->title}}<br>
                                         <a ><i class="far fa-heart  "></i></span></a>
                                     </p>
                                 </div>

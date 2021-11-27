@@ -32,7 +32,10 @@ Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategor
 //GET MEDIAS LIST ROUTE
 //Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 
-Route::get('/', 'App\Http\Controllers\listeMediasController@getIndex');
+//TEST
+//Route::get('/', 'App\Http\Controllers\listeMediasController@getIndex');
+Route::get('/', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
+
 Route::get('/profile', 'App\Http\Controllers\listeMediasController@getProfile');
 
 

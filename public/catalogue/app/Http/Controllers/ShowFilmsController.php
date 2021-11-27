@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Category;
+use App\Models\Media;
+
 
 class ShowFilmsController extends Controller
 {
+    public function showAllMedias() {
+        $medias = Media::all();
+
+        return view('index', $medias);
+    }
+
     public function showAllFilms() {
         $films = Film::with('category')->get();
         $categories = Category::all();
