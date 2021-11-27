@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             KeyvalueSeeder::class,
             UserSeeder::class,
-            PlaylistSeeder::class,
             IMDBSeeder::class,
+            PlaylistSeeder::class,
             ActionSeeder::class
         ]);
     }
