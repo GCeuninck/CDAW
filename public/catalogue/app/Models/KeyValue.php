@@ -11,19 +11,27 @@ class KeyValue extends Model
 
     protected $table = 'keyvalue';    
 
-    public function createUserRole(){
-        return KeyValue::create([
+    public static function createUserRole(){
+        return KeyValue::updateOrCreate([
             'type' => 'role',
             'code' => '0',
             'label' => 'user'
         ]);
     }
 
-    public function createMovieType(){
-        return KeyValue::create([
+    public static function createMovieType(){
+        return KeyValue::updateOrCreate([
             'type' => 'media_type',
             'code' => '0',
             'label' => 'movie'
+        ]);
+    }
+
+    public static function createSerieType(){
+        return KeyValue::updateOrCreate([
+            'type' => 'media_type',
+            'code' => '1',
+            'label' => 'serie'
         ]);
     }
 
@@ -50,8 +58,8 @@ class KeyValue extends Model
     }
 
     // Status KeyValue
-    public function createPendingStatus(){
-        return KeyValue::create([
+    public static function createPendingStatus(){
+        return KeyValue::updateOrCreate([
             'type' => 'status',
             'code' => '0',
             'label' => 'pending'

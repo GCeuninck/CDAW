@@ -22,12 +22,8 @@ class IMDBSeeder extends Seeder
     public function run()
     {
         //Etape 1
-        $seeder = null;
-        
         $imdbMovies = MediaList::getMoviesFromIMDB();
         $imdbSeries = MediaList::getSeriesFromIMDB();
-
-       // $series = [];
 
         foreach($imdbMovies as $movie)
         {
@@ -38,9 +34,6 @@ class IMDBSeeder extends Seeder
                 'code_type' => $movie->code_type,
                 ]
             );
-
-            // data $validate blabla
-          //  Media::create()
         }
 
         foreach($imdbSeries as $serie)
@@ -52,9 +45,6 @@ class IMDBSeeder extends Seeder
                 'code_type' => $serie->code_type,
                 ]
             );
-
-            // data $validate blabla
-          //  Media::create()
         }
 
         // //Etape 2
