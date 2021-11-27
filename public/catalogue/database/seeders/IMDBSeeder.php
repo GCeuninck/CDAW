@@ -28,10 +28,10 @@ class IMDBSeeder extends Seeder
         foreach($imdbMovies as $movie)
         {
             DB::table('media')->insert([
-                'title' => $movie->title,
-                'poster_link' => $movie->poster_link,
-                'release_date' => $movie->release_date,
-                'code_type' => $movie->code_type,
+                'title' => $movie['title'],
+                'poster_link' => $movie['poster_link'],
+                'release_date' => $movie['release_date'],
+                'code_type' => $movie['code_type'],
                 ]
             );
         }
@@ -39,10 +39,10 @@ class IMDBSeeder extends Seeder
         foreach($imdbSeries as $serie)
         {
             DB::table('media')->insert([
-                'title' => $serie->title,
-                'poster_link' => $serie->image,
-                'release_date' => $serie->year,
-                'code_type' => $serie->code_type,
+                'title' => $serie['title'],
+                'poster_link' => $serie['poster_link'],
+                'release_date' => $serie['release_date'],
+                'code_type' => $serie['code_type'],
                 ]
             );
         }

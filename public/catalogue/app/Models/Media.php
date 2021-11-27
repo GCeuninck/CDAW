@@ -14,12 +14,14 @@ class Media extends Model
     protected $guarded = ['id_media'];
     protected $hidden = [];
 
-    // constructor
-    public function __construct($media, $type) {
-        $this->title = $media['title'];
-        $this->release_date = $media['year'];
-        $this->poster_link = $media['image'];
-        $this->code_type = $type;
+    public static function createMedia($media, $type) {
+        $data = [
+            'title' => $media['title'],
+            'release_date' => $media['year'],
+            'poster_link' => $media['image'],
+            'code_type' => $type
+        ];
+        return $data;
     }
 
     public function category(){
