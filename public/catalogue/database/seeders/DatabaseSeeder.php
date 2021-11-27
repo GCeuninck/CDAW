@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             KeyvalueSeeder::class,
             UserSeeder::class,
             PlaylistSeeder::class,
-            IMDBSeeder::class
+            IMDBSeeder::class,
+            ActionSeeder::class
         ]);
     }
 }
