@@ -16,13 +16,16 @@ function handleFiles(files) {
 }
 
 var uploadButton = document.getElementById("upload");
-
-uploadButton.addEventListener("change", 
+if(uploadButton!=null)
+{
+    uploadButton.addEventListener("change", 
     function(e)
     { 
         handleFiles(e.currentTarget.files); 
     }
 );
+}
+
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {

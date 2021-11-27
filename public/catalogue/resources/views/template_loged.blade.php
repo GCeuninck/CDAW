@@ -71,7 +71,7 @@
                     @if(Auth::user()->profile_photo_path == null)
                         <img src="https://avatars.dicebear.com/api/bottts/'+ {{ Auth::user()->pseudo }} + '.svg?colors=yellow" alt="image de profil" width="40" height="40">
                     @else
-                        <img src="{{ Auth::user()->profile_photo_url }} " alt="Profil pic" width="40" height="40">                    @endif
+                        <img class="profile_pic" src="{{ Auth::user()->profile_photo_url }} " alt="Profil pic" width="40" height="40">                    @endif
                 </a>
             </div>
         </nav>
