@@ -67,4 +67,8 @@ class User extends Authenticatable
     public static function getUsers() {
         return User::all();
     }
+
+    public static function createOrUpdateUser($user) {
+        return User::updateOrCreate($user);
+    }
 }
