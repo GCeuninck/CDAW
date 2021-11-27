@@ -12,4 +12,12 @@ class Playlist_media extends Model
     protected $table = 'playlist_media';
     protected $guarded = ['id_playlist_pm','id_media_pm'];
     protected $hidden = [];
+
+    public static function addMediaPlaylist($id_media, $id_playlist) {
+        $data = [
+            'id_media_pm' => $id_media,
+            'id_playlist_pm' => $id_playlist,
+        ];
+        return $data;
+    }
 }
