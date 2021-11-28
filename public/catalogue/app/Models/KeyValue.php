@@ -17,6 +17,7 @@ class KeyValue extends Model
         'label'
     ];
 
+    // Roles Creation
     public static function createUserRole(){
         return KeyValue::updateOrCreate([
             'type' => 'role',
@@ -25,6 +26,29 @@ class KeyValue extends Model
         ]);
     }
 
+    public static function createAdminRole(){
+        return KeyValue::updateOrCreate([
+            'type' => 'role',
+            'code' => '1',
+            'label' => 'admin'
+        ]);
+    }
+
+    public static function createBlockedRole(){
+        return KeyValue::updateOrCreate([
+            'type' => 'role',
+            'code' => '2',
+            'label' => 'blocked'
+        ]);
+    }
+
+    public static function createRoles(){
+        KeyValue::createUserRole();
+        KeyValue::createAdminRole();
+        KeyValue::createBlockedRole();
+    }
+
+    //Media Type Creation
     public static function createMovieType(){
         return KeyValue::updateOrCreate([
             'type' => 'media_type',
@@ -41,29 +65,12 @@ class KeyValue extends Model
         ]);
     }
 
-    // Media KeyValue
-    public static function getMediaTypes(){
-        return KeyValue::where('type','=', 'media_type');
+    public static function createMediaTypes(){
+        KeyValue::createMovieType();
+        KeyValue::createSerieType();
     }
 
-    public static function getMovieType(){
-        return KeyValue::getMediaTypes()->where('code','=', '0')->first();
-    }
-
-    public static function getSerieType(){
-        return KeyValue::getMediaTypes()->where('code','=', '1')->first();
-    }
-
-    // Role KeyValue
-    public static function getRoles(){
-        return KeyValue::where('type','=', 'role');
-    }
-
-    public static function getUserRole(){
-        return KeyValue::getRoles()->where('code','=', '0')->first();
-    }
-
-    // Status KeyValue
+    // Status Creation
     public static function createPendingStatus(){
         return KeyValue::updateOrCreate([
             'type' => 'status',
@@ -72,11 +79,43 @@ class KeyValue extends Model
         ]);
     }
 
-    public static function getStatus(){
+    public static function createModeratedStatus(){
+        return KeyValue::updateOrCreate([
+            'type' => 'status',
+            'code' => '1',
+            'label' => 'moderated'
+        ]);
+    }
+
+    public static function createStatus(){
+        KeyValue::createPendingStatus();
+        KeyValue::createModeratedStatus();
+    }
+
+    // Get Media Types
+    public static function getAllMediaTypes(){
+        return KeyValue::where('type','=', 'media_type');
+    }
+
+    public static function getMediaType($code){
+        return KeyValue::getAllMediaTypes()->where('code','=', $code)->first();
+    }
+
+    // Get Roles
+    public static function getAllRoles(){
+        return KeyValue::where('type','=', 'role');
+    }
+
+    public static function getRole($code){
+        return KeyValue::getAllRoles()->where('code','=', $code)->first();
+    }
+
+    // Get Status
+    public static function getAllStatus(){
         return KeyValue::where('type','=', 'status');
     }
 
-    public static function getPendingStatus(){
-        return KeyValue::getStatus()->where('code','=', '0')->first();
+    public static function getStatus($code){
+        return KeyValue::getAllStatus()->where('code','=', $code)->first();
     }
 }

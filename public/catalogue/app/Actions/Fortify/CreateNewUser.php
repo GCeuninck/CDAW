@@ -28,11 +28,11 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
-        if(KeyValue::getUserRole() == null){
+        if(KeyValue::getRole('0') == null){
             KeyValue::createUserRole();
         }
         
-        $role = KeyValue::getUserRole();
+        $role = KeyValue::getRole('0');
 
         return User::create([
             'pseudo' => $input['pseudo'],

@@ -17,10 +17,8 @@ class KeyvalueSeeder extends Seeder
      */
     public function run()
     {
-        KeyValue::createMovieType();
-        KeyValue::createSerieType();
-
-        KeyValue::createUserRole();
-        KeyValue::createPendingStatus();  
+        KeyValue::createMediaTypes();
+        KeyValue::createRoles();
+        KeyValue::createStatus();  
     }
 }
