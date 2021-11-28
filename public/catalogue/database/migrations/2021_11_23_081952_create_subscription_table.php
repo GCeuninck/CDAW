@@ -15,8 +15,8 @@ class CreateSubscriptionTable extends Migration
     {
         Schema::create('subscription', function (Blueprint $table) {
             $table->string('pseudo_sub');
-            $table->foreign('pseudo_sub')->references('pseudo')->on('users')->onDelete('cascade');
-            $table->foreignId('id_playlist_sub')->references('id_playlist')->on('playlist')->onDelete('cascade');
+            $table->foreign('pseudo_sub')->references('pseudo')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_playlist_sub')->references('id_playlist')->on('playlist')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->primary(['pseudo_sub', 'id_playlist_sub']);
         });

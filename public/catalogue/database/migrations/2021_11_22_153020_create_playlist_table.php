@@ -17,7 +17,7 @@ class CreatePlaylistTable extends Migration
             $table->id('id_playlist');
             $table->string('name_playlist');
             $table->string('pseudo_playlist');
-            $table->foreign('pseudo_playlist')->references('pseudo')->on('users')->onDelete('cascade');
+            $table->foreign('pseudo_playlist')->references('pseudo')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('creation_date');
             $table->timestamps();
         });
