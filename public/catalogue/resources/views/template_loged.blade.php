@@ -39,8 +39,8 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item border-right "><a class="nav-link me-2 ms-2" href="#">Playlist</a></li>
-                        <li class="nav-item border-right"><a class="nav-link me-2 ms-2" href="#">Historique</a>   </li>
+                        <li class="nav-item border-right "><a class="nav-link me-2 ms-2" href="{{url('/user/playlists')}}">Playlist</a></li>
+                        <li class="nav-item border-right"><a class="nav-link me-2 ms-2" href="{{url('/user/history')}}">Historique</a>   </li>
                         <li class="nav-item"><a class="nav-link me-2 ms-2" href="#">Aide</a> </li>
 
                         <li class="nav-item me-2"><div class="dropdown">

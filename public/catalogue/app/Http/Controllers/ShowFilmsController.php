@@ -10,6 +10,7 @@ use App\Models\Media;
 
 class ShowFilmsController extends Controller
 {
+    //jalon3
     public function showAllMedias() {
         $movies = Media::where('code_type', '=' , 0)->get();
         $series = Media::where('code_type', '=' , 1)->get();
@@ -17,6 +18,20 @@ class ShowFilmsController extends Controller
         return view('index', compact('movies','series'));
     }
 
+    public function showUserPlaylists() {
+        //todo
+
+        return view('userPlaylists');
+    }
+
+    public function showUserHistory() {
+        //todo
+
+        return view('userHistory');
+    }
+
+
+    //jalon2
     public function showAllFilms() {
         $films = Film::with('category')->get();
         $categories = Category::all();

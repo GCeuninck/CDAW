@@ -38,6 +38,11 @@ Route::get('/', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
 
 Route::get('/profile', 'App\Http\Controllers\listeMediasController@getProfile');
 
+//ROUTES PROTEGEES
+Route::get('/user/playlists', 'App\Http\Controllers\ShowFilmsController@showUserPlaylists')->middleware('auth');
+Route::get('/user/history', 'App\Http\Controllers\ShowFilmsController@showUserHistory')->middleware('auth');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
