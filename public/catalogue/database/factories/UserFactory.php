@@ -25,7 +25,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        if(KeyValue::getUserRole() == null){
+        if(KeyValue::getRole('0') == null){
             KeyValue::createUserRole();
         }
 
@@ -34,7 +34,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'code_role' => KeyValue::getUserRole()['code'],
+            'code_role' => KeyValue::getRole('0')['code'],
             'remember_token' => Str::random(10),
         ];
     }

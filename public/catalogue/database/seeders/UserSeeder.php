@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
        
         foreach($users as $input)
         {
-            $role = KeyValue::getUserRole();
+            $role = KeyValue::getRole('0');
 
             User::create([
                 'pseudo' => $input['pseudo'],
