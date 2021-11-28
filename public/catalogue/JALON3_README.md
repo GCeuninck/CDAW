@@ -1,5 +1,22 @@
 # Jalon 2
 
+## Configuration
+
+Pour accéder à notre site, il faut :
+
+- Se connecter à PhpMyAdmin (root/root) et y créer la base de données "medias" de type "utf8_general_ci".
+- Créer et mettre à jour la structure des tables via les fichiers de migration.  
+
+```console
+php artisan migrate
+```
+
+- Remplir les bases de données grâce au seeder DatabaseSeeder qui lance dans le bon ordre l'ensemble des seeders nécessaires.
+
+```console
+php artisan db:seed
+```
+
 ## Travail réalisé
 
 ### **1. Création de compte**
@@ -29,7 +46,14 @@ D'autres sont accessibles uniquement aux utilisateurs connectées, comme l'écra
 
 La page de profil est accessible via le bouton "dropdown" ou en cliquant sur l'image de profil.  
 L'image de profil de base est une tête de robot jaune généré aléatoriement selon votre pseudo, grâce à l'API DiceBear Avatar ``avatars.dicebear.com/styles/bottts``.  
-Toutes les données sont modifiables 
+Sur cette page il est possible de modifier son mot de passe, supprimer son compte ou modifier les informations suivantes :
+
+- Pseudo (Unique et nécessaire)
+- Mail (Unique et nécessaire)
+- Nom
+- Prénom
+- Date de naissance
+- Photo de profil
 
 ### **5. Déconnexion**
 
@@ -47,26 +71,6 @@ php artisan test
 ### **7. Base de données**
 
 Nous avons créé et alimenté nos tables imaginées dans les jalons précédents.
-
-## Configuration CRUD
-Pour accéder au CRUD il faut:
-- Se connecter à PhpMyAdmin (root/root) et y créer la base de données "medias" de type "utf8_general_ci"
-- Dans un terminal, dans le dossier catalogue, entrez dans cet ordre:
-```
-php artisan migrate
-php artisan db:seed --class=CategorySeeder
-php artisan db:seed --class=FilmSeeder
-```
-
-## Accès au CRUD
-Une fois la base de données configurée, allez à l'adresse suivante:
-`http://localhost:8080/catalogue/public/films`
-
-A partir d'ici, on peut:
-- Ajouter un film via le bouton "Ajouter un film" qui fait apparaître une pop-up de type Modal -> CREATE
-- Consulter la liste des films (nom, directeur, catégorie) -> READ
-- Modifier un film en particulier via une nouvelle vue "edit"-> UPDATE
-- Supprimer un film en particulier -> DELETE
 
 
 ## Réalisation
