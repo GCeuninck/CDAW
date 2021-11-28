@@ -9,7 +9,13 @@ class KeyValue extends Model
 {
     use HasFactory;
 
-    protected $table = 'keyvalue';    
+    protected $table = 'keyvalue'; 
+    
+    protected $fillable = [
+        'type',
+        'code',
+        'label'
+    ];
 
     public static function createUserRole(){
         return KeyValue::updateOrCreate([
