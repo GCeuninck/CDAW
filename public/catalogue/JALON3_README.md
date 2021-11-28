@@ -4,8 +4,6 @@
 
 # Jalon 3
 
-# Fonctionnalités implémentées :
-
 ## Configuration
 
 Pour accéder à notre site, il faut :
@@ -24,7 +22,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
-## Travail réalisé
+## Fonctionnalités implémentées
 
 ### **1. Création de compte**
 
