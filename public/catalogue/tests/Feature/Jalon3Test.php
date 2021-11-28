@@ -12,7 +12,7 @@ class Jalon3Test extends TestCase
 {
     public function test_index_route()
     {
-        $response = $this->get('/index');
+        $response = $this->get('/');
 
         $response->assertStatus(200);
     }
