@@ -18,8 +18,8 @@ class CreateActionTable extends Migration
             $table->string('label_action');
             $table->string('date_action');
             $table->string('pseudo_action');
-            $table->foreign('pseudo_action')->references('pseudo')->on('users');
-            $table->foreignId('id_media_action')->references('id_media')->on('media');
+            $table->foreign('pseudo_action')->references('pseudo')->on('users')->onDelete('cascade');
+            $table->foreignId('id_media_action')->references('id_media')->on('media')->onDelete('cascade');
             $table->string('comment')->nullable();
             $table->foreignId('code_status')->references('code')->on('keyvalue')->nullable()->default(0);
             $table->timestamps();
