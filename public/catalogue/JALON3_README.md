@@ -80,5 +80,6 @@ php artisan test
 
 Nous avons créé et alimenté nos tables imaginées dans les jalons précédents.
 
-Identifiants admin sur le site :
-    - utilisateur 1 : User1@gmail.com / Password1
+Identifiant sur le site :
+
+- User1: User1@gmail.com / Password1
