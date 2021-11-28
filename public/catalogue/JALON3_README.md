@@ -1,12 +1,19 @@
+# Auteur(s)
+- LEROUX Benjamin
+- CEUNINCK Guillaume
+
 # Jalon 3
+
+# Fonctionnalités implémentées :
 
 ## Configuration
 
 Pour accéder à notre site, il faut :
 
 - Se connecter à PhpMyAdmin (root/root) et y créer la base de données "medias" de type "utf8_general_ci".
-- Créer et mettre à jour la structure des tables via les fichiers de migration.  
+- Créer et mettre à jour la structure des tables via les fichiers de migration. 
 
+Pour ce faire :  
 ```console
 php artisan migrate
 ```
@@ -27,7 +34,7 @@ Accessible depuis l'accueil via la bouton "Connexion", puis le bouton "Créer un
 
 ### **2. Connexion**
 
-Création de compte via un un email (login) et un mot de passe.  
+Création de compte via un email (login) et un mot de passe.  
 Accessible depuis l'accueil via la bouton "Connexion" ou par la route :
 ```localhost:8080/catalogue/public/login```
 
@@ -41,6 +48,8 @@ D'autres sont accessibles uniquement aux utilisateurs connectées, comme l'écra
 - ``localhost:8080/catalogue/public/user/profile``
 - ``localhost:8080/catalogue/public/user/playlists``
 - ``localhost:8080/catalogue/public/user/history``
+
+Si vous tentez d'accéder à ces routes hors connexion, vous serez redirigé vers l'écran de connexion.
 
 ### **4. Consulter et modifier son profil**
 
@@ -58,7 +67,7 @@ L'image de profil de base est une tête de robot jaune généré aléatoirement 
 
 ### **5. Déconnexion**
 
-La déconnexion s'effectue via le bouton "dropdown" et redirige vers l'accueil.
+La déconnexion s'effectue via le bouton "Déconnexion accessible depuis le bouton "dropdown" et redirige vers l'accueil.
 
 ### **6. Tests**
 
@@ -73,7 +82,5 @@ php artisan test
 
 Nous avons créé et alimenté nos tables imaginées dans les jalons précédents.
 
-## Réalisation
-
-- Guillaume Ceuninck
-- Benjamin Leroux
+Identifiants admin sur le site :
+    - utilisateur 1 : User1@gmail.com / Password1
