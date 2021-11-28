@@ -12,8 +12,9 @@ class ShowFilmsController extends Controller
 {
     //jalon3
     public function showAllMedias() {
-        $movies = Media::where('code_type', '=' , 0)->get();
-        $series = Media::where('code_type', '=' , 1)->get();
+        $n=9;
+        $movies = Media::where('code_type', '=' , 0)->take($n)->get();
+        $series = Media::where('code_type', '=' , 1)->take($n)->get();
 
         return view('index', compact('movies','series'));
     }
