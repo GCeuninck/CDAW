@@ -54,7 +54,7 @@ Sur cette page il est possible de modifier son mot de passe, supprimer son compt
 - Date de naissance
 - Photo de profil
 
-L'image de profil de base est une tête de robot jaune généré aléatoirement selon votre pseudo, grâce à l'API DiceBear Avatar: avatars.dicebear.com/styles/bottts.  
+L'image de profil de base est une tête de robot jaune généré aléatoirement selon votre pseudo, grâce à l'API [DiceBear Avatar](avatars.dicebear.com/styles/bottts).  
 
 ### **5. Déconnexion**
 
