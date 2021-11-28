@@ -33,6 +33,19 @@ class Jalon3Test extends TestCase
 
     public function test_create()
     {
+        //Insert categories to table if table is empty
+        if(Category::all()->isEmpty()){
+            Category::create([
+                'name' =>'Fantastique'
+            ]);
+            Category::create([
+                'name' =>'Action'
+            ]);
+            Category::create([
+                'name' =>'Documentaire'
+            ]);
+        }
+
         $data = [
             'name' => 'test_name',
             'director' => 'test_director',
@@ -47,6 +60,19 @@ class Jalon3Test extends TestCase
 
     public function test_create_redirection()
     {
+        //Insert categories to table if table is empty
+        if(Category::all()->isEmpty()){
+            Category::create([
+                'name' =>'Fantastique'
+            ]);
+            Category::create([
+                'name' =>'Action'
+            ]);
+            Category::create([
+                'name' =>'Documentaire'
+            ]);
+        }
+
         $response = $this->post('/films',[
             'name' => 'post_name',
             'director' => 'post_director',
@@ -57,6 +83,19 @@ class Jalon3Test extends TestCase
 
     public function test_delete()
     {
+        //Insert categories to table if table is empty
+        if(Category::all()->isEmpty()){
+            Category::create([
+                'name' =>'Fantastique'
+            ]);
+            Category::create([
+                'name' =>'Action'
+            ]);
+            Category::create([
+                'name' =>'Documentaire'
+            ]);
+        }
+
         $data = [
             'name' => 'test_name_delete',
             'director' => 'test_director_del',
@@ -78,6 +117,19 @@ class Jalon3Test extends TestCase
 
     public function test_update()
     {
+        //Insert categories to table if table is empty
+        if(Category::all()->isEmpty()){
+            Category::create([
+                'name' =>'Fantastique'
+            ]);
+            Category::create([
+                'name' =>'Action'
+            ]);
+            Category::create([
+                'name' =>'Documentaire'
+            ]);
+        }
+        
         $data = [
             'name' => 'name_not_modified',
             'director' => 'dir_not_modified',
