@@ -13,7 +13,7 @@
                         @foreach ($movies as $media)
                         <a class="card-link" href="#">
                             <div class="card item width-18">
-                                <img class="card-img-top" src="{{ $media->poster_link }}" alt="Card image cap">
+                                <img class="card-img-top carroussel-img" src="{{ $media->poster_link }}" alt="Card image cap">
                                 <div class="card-body">
                                     <p class="item-center text-truncate">{{ $media->title }}<br>
                                         <a ><i class="far fa-heart  "></i></span></a>
@@ -40,7 +40,7 @@
                     @foreach ($series as $media)
                         <a class="card-link" href="#">
                             <div class="card item width-18">
-                                <img class="card-img-top" src="{{ $media->poster_link }}" alt="Image">
+                                <img class="card-img-top carroussel-img" src="{{ $media->poster_link }}" alt="Image">
                                 <div class="card-body">
                                     <p class="item-center text-truncate">{{ $media->title }}<br>
                                         <a ><i class="far fa-heart  "></i></span></a>
