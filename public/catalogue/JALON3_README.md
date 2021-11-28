@@ -1,4 +1,4 @@
-# Jalon 2
+# Jalon 3
 
 ## Configuration
 
@@ -71,7 +71,6 @@ php artisan test
 ### **7. Base de données**
 
 Nous avons créé et alimenté nos tables imaginées dans les jalons précédents.
-
 
 ## Réalisation
 
