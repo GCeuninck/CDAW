@@ -45,7 +45,6 @@ D'autres sont accessibles uniquement aux utilisateurs connectées, comme l'écra
 ### **4. Consulter et modifier son profil**
 
 La page de profil est accessible via le bouton "dropdown" ou en cliquant sur l'image de profil.  
-L'image de profil de base est une tête de robot jaune généré aléatoriement selon votre pseudo, grâce à l'API DiceBear Avatar ``avatars.dicebear.com/styles/bottts``.  
 Sur cette page il est possible de modifier son mot de passe, supprimer son compte ou modifier les informations suivantes :
 
 - Pseudo (Unique et nécessaire)
@@ -54,6 +53,8 @@ Sur cette page il est possible de modifier son mot de passe, supprimer son compt
 - Prénom
 - Date de naissance
 - Photo de profil
+
+L'image de profil de base est une tête de robot jaune généré aléatoirement selon votre pseudo, grâce à l'API DiceBear Avatar: avatars.dicebear.com/styles/bottts.  
 
 ### **5. Déconnexion**
 
