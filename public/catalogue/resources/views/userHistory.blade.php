@@ -2,13 +2,12 @@
 
 @section("contentBody")
     
-
     <div class="container">
         <h1>Historique</h1>
         <p style="color: red">EN COURS DE CONSTRUCTION</p>
         <br>
-        <p>Cette route est protégée par un middleware ! Elle n'est visible que si vous êtes connecté ;)</p>
-
+        <p>  Cette route est protégée par un middleware ! Elle n'est visible que si vous êtes connecté ;)</p>
+        
         <table class="table table-bordered yajra-datatable">
             <thead>
                 <tr>
@@ -33,7 +32,7 @@
         var table = $('.yajra-datatable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('history.list') }}",
+            ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
             columns: [
                 {data: 'id_media', name: 'id_media'},
                 {data: 'title', name: 'title'},

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Category;
 use App\Models\Media;
+use App\Models\Action;
 use DataTables;
 
 
@@ -33,12 +34,13 @@ class ShowFilmsController extends Controller
         return view('userPlaylists');
     }
 
-    public function showUserHistory() {
-        return view('userHistory');        
+    public function showHistory($pseudo) {
+        return view('userHistory', [$pseudo]);
     }
 
-    public function showHistory(Request $request){
-        return Datatables::of(Media::where('code_type', '=' , 0)->get())->make(true);
+    public function showUserHistory($pseudo){
+        $UserHistoryId = Action::where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)->get('id_media_action');
+        return Datatables::of(Media::whereIn('id_media', $UserHistoryId)->get())->make(true);
     }
 
 
