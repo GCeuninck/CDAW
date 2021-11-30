@@ -39,7 +39,6 @@ class ActionSeeder extends Seeder
                     'id_media_action' => $media->id_media,
                     'comment' => $user->pseudo . ' has seen this media : ' . $media->title,
                     'code_status' => KeyValue::getStatus('0')['code'],
-                    'pseudo_playlist' => $user->pseudo
                 ];
                 array_push($actions, Action::createAction($actionViewData));
 
@@ -51,7 +50,6 @@ class ActionSeeder extends Seeder
                     'id_media_action' => $media->id_media,
                     'comment' => $user->pseudo . ' has commented on this media : ' . $media->title,
                     'code_status' => KeyValue::getStatus('0')['code'],
-                    'pseudo_playlist' => $user->pseudo
                 ];
                 array_push($actions, Action::createAction($actionCommentData));
                 $i++;

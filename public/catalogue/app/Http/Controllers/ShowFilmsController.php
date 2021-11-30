@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Models\Media;
 use App\Models\Action;
 use DataTables;
-
+use Auth;
 
 class ShowFilmsController extends Controller
 {
@@ -25,6 +25,14 @@ class ShowFilmsController extends Controller
     public function showMediaDetail($id) {
         $media = Media::where('id_media', '=' , $id)->first();
 
+        //Add Media to History
+        $data = [
+            'pseudo_action' => Auth::user()->pseudo,
+            'id_media_action' => $media->id_media
+        ];
+        Action::createViewAction($data);
+
+        
         return view('detail', compact('media'));
     }
 
