@@ -32,11 +32,11 @@ Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategor
 //GET MEDIAS LIST ROUTE
 //Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 
-//TEST
-//Route::get('/', 'App\Http\Controllers\listeMediasController@getIndex');
+//INDEX
 Route::get('/', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
 
-Route::get('/profile', 'App\Http\Controllers\listeMediasController@getProfile');
+//DETAIL
+Route::get('/media/{id}', 'App\Http\Controllers\ShowFilmsController@showMediaDetail');
 
 //ROUTES PROTEGEES
 Route::get('/user/playlists', 'App\Http\Controllers\ShowFilmsController@showUserPlaylists')->middleware('auth');

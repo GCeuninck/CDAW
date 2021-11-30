@@ -19,6 +19,12 @@ class ShowFilmsController extends Controller
         return view('index', compact('movies','series'));
     }
 
+    public function showMediaDetail($id) {
+        $media = Media::where('id_media', '=' , $id)->first();
+
+        return view('detail', compact('media'));
+    }
+    
     public function showUserPlaylists() {
         //todo
 
