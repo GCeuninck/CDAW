@@ -1,4 +1,5 @@
-# Auteur(s)
+# Auteurs
+
 - LEROUX Benjamin
 - CEUNINCK Guillaume
 
@@ -12,6 +13,7 @@ Pour accéder à notre site, il faut :
 - Créer et mettre à jour la structure des tables via les fichiers de migration. 
 
 Pour ce faire :  
+
 ```console
 php artisan migrate
 ```
@@ -80,5 +82,6 @@ php artisan test
 
 Nous avons créé et alimenté nos tables imaginées dans les jalons précédents.
 
-Identifiants admin sur le site :
-    - utilisateur 1 : User1@gmail.com / Password1
+Identifiant sur le site :
+
+- User1: User1@gmail.com / Password1
