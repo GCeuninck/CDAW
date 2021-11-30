@@ -16,6 +16,7 @@ class Media extends Model
 
     public static function createMedia($media, $type) {
         $data = [
+            'id_media' => $media['id'] ,
             'title' => $media['title'],
             'release_date' => $media['year'],
             'poster_link' => $media['image'],

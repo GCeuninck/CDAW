@@ -14,7 +14,6 @@ class CreateKeyvalueTable extends Migration
     public function up()
     {
         Schema::create('keyvalue', function (Blueprint $table) {
-            // $table->id('id_keyvalue');
             $table->string('type');
             $table->unsignedBigInteger('code')->index();
             $table->string('label');
