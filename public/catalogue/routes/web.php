@@ -33,7 +33,9 @@ Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategor
 //Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 
 //INDEX
-Route::get('/', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
+Route::get('/', 'App\Http\Controllers\ShowFilmsController@showIndex');
+Route::get('/all', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
+
 
 //DETAIL
 Route::get('/media/{id}', 'App\Http\Controllers\ShowFilmsController@showMediaDetail');
