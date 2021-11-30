@@ -3,9 +3,9 @@
 // define('DB_HOST','127.0.0.1');
 define('DB_HOST','mysql');
 define('DB_PORT',3306);
-define('DB_DATABASE','test');
-define('DB_USERNAME','mysql');
-define('DB_PASSWORD','mysql');
+define('DB_DATABASE','medias');
+define('DB_USERNAME','root');
+define('DB_PASSWORD','root');
 
 // define('__DEBUG', false);
 define('__DEBUG', true);
