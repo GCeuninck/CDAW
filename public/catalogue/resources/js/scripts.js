@@ -65,10 +65,6 @@ $(document).ready(function () {
         var itemsSplit = '';
         var sampwidth = $(itemsMainDiv).width();
         var bodyWidth = $('body').width();
-        var itemMargin;
-        if(document.querySelector('.card.item')!=null){
-            itemMargin = document.querySelector('.card.item').offsetWidth;
-        }
         $(itemsDiv).each(function () {
             id = id + 1;
             var itemNumbers = $(this).find(itemClass).length;
@@ -76,6 +72,7 @@ $(document).ready(function () {
             itemsSplit = btnParentSb.split(',');
             $(this).parent().attr("id", "MultiCarousel" + id);
 
+           
 
             if (bodyWidth >= 1200) {
                 incno = itemsSplit[3];
@@ -93,7 +90,7 @@ $(document).ready(function () {
                 incno = itemsSplit[0];
                 itemWidth = sampwidth / incno;
             }
-            $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers + itemMargin });
+            $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
             $(this).find(itemClass).each(function () {
                 $(this).outerWidth(itemWidth);
             });
