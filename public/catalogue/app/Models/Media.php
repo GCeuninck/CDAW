@@ -25,6 +25,40 @@ class Media extends Model
         return $data;
     }
 
+    public static function getMediaDetailFromIMDB($id_media){
+        $key = "k_hd33v3x9";
+        $curl = curl_init();
+
+        //Generate Media Detail
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://imdb-api.com/fr/API/Title/" . $key . "/" . $id_media ,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+        ));
+            
+        $response = json_decode(curl_exec($curl), true);
+        curl_close($curl);
+
+        $data = [
+            'id_media' => $id_media,
+            'title' => $response['title'],
+            'release_date' => $response['releaseDate'],
+            'duration' => $response['runtimeMins'],
+            'synopsis' => $response['plotLocal'] ? $response['plotLocal'] : $response['plot'],
+        ];
+
+        Media::whereId_media($id_media)->update($data);
+    }
+
+    public static function getMedia($id_media){
+        return Media::where('id_media', '=' , $id_media)->first();
+    }
+
     public function category(){
         return $this->belongsTo(Category::class, "category_id", "id"); //Objet retourné, Id permettant d'identifier l'objet, la clé qui fait référence à l'id
     }

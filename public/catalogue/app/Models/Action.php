@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\KeyValue;
+use Carbon\Carbon;
 
 class Action extends Model
 {
@@ -11,7 +13,15 @@ class Action extends Model
 
     protected $table = 'action';
 
-    protected $guarded = ['code_action', 'pseudo_action', 'id_media_action'];
+    protected $fillable = [
+        'code_action', 
+        'label_action', 
+        'date_action', 
+        'pseudo_action', 
+        'id_media_action', 
+        'comment',
+        'code_status',
+    ];
 
     public static function createAction($action) {
         $data = [
@@ -24,5 +34,18 @@ class Action extends Model
             'code_status' => $action['code_status']
         ];
         return $data;
+    }
+
+    public static function createViewAction($action) {
+        $data = [
+            'code_action' => '0',
+            'label_action' => 'view',
+            'date_action' => Carbon::now()->format('Y-m-d'),
+            'pseudo_action' => $action['pseudo_action'],
+            'id_media_action' => $action['id_media_action'],
+            'comment' => $action['pseudo_action'] . ' has seen this media : ' . $action['id_media_action'],
+            'code_status' => KeyValue::getStatus('0')['code']
+        ];
+        Action::updateOrCreate($data);
     }
 }

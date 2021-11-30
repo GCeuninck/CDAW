@@ -14,7 +14,6 @@ class CreateMediaTable extends Migration
     public function up()
     {
         Schema::create('media', function (Blueprint $table) {
-            // $table->id('id_media');
             $table->string('id_media')->index()->unique();
             $table->string('title');
             $table->string('poster_link')->nullable();
@@ -22,7 +21,7 @@ class CreateMediaTable extends Migration
             $table->string('actors')->nullable();
             $table->string('duration')->nullable();
             $table->string('genre')->nullable();
-            $table->string('synopsis')->nullable();
+            $table->text('synopsis')->nullable();
             $table->foreignId('code_type')->references('code')->on('keyvalue')->onUpdate('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->primary('id_media');
