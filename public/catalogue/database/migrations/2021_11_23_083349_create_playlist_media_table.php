@@ -15,7 +15,8 @@ class CreatePlaylistMediaTable extends Migration
     {
         Schema::create('playlist_media', function (Blueprint $table) {
             $table->foreignId('id_playlist_pm')->references('id_playlist')->on('playlist')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('id_media_pm')->references('id_media')->on('media')->onUpdate('cascade');
+            $table->string('id_media_pm');
+            $table->foreign('id_media_pm')->references('id_media')->on('media')->onUpdate('cascade');
             $table->timestamps();
             $table->primary(['id_playlist_pm', 'id_media_pm']);
         });

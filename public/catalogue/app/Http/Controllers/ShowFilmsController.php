@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Category;
 use App\Models\Media;
+use DataTables;
 
 
 class ShowFilmsController extends Controller
 {
+
     //jalon3
     public function showIndex() {
         $n=15;
@@ -38,9 +40,11 @@ class ShowFilmsController extends Controller
     }
 
     public function showUserHistory() {
-        //todo
+        return view('userHistory');        
+    }
 
-        return view('userHistory');
+    public function showHistory(Request $request){
+        return Datatables::of(Media::where('code_type', '=' , 0)->get())->make(true);
     }
 
 
