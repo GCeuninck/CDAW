@@ -53,38 +53,26 @@ $medias = $query->fetchAll(PDO::FETCH_ASSOC);
 $pdo = null;
 ?>
 
-<div class="row">
-            <section class="col-12">
-                <h1>Liste des médias</h1>
-     
-                <div id="columns">
-                    @foreach ($medias as $media)
-                    <figure>
-                    <img src="{{$media['poster_link']}}">
-                        <figcaption class="text-truncate">{{$media['title']}}</figcaption>
-                        </figure>
-                    @endforeach	
-                </div> 
+<div class="row full-width">
+    <h1 class="text-center">Liste des médias</h1>
 
-                <nav>
-                    <ul class="pagination">
-                        <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-                        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                            <a href="all/?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
-                        </li>
-                        <?php for($page = 1; $page <= $pages; $page++): ?>
-                          <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-                          <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                                <a href="all/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
-                            </li>
-                        <?php endfor ?>
-                          <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-                          <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                            <a href="all/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-                        </li>
-                    </ul>
-                </nav>
-            </section>
-        </div>
+    <div id="columns">
+        @foreach ($medias as $media)
+        <figure>
+        <img src="{{$media['poster_link']}}">
+            <figcaption class="text-truncate">{{$media['title']}}</figcaption>
+            </figure>
+        @endforeach	
+    </div> 
+
+    <div id="pagination"></div>
+
+    <!-- passe les infos des pages au script -->
+    <input type=hidden id="totalPages" value={{strval($pages)}} />
+    <input type=hidden id="currentPage" value={{strval($currentPage)}} />
+
+</div>
+
+<script src="{{asset('../resources/js/pagination.js')}}"></script>
 
 @endsection
