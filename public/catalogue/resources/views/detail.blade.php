@@ -37,7 +37,7 @@
             <div class="row">
                 <label for="Duration" class="col-sm-5">Durée</label>
                 <div class="col">
-                    <p Id="Duration" class="p-justified">{{ $media->duration }} TODO</p>
+                    <p Id="Duration" class="p-justified">{{ $media->duration }}</p>
                 </div>
             </div>
             <div class="row">
@@ -60,7 +60,7 @@
             <hr/>
             <div class="col border">
                 <p Id="Synopsis" class="p-justified align-middle">
-                    TODO Le Premier Ordre étend ses tentacules aux confins de l'univers, poussant la Résistance dans ses retranchements. Il est impossible de se sauver à la vitesse de la lumière avec cet ennemi continuellement aux trousses. Cela n'empêche pas Finn et ses camarades de tenter d'identifier une brèche chez leur adversaire. Pendant ce temps, Rey se trouve toujours sur la planète Ahch-To pour convaincre Luke Skywalker de lui enseigner les rudiments de la Force.
+                    {{ $media->synopsis }}
                 </p>
             </div>
         </div>

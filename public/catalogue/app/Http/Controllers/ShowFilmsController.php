@@ -23,16 +23,21 @@ class ShowFilmsController extends Controller
     }
 
     public function showMediaDetail($id) {
-        $media = Media::where('id_media', '=' , $id)->first();
+        $media = Media::getMedia($id);
+        if($media->duration == null){
+            Media::getMediaDetailFromIMDB($id);
+            $media = Media::getMedia($id);
+        }
 
-        //Add Media to History
-        $data = [
-            'pseudo_action' => Auth::user()->pseudo,
-            'id_media_action' => $media->id_media
-        ];
-        Action::createViewAction($data);
+        //Add Media to History if logged
+        if(Auth::check()){
+            $data = [
+                'pseudo_action' => Auth::user()->pseudo,
+                'id_media_action' => $media->id_media
+            ];
+            Action::createViewAction($data);
+        }
 
-        
         return view('detail', compact('media'));
     }
 
