@@ -59,6 +59,14 @@ class Media extends Model
         return Media::where('id_media', '=' , $id_media)->first();
     }
 
+    public static function getAllMovies(){
+        return Media::where('code_type', '=' , 0)->paginate(30);
+    }
+
+    public static function getAllSeries(){
+        return Media::where('code_type', '=' , 1)->paginate(30);
+    }
+
     public function category(){
         return $this->belongsTo(Category::class, "category_id", "id"); //Objet retourné, Id permettant d'identifier l'objet, la clé qui fait référence à l'id
     }

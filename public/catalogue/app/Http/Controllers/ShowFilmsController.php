@@ -42,7 +42,19 @@ class ShowFilmsController extends Controller
     }
 
     public function showAllMedias() {
-        $medias = Media::all();
+        $medias = Media::paginate(30);
+
+        return view('allMedias', compact('medias'));
+    }
+
+    public function showAllMovies() {
+        $medias = Media::getAllMovies();
+
+        return view('allMedias', compact('medias'));
+    }
+
+    public function showAllSeries() {
+        $medias = Media::getAllSeries();
 
         return view('allMedias', compact('medias'));
     }

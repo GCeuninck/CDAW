@@ -30,12 +30,13 @@ Route::delete('/films/{id}','App\Http\Controllers\ShowFilmsController@destroy');
 //GET CATEGORIES ROUTE
 Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategories');
 
-//GET MEDIAS LIST ROUTE
-//Route::get('/', 'App\Http\Controllers\listeMediasController@getListeMedias');
 
 //INDEX
 Route::get('/', 'App\Http\Controllers\ShowFilmsController@showIndex');
 Route::get('/all', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
+Route::get('/all/movies', 'App\Http\Controllers\ShowFilmsController@showAllMovies');
+Route::get('/all/series', 'App\Http\Controllers\ShowFilmsController@showAllSeries');
+
 
 
 //DETAIL
