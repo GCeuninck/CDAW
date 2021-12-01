@@ -25,4 +25,8 @@ class Playlist_media extends Model
         ];
         return $data;
     }
+
+    public static function getAllMediaPlaylist($id_playlist_pm) {
+        return Playlist_media::where('id_playlist_pm', '=', $id_playlist_pm);
+    }
 }

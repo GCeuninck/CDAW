@@ -25,4 +25,8 @@ class Playlist extends Model
     public static function getPlaylists() {
         return Playlist::all();
     }
+
+    public static function getUserPlaylists($pseudo_playlist) {
+        return Playlist::where('pseudo_playlist', '=', $pseudo_playlist);
+    }
 }

@@ -27,18 +27,18 @@
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
     <script type="text/javascript">
-    $(function () {
-        
-        var table = $('.yajra-datatable').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
-            columns: [
-                {data: 'id_media', name: 'id_media'},
-                {data: 'title', name: 'title'},
-            ]
+        $(function () {
+            
+            var table = $('.yajra-datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
+                columns: [
+                    {data: 'id_media', name: 'id_media'},
+                    {data: 'title', name: 'title'},
+                ]
+            });
+            
         });
-        
-    });
     </script>
 @endsection

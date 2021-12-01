@@ -9,6 +9,8 @@ use App\Models\Media;
 use App\Models\Action;
 use App\Models\Tag;
 use App\Models\KeyValue;
+use App\Models\Playlist;
+use App\Models\Playlist_media;
 use DataTables;
 use Auth;
 
@@ -35,7 +37,7 @@ class ShowFilmsController extends Controller
         foreach(Tag::getTags($id)->get() as $tag){
             array_push($genres, KeyValue::getTag($tag['code_keyvalue_tag']));
         }
-        
+
 
         //Add Media to History if logged
         if(Auth::check()){
@@ -67,10 +69,14 @@ class ShowFilmsController extends Controller
         return view('allMedias', compact('medias'));
     }
     
-    public function showUserPlaylists() {
-        //todo
+    public function showPlaylists($pseudo) {
+        $playlists = Playlist::getUserPlaylists($pseudo)->get();
+        return view('userPlaylists', compact('pseudo', 'playlists'));
+    }
 
-        return view('userPlaylists');
+    public function showUserPlaylists($pseudo, $idPlaylist) {
+        $mediasPlaylistId = Playlist_media::getAllMediaPlaylist($idPlaylist)->get('id_media_pm');
+        return Datatables::of(Media::whereIn('id_media', $mediasPlaylistId)->get())->make(true);
     }
 
     public function showHistory($pseudo) {
