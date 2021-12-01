@@ -29,15 +29,22 @@
                 </div>
             </div>
             <div class="row">
-                <label for="Gender" class="col-sm-5">Genre</label>
+                <label for="Gender" class="col-sm-5">Genre(s)</label>
                 <div class="col">
-                    <p Id="Gender" class="p-justified">TODO</p>
+                    <p Id="Gender" class="p-justified">
+                    @foreach ($genres as $genre)
+                        {{ $genre->label }}
+                        @if( !$loop->last)
+                        ,
+                        @endif
+                    @endforeach
+                    </p>
                 </div>
             </div>
             <div class="row">
                 <label for="Duration" class="col-sm-5">Durée</label>
                 <div class="col">
-                    <p Id="Duration" class="p-justified">{{ $media->duration }}</p>
+                    <p Id="Duration" class="p-justified">{{ $media->duration }} minutes</p>
                 </div>
             </div>
             <div class="row">

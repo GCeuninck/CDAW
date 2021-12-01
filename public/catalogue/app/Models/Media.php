@@ -44,6 +44,7 @@ class Media extends Model
         $response = json_decode(curl_exec($curl), true);
         curl_close($curl);
 
+        // Save media data
         $data = [
             'id_media' => $id_media,
             'title' => $response['title'],
@@ -53,6 +54,18 @@ class Media extends Model
         ];
 
         Media::whereId_media($id_media)->update($data);
+
+        // Add genres
+        foreach($response['genreList'] as $genre){
+            if(KeyValue::where('type', '=', 'tag')->where('label','=', $genre['value'])->first() == null){
+                KeyValue::createTag($genre['value']);
+            }
+            Tag::create([
+                'code_keyvalue_tag' => KeyValue::getTagWithLabel($genre['value'])['code'],
+                'id_media_tag' => $id_media
+            ]);
+        }
+    
     }
 
     public static function getMedia($id_media){

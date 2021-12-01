@@ -10,7 +10,12 @@ class Playlist_media extends Model
     use HasFactory;
 
     protected $table = 'playlist_media';
-    protected $guarded = ['id_playlist_pm','id_media_pm'];
+
+    protected $fillable = [
+        'id_playlist_pm',
+        'id_media_pm'
+    ];
+
     protected $hidden = [];
 
     public static function addMediaPlaylist($id_media, $id_playlist) {

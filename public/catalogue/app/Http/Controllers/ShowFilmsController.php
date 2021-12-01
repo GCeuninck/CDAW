@@ -7,6 +7,8 @@ use App\Models\Film;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Action;
+use App\Models\Tag;
+use App\Models\KeyValue;
 use DataTables;
 use Auth;
 
@@ -29,6 +31,12 @@ class ShowFilmsController extends Controller
             $media = Media::getMedia($id);
         }
 
+        $genres = array();
+        foreach(Tag::getTags($id)->get() as $tag){
+            array_push($genres, KeyValue::getTag($tag['code_keyvalue_tag']));
+        }
+        
+
         //Add Media to History if logged
         if(Auth::check()){
             $data = [
@@ -38,7 +46,7 @@ class ShowFilmsController extends Controller
             Action::createViewAction($data);
         }
 
-        return view('detail', compact('media'));
+        return view('detail', compact('media', 'genres'));
     }
 
     public function showAllMedias() {
