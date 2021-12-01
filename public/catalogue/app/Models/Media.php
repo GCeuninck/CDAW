@@ -76,8 +76,8 @@ class Media extends Model
         return Media::where('code_type', '=' , 0)->orderBy($sort, $direction)->paginate(30);
     }
 
-    public static function getAllSeries(){
-        return Media::where('code_type', '=' , 1)->paginate(30);
+    public static function getAllSeries($sort, $direction){
+        return Media::where('code_type', '=' , 1)->orderBy($sort, $direction)->paginate(30);
     }
 
     public function category(){

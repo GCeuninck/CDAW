@@ -6,7 +6,7 @@
 <div class="container px-4">
     <div class="header-align">
         <h1>Films</h1>
-        <a href="{{ route('all.movies', ['sort' => 'release_date', 'direction' => 'desc'] ) }}">
+        <a href="{{ route('all.movies', ['sort' => 'new'] ) }}">
             <span> Voir tous les films</span>
         </a>
     </div>
@@ -42,7 +42,7 @@
 <div class="container px-4 bottom-1">
     <div class="header-align">
         <h1>Séries</h1>
-        <a href="{{url('/all/series' ) }}">
+        <a href="{{ route('all.series', ['sort' => 'new'] ) }}">
             <span> Voir toutes les séries</span>
         </a>
     </div>

@@ -58,15 +58,61 @@ class ShowFilmsController extends Controller
     }
 
     public function showAllMovies($sort='id_media',$direction='desc') {
-        $medias = Media::getAllMovies($sort,$direction);
+        switch($sort)
+        {
+            case 'new':
+                $sort_on='release_date';
+                $direction='desc';
+                break;
+            case 'old':
+                $sort_on='release_date';
+                $direction='asc';
+                break;
+            case 'alpha':
+                $sort_on='title';
+                $direction='asc';
+                break;
+            case 'zeta':
+                $sort_on='title';
+                $direction='desc';
+                break;
+            default:
+                $sort_on=$sort;
+                break;
+        }
+        $medias = Media::getAllMovies($sort_on,$direction);
+        $type='movies';
 
-        return view('allMedias', compact('medias'));
+        return view('allMedias', compact('medias','sort','type'));
     }
 
-    public function showAllSeries() {
-        $medias = Media::getAllSeries();
+    public function showAllSeries($sort='id_media',$direction='desc') {
+        switch($sort)
+        {
+            case 'new':
+                $sort_on='release_date';
+                $direction='desc';
+                break;
+            case 'old':
+                $sort_on='release_date';
+                $direction='asc';
+                break;
+            case 'alpha':
+                $sort_on='title';
+                $direction='asc';
+                break;
+            case 'zeta':
+                $sort_on='title';
+                $direction='desc';
+                break;
+            default:
+                $sort_on=$sort;
+                break;
+        }
+        $medias = Media::getAllSeries($sort_on,$direction);
+        $type='series';
 
-        return view('allMedias', compact('medias'));
+        return view('allMedias', compact('medias','sort','type'));
     }
     
     public function showPlaylists($pseudo) {
