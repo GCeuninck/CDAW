@@ -10,16 +10,18 @@
         @foreach ($playlists as $playlist)
             <h1>{{$playlist->name_playlist}}</h1>
             <br/>
-            <table class="table table-bordered yajra-datatable" data-id="{{ $playlist->id_playlist }}">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Titre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div class="playlistDatatable" data-id="{{ $playlist->id_playlist }}">
+                <table class="table table-bordered yajra-datatable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Titre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         @endforeach
     </div>
 
@@ -31,14 +33,17 @@
 
     <script type="text/javascript">
         $(function () {
-            $('.yajra-datatable').each(
+            $('.playlistDatatable').each(
                 function () {
-                var $sel = $(this);
-                var $process_id = $(this).data.id;
-                var table = $sel.DataTable({
+                var $process_id = $(this).data("id");
+                var url = '{{ url("/" . Auth::user()->pseudo . "/playlists/list/idPlaylist") }}';
+                url = url.replace('idPlaylist', $process_id);
+                var table = $(this).find('.yajra-datatable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('playlist.list', ['pseudo' => Auth::user()->pseudo, 'idPlaylist' => '1']) }}",
+                    ajax: {
+                        "url": url,
+                    },                    
                     columns: [
                         {data: 'id_media', name: 'id_media'},
                         {data: 'title', name: 'title'},
