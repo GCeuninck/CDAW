@@ -1,8 +1,6 @@
 @extends( Auth::user()  ?  'template_loged' : 'template' )
 
-
 @section("contentBody")        
-
 
 <!-- Films Section -->
 <div class="container px-4 top-1">
