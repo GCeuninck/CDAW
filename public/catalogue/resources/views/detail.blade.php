@@ -75,7 +75,7 @@
     <br/>
     <div class="row bottom-1">
         <div class="col-md-6">
-            <a class=".btn-link text-center" data-bs-toggle="modal" data-bs-target="#connexionModal">
+            <a class=".btn-link text-center" data-bs-toggle="modal" data-bs-target="#addPlaylistModal">
                 <button type="button" class="btn btn-dark float-end">Ajouter à une playlist</button>
             </a>
         </div>
@@ -84,6 +84,41 @@
                 <button type="button" class="btn btn-warning">
                     J'aime <i class="far fa-heart black"></i></button>
             </a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Connexion-->
+<div class="modal " id="addPlaylistModal" tabindex="-1" aria-labelledby="addPlaylist" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title  " id="addPlaylist">Ajouter à une playlist</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table id="playlist_table" class="display" cellpadding="10" cellspacing="10">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($playlists as $playlist)
+                        <tr>
+                            <td>{{$playlist->name_playlist}}</td>
+                            <td>
+                                <form action="{{ route('media.addPlaylist', [$media->id_media, $playlist->id_playlist])}}" method="post">
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit">Ajouter</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

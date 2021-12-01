@@ -38,7 +38,7 @@ class ShowFilmsController extends Controller
             array_push($genres, KeyValue::getTag($tag['code_keyvalue_tag']));
         }
 
-
+        $playlists = array();
         //Add Media to History if logged
         if(Auth::check()){
             $data = [
@@ -46,9 +46,21 @@ class ShowFilmsController extends Controller
                 'id_media_action' => $media->id_media
             ];
             Action::createViewAction($data);
+
+            $playlists = Playlist::getUserPlaylists(Auth::user()->pseudo)->get();
         }
 
-        return view('detail', compact('media', 'genres'));
+        return view('detail', compact('media', 'genres', 'playlists'));
+    }
+
+    public function addMediaToUserPlaylists($id, $id_playlist){
+        $data = [
+            'id_playlist_pm' => $id_playlist,
+            'id_media_pm' => $id
+        ];
+        Playlist_media::updateOrCreate($data);
+
+        return redirect('/media/' . $id); 
     }
 
     public function showAllMedias() {

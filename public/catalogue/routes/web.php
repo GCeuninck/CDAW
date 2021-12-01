@@ -45,6 +45,8 @@ Route::get('/media/{id}', 'App\Http\Controllers\ShowFilmsController@showMediaDet
 //ROUTES PROTEGEES
 Route::get('/user/playlists', 'App\Http\Controllers\ShowFilmsController@showUserPlaylists')->middleware('auth');
 
+Route::post('/media/{id}/addPlaylist/{id_playlist}', 'App\Http\Controllers\ShowFilmsController@addMediaToUserPlaylists')->middleware('auth')->name('media.addPlaylist');
+
 //HISTORY
 Route::get('/{pseudo}/history', 'App\Http\Controllers\ShowFilmsController@showHistory')->middleware('auth');
 Route::get('/{pseudo}/history/list', [ShowFilmsController::class, 'showUserHistory'])->middleware('auth')->name('history.list');
