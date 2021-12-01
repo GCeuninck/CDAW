@@ -80,9 +80,13 @@
             </a>
         </div>
         <div class="col-md-6">
-            <a class=".btn-link text-center" data-bs-toggle="modal" data-bs-target="#connexionModal">
-                <button type="button" class="btn btn-warning">
-                    J'aime <i class="far fa-heart black"></i></button>
+            <a class=".btn-link">
+                <form action="{{ route('media.like', $media->id_media)}}" method="post">
+                    @csrf
+                    <button class="btn btn-warning" type="submit">
+                        J'aime <i class="far fa-heart black"></i>
+                    </button>
+                </form>
             </a>
         </div>
     </div>

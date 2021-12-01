@@ -63,6 +63,16 @@ class ShowFilmsController extends Controller
         return redirect('/media/' . $id); 
     }
 
+    public function likeMedia($id){
+        $data = [
+            'pseudo_action' => Auth::user()->pseudo,
+            'id_media_action' => $id
+        ];
+        Action::createLikeAction($data);
+
+        return redirect('/media/' . $id); 
+    }
+
     public function showAllMedias() {
         $medias = Media::paginate(30);
 

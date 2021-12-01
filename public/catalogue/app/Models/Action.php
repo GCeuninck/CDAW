@@ -46,6 +46,19 @@ class Action extends Model
             'comment' => $action['pseudo_action'] . ' has seen this media : ' . $action['id_media_action'],
             'code_status' => KeyValue::getStatus('0')['code']
         ];
-        Action::updateOrCreate($data);
+        return Action::updateOrCreate($data);
+    }
+
+    public static function createLikeAction($action) {
+        $data = [
+            'code_action' => '2',
+            'label_action' => 'like',
+            'date_action' => Carbon::now()->format('Y-m-d'),
+            'pseudo_action' => $action['pseudo_action'],
+            'id_media_action' => $action['id_media_action'],
+            'comment' => $action['pseudo_action'] . ' liked this media : ' . $action['id_media_action'],
+            'code_status' => KeyValue::getStatus('0')['code']
+        ];
+        return Action::updateOrCreate($data);
     }
 }
