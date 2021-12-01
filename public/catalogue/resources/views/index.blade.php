@@ -16,7 +16,11 @@
                         <img class="card-img-top carroussel-img" src="{{ $media->poster_link }}" alt="Card image cap">
                         <div class="card-body">
                             <p class="item-center text-truncate">{{ $media->title }}<br>
+                            @if (Auth::check())
                                 <a ><i class="far fa-heart  "></i></span></a>
+                                @else
+                                    <p/>
+                            @endif
                             </p>
                         </div>
                     </div>
@@ -43,7 +47,11 @@
                         <img class="card-img-top carroussel-img" src="{{ $media->poster_link }}" alt="Image">
                         <div class="card-body">
                             <p class="item-center text-truncate">{{ $media->title }}<br>
-                                <a ><i class="far fa-heart  "></i></span></a>
+                                @if (Auth::check())
+                                    <a ><i class="far fa-heart  "></i></span></a>
+                                    @else
+                                        <p/>
+                                @endif
                             </p>
                         </div>
                     </div>
