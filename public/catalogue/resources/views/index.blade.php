@@ -22,7 +22,7 @@
                             @if (Auth::check())
                                 <a ><i class="far fa-heart  "></i></span></a>
                                 @else
-                                    <p/>
+                                    </p>
                             @endif
                             </p>
                         </div>
@@ -50,7 +50,7 @@
         <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
             <div class="MultiCarousel-inner">
             @foreach ($series as $media)
-                <a class="card-link" href="#">
+                <a class="card-link" href="{{ url('/media', $media->id_media ) }}">
                     <div class="card item width-18">
                         <img class="card-img-top carroussel-img" src="{{ $media->poster_link }}" alt="Image">
                         <div class="card-body">
