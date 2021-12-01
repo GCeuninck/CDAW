@@ -11,5 +11,10 @@ class Subscription extends Model
 
     protected $table = 'subscription';
 
+    protected $fillable = [
+        'id_playlist_sub',
+        'pseudo_sub'
+    ];
+
     protected $guarded = ['id_playlist_sub ', 'pseudo_sub '];
 }

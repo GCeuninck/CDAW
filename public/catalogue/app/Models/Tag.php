@@ -11,5 +11,12 @@ class Tag extends Model
 
     protected $table = 'tag';
 
-    protected $guarded = ['code_keyvalue_tag', 'id_media_tag'];
+    protected $fillable = [
+        'code_keyvalue_tag',
+        'id_media_tag'
+    ];
+
+    public static function getTags($id_media_tag){
+        return Tag::where('id_media_tag', '=' , $id_media_tag);
+    }
 }

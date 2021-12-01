@@ -17,6 +17,14 @@ class KeyValue extends Model
         'label'
     ];
 
+    public static function createTag($label){
+        return KeyValue::Create([
+            'type' => 'tag',
+            'code' => count(KeyValue::getAllTags()->get()),
+            'label' => $label
+        ]);
+    }
+
     // Roles Creation
     public static function createUserRole(){
         return KeyValue::updateOrCreate([
@@ -117,5 +125,18 @@ class KeyValue extends Model
 
     public static function getStatus($code){
         return KeyValue::getAllStatus()->where('code','=', $code)->first();
+    }
+
+    // Get Tags
+    public static function getAllTags(){
+        return KeyValue::where('type','=', 'tag');
+    }
+
+    public static function getTag($code){
+        return KeyValue::getAllTags()->where('code','=', $code)->first();
+    }
+
+    public static function getTagWithLabel($label){
+        return KeyValue::getAllTags()->where('label','=', $label)->first();
     }
 }
