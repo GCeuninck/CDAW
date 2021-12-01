@@ -16,7 +16,7 @@
     </head>
     <body id="page-top">
        <!-- Navigation-->
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-static-top" id="mainNav">
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-static-top bottom-1" id="mainNav">
             <div class="container px-4">
                 <a class="navbar-brand" href="{{url('')}}"> 
                     <img src="{{asset('../resources/assets/logo.png')}}" alt="logo" width="40" height="40">
@@ -75,8 +75,6 @@
                 </a>
             </div>
         </nav>
-        
-        <br/>
 
         @yield("contentBody")
         

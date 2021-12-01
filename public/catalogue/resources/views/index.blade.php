@@ -3,7 +3,7 @@
 @section("contentBody")        
 
 <!-- Films Section -->
-<div class="container px-4 top-1">
+<div class="container px-4">
     <div class="header-align">
         <h1>Films</h1>
         <a href="{{ url('/all/movies' ) }}">
