@@ -34,7 +34,7 @@ Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategor
 //INDEX
 Route::get('/', 'App\Http\Controllers\ShowFilmsController@showIndex');
 Route::get('/all', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
-Route::get('/all/movies', 'App\Http\Controllers\ShowFilmsController@showAllMovies');
+Route::get('/all/movies/{sort?}/{direction?}', 'App\Http\Controllers\ShowFilmsController@showAllMovies')->name('all.movies');;
 Route::get('/all/series', 'App\Http\Controllers\ShowFilmsController@showAllSeries');
 
 

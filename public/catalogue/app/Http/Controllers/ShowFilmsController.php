@@ -57,8 +57,8 @@ class ShowFilmsController extends Controller
         return view('allMedias', compact('medias'));
     }
 
-    public function showAllMovies() {
-        $medias = Media::getAllMovies();
+    public function showAllMovies($sort='id_media',$direction='desc') {
+        $medias = Media::getAllMovies($sort,$direction);
 
         return view('allMedias', compact('medias'));
     }

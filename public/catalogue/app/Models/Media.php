@@ -72,8 +72,8 @@ class Media extends Model
         return Media::where('id_media', '=' , $id_media)->first();
     }
 
-    public static function getAllMovies(){
-        return Media::where('code_type', '=' , 0)->paginate(30);
+    public static function getAllMovies($sort, $direction){
+        return Media::where('code_type', '=' , 0)->orderBy($sort, $direction)->paginate(30);
     }
 
     public static function getAllSeries(){
