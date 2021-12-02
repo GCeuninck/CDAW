@@ -48,7 +48,7 @@ class Media extends Model
             // Save media data
             $data = [
                 'id_media' => $id_media,
-                'release_date' => $response['releaseDate'],
+                'release_date' => isset($response['releaseDate']) ? $response['releaseDate'] : Media::whereId_media($id_media)->release_date,
                 'duration' => $response['runtimeMins'],
                 'synopsis' => $response['plotLocal'] ? $response['plotLocal'] : $response['plot'],
                 'detail' => '1'
