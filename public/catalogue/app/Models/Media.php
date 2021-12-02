@@ -44,28 +44,29 @@ class Media extends Model
         $response = json_decode(curl_exec($curl), true);
         curl_close($curl);
 
-        // Save media data
-        $data = [
-            'id_media' => $id_media,
-            'title' => $response['title'],
-            'release_date' => $response['releaseDate'],
-            'duration' => $response['runtimeMins'],
-            'synopsis' => $response['plotLocal'] ? $response['plotLocal'] : $response['plot'],
-        ];
+        if($response != null ){
+            // Save media data
+            $data = [
+                'id_media' => $id_media,
+                'release_date' => $response['releaseDate'],
+                'duration' => $response['runtimeMins'],
+                'synopsis' => $response['plotLocal'] ? $response['plotLocal'] : $response['plot'],
+                'detail' => '1'
+            ];
 
-        Media::whereId_media($id_media)->update($data);
+            Media::whereId_media($id_media)->update($data);
 
-        // Add genres
-        foreach($response['genreList'] as $genre){
-            if(KeyValue::where('type', '=', 'tag')->where('label','=', $genre['value'])->first() == null){
-                KeyValue::createTag($genre['value']);
+            // Add genres
+            foreach($response['genreList'] as $genre){
+                if(KeyValue::where('type', '=', 'tag')->where('label','=', $genre['value'])->first() == null){
+                    KeyValue::createTag($genre['value']);
+                }
+                Tag::create([
+                    'code_keyvalue_tag' => KeyValue::getTagWithLabel($genre['value'])['code'],
+                    'id_media_tag' => $id_media
+                ]);
             }
-            Tag::create([
-                'code_keyvalue_tag' => KeyValue::getTagWithLabel($genre['value'])['code'],
-                'id_media_tag' => $id_media
-            ]);
         }
-    
     }
 
     public static function getMedia($id_media){
