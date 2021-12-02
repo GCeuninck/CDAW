@@ -17,6 +17,7 @@ class CreatePlaylistMediaTable extends Migration
             $table->foreignId('id_playlist_pm')->references('id_playlist')->on('playlist')->onDelete('cascade')->onUpdate('cascade');
             $table->string('id_media_pm');
             $table->foreign('id_media_pm')->references('id_media')->on('media')->onUpdate('cascade');
+            $table->string('date_pm');
             $table->timestamps();
             $table->primary(['id_playlist_pm', 'id_media_pm']);
         });

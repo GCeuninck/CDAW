@@ -54,11 +54,7 @@ class ShowFilmsController extends Controller
     }
 
     public function addMediaToUserPlaylists($id, $id_playlist){
-        $data = [
-            'id_playlist_pm' => $id_playlist,
-            'id_media_pm' => $id
-        ];
-        Playlist_media::updateOrCreate($data);
+        Playlist_media::addMediaPlaylist($id, $id_playlist);
 
         return redirect('/media/' . $id); 
     }

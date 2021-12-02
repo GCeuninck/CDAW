@@ -19,7 +19,7 @@ class Playlist extends Model
             'creation_date' => $playlist['creation_date'],
             'pseudo_playlist' => $playlist['pseudo_playlist']
         ];
-        return $data;
+        return Playlist::create($data);
     }
 
     public static function getPlaylists() {

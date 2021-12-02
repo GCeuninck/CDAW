@@ -24,7 +24,6 @@ class ActionSeeder extends Seeder
         $users = User::getUsers();
         $nbMedia = 50;
         $medias = Media::take($nbMedia)->get();
-        $actions = array();
 
         foreach ($users as $user){
             
@@ -40,7 +39,7 @@ class ActionSeeder extends Seeder
                     'comment' => $user->pseudo . ' has seen this media : ' . $media->id_media,
                     'code_status' => KeyValue::getStatus('0')['code'],
                 ];
-                array_push($actions, Action::createAction($actionViewData));
+                Action::createAction($actionViewData);
 
                 $actionCommentData = [
                     'code_action' => '1',
@@ -51,23 +50,9 @@ class ActionSeeder extends Seeder
                     'comment' => $user->pseudo . ' has commented on this media : ' . $media->id_media,
                     'code_status' => KeyValue::getStatus('0')['code'],
                 ];
-                array_push($actions, Action::createAction($actionCommentData));
+                Action::createAction($actionCommentData);
                 $i++;
             }
-        }
-
-        foreach($actions as $action)
-        {
-            DB::table('action')->insert([
-                'code_action' => $action['code_action'],
-                'label_action' => $action['label_action'],
-                'date_action' => $action['date_action'],
-                'pseudo_action' => $action['pseudo_action'],
-                'id_media_action' => $action['id_media_action'],
-                'comment' => $action['comment'],
-                'code_status' => $action['code_status']
-                ]
-            );
         }
     }
 }

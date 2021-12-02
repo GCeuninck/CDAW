@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\KeyValue;
-use Carbon\Carbon;
 use App\Models\Media;
+use Carbon\Carbon;
 
 class Action extends Model
 {
@@ -34,7 +34,7 @@ class Action extends Model
             'comment' => $action['comment'],
             'code_status' => $action['code_status']
         ];
-        return $data;
+        return  Action::updateOrCreate($data);
     }
 
     public static function createViewAction($action) {

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Playlist_media extends Model
 {
@@ -13,7 +14,8 @@ class Playlist_media extends Model
 
     protected $fillable = [
         'id_playlist_pm',
-        'id_media_pm'
+        'id_media_pm',
+        'date_pm'
     ];
 
     protected $hidden = [];
@@ -22,8 +24,9 @@ class Playlist_media extends Model
         $data = [
             'id_media_pm' => $id_media,
             'id_playlist_pm' => $id_playlist,
+            'date_pm' => Carbon::now()->format('Y-m-d'),
         ];
-        return $data;
+        return Playlist_media::updateOrCreate($data);
     }
 
     public static function getAllMediaPlaylist($id_playlist_pm) {
