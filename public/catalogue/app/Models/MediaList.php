@@ -14,7 +14,7 @@ class MediaList extends Model
     protected $SeriesList = array();
 
     public static function getMoviesFromIMDB(){
-        $key = "k_hd33v3x9";
+        $key = "k_pkfnyjq8";
         $curl = curl_init();
     
         //Generate MoviesList
@@ -42,7 +42,7 @@ class MediaList extends Model
     }
 
     public static function getSeriesFromIMDB(){
-        $key = "k_hd33v3x9";
+        $key = "k_pkfnyjq8";
         $curl = curl_init();
 
         //Generate SeriesList

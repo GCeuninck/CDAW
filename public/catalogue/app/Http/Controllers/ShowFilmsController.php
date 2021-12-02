@@ -13,6 +13,7 @@ use App\Models\Playlist;
 use App\Models\Playlist_media;
 use DataTables;
 use Auth;
+use URL;
 
 class ShowFilmsController extends Controller
 {
@@ -142,7 +143,15 @@ class ShowFilmsController extends Controller
 
     public function showUserPlaylists($pseudo, $idPlaylist) {
         $mediasPlaylistId = Playlist_media::getAllMediaPlaylist($idPlaylist)->get('id_media_pm');
-        return Datatables::of(Media::whereIn('id_media', $mediasPlaylistId)->get())->make(true);
+        return Datatables::of(Media::whereIn('id_media', $mediasPlaylistId)->get())
+        ->addIndexColumn()
+            ->addColumn('action', function($row){
+                $btn = '<a href="'. URL::asset('/media/' . $row->id_media) . '" class="edit btn btn-warning btn-sm">Voir</a>';
+                $btn = $btn.'<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Supprimer</a>';
+                return $btn;
+            })
+        ->rawColumns(['action'])
+        ->make(true);
     }
 
     public function showHistory($pseudo) {
