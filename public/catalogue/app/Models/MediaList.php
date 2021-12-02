@@ -47,7 +47,7 @@ class MediaList extends Model
 
         //Generate SeriesList
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://imdb-api.com/fr/API/MostPopularTVs/" . $key,
+            CURLOPT_URL => "https://imdb-api.com/fr/API/Top250TVs/" . $key,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
