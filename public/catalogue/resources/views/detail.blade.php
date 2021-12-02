@@ -79,6 +79,18 @@
                 <button type="button" class="btn btn-dark float-end">Ajouter à une playlist</button>
             </a>
         </div>
+        @if($isLiked)
+        <div class="col-md-6">
+            <a class=".btn-link">
+                <form action="{{ route('media.dislike', $media->id_media)}}" method="post">
+                    @csrf
+                    <button class="btn btn-warning" type="submit">
+                        Je n'aime plus <i class="fas fa-heart-broken black"></i>
+                    </button>
+                </form>
+            </a>
+        </div>
+        @else
         <div class="col-md-6">
             <a class=".btn-link">
                 <form action="{{ route('media.like', $media->id_media)}}" method="post">
@@ -89,6 +101,7 @@
                 </form>
             </a>
         </div>
+        @endif
     </div>
     @endif
 </div>

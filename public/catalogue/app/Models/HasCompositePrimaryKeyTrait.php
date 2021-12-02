@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Builder;
 
 trait HasCompositePrimaryKeyTrait{
 
@@ -25,30 +25,29 @@ trait HasCompositePrimaryKeyTrait{
 
 
   protected function getKeyForSaveQuery($keyName = null)
-  {
+{
 
-      if(is_null($keyName)){
-          $keyName = $this->getKeyName();
-      }
+    if(is_null($keyName)){
+        $keyName = $this->getKeyName();
+    }
 
-      if (isset($this->original[$keyName])) {
-          return $this->original[$keyName];
-      }
+    if (isset($this->original[$keyName])) {
+        return $this->original[$keyName];
+    }
 
-      return $this->getAttribute($keyName);
-  }
+    return $this->getAttribute($keyName);
+}
 
 
    //Execute a query for a single record by ID.
    public static function find($ids, $columns = ['*']){
-    $me = new self;
-    $query = $me->newQuery();
+   $me = new self;
+   $query = $me->newQuery();
 
-    foreach ($me->getKeyName() as $key) {
-      $query->where($key, '=', $ids[$key]);
-    }
+   foreach ($me->getKeyName() as $key) {
+     $query->where($key, '=', $ids[$key]);
+   }
 
-    return $query->first($columns);
-  }
-
+   return $query->first($columns);
+ }
 }
