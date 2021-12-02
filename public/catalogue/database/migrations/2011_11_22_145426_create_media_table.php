@@ -22,6 +22,7 @@ class CreateMediaTable extends Migration
             $table->string('duration')->nullable();
             $table->string('genre')->nullable();
             $table->text('synopsis')->nullable();
+            $table->boolean('detail')->default('0');
             $table->foreignId('code_type')->references('code')->on('keyvalue')->onUpdate('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->primary('id_media');

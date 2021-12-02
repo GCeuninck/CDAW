@@ -30,7 +30,7 @@ class ShowFilmsController extends Controller
 
     public function showMediaDetail($id) {
         $media = Media::getMedia($id);
-        if($media->duration == null){
+        if($media->detail == 0){
             Media::getMediaDetailFromIMDB($id);
             $media = Media::getMedia($id);
         }
@@ -145,7 +145,9 @@ class ShowFilmsController extends Controller
         return Datatables::of(Media::whereIn('id_media', $mediasPlaylistId)->get())->make(true);
     }
 
-    public function showHistory($pseudo) {        
+    public function showHistory($pseudo) {
+        $UserHistoryData = Action::with('getMediaInfos')->where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)
+        ->get();   
         return view('userHistory', [$pseudo]);
     }
 
