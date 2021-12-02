@@ -1,3 +1,4 @@
+//UNUSED - DELETE THIS
 //SOURCE: https://codepen.io/robertcooper_rc/pen/XeabLa 
 
 let pages = document.getElementById("totalPages").value;
