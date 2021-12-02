@@ -61,7 +61,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row bottom-1">
         <div class="row">
             <h5 for="Synopsis" class="col">Synopsis</h5>
             <hr/>
@@ -72,7 +72,7 @@
             </div>
         </div>
     </div>
-    <br/>
+    @if( Auth::user())
     <div class="row bottom-1">
         <div class="col-md-6">
             <a class=".btn-link text-center" data-bs-toggle="modal" data-bs-target="#addPlaylistModal">
@@ -90,14 +90,15 @@
             </a>
         </div>
     </div>
+    @endif
 </div>
 
-<!-- Modal Connexion-->
+<!-- Modal Ajout Playlist-->
 <div class="modal " id="addPlaylistModal" tabindex="-1" aria-labelledby="addPlaylist" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title  " id="addPlaylist">Ajouter à une playlist</h5>
+            <h5 class="modal-title  " id="addPlaylist">Ajouter à une de vos playlist</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -105,17 +106,19 @@
                     <thead>
                         <tr>
                             <th>Nom</th>
-                            <th>Actions</th>
+                            <th>Date de création</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($playlists as $playlist)
                         <tr>
                             <td>{{$playlist->name_playlist}}</td>
+                            <td>{{$playlist->creation_date}}</td>
                             <td>
                                 <form action="{{ route('media.addPlaylist', [$media->id_media, $playlist->id_playlist])}}" method="post">
                                     @csrf
-                                    <button class="btn btn-danger" type="submit">Ajouter</button>
+                                    <button class="btn btn-warning" type="submit">Ajouter</button>
                                 </form>
                             </td>
                         </tr>

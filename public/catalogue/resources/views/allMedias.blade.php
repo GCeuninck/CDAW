@@ -45,9 +45,11 @@
     <div id="columns">
         @foreach ($medias as $media)
         <figure>
-        <img src="{{$media['poster_link']}}">
-            <figcaption class="text-truncate">{{$media['title']}}</figcaption>
-            </figure>
+            <a class="no_decoration" href="{{ url('/media', $media->id_media ) }}">
+                <img src="{{$media['poster_link']}}">
+                <figcaption class="text-truncate">{{$media['title']}}</figcaption>
+            </a>
+        </figure>
         @endforeach	
     </div> 
     <div class="d-flex justify-content-center">
