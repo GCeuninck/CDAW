@@ -26,7 +26,7 @@ class Media extends Model
     }
 
     public static function getMediaDetailFromIMDB($id_media){
-        $key = "k_hd33v3x9";
+        $key = "k_pkfnyjq8";
         $curl = curl_init();
 
         //Generate Media Detail
