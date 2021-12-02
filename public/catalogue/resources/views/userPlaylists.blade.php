@@ -14,7 +14,6 @@
                 <table class="table table-bordered yajra-datatable">
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Titre</th>
                             <th>Actions</th>
                         </tr>
@@ -46,7 +45,6 @@
                         "url": url,
                     },                    
                     columns: [
-                        {data: 'id_media', name: 'id_media'},
                         {data: 'title', name: 'title'},
                         {data: 'action', name: 'action', orderable: false, searchable: false}
                     ]
