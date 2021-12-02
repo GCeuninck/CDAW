@@ -41,7 +41,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item border-right "><a class="nav-link me-2 ms-2" href="{{URL::asset('/' . Auth::user()->pseudo . '/playlists')}}">Playlist</a></li>
                         <li class="nav-item border-right"><a class="nav-link me-2 ms-2" href="{{URL::asset('/' . Auth::user()->pseudo . '/history')}}">Historique</a>   </li>
-                        <li class="nav-item"><a class="nav-link me-2 ms-2" href="#">Aide</a> </li>
+                        <li class="nav-item"><a class="nav-link me-2 ms-2" href="https://github.com/GCeuninck/CDAW" target="_blank" rel="noopener noreferrer">Aide</a> </li>
 
                         <li class="nav-item me-2"><div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
