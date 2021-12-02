@@ -11,17 +11,22 @@ use Carbon\Carbon;
 class Action extends Model
 {
     use HasFactory;
+    use HasCompositePrimaryKeyTrait;
 
     protected $table = 'action';
 
+    protected $primaryKey = ['code_action','pseudo_action','id_media_action'];
+
+    public $incrementing = false;
+    
     protected $fillable = [
-        'code_action', 
+        'code_action',
         'label_action', 
         'date_action', 
-        'pseudo_action', 
-        'id_media_action', 
         'comment',
         'code_status',
+        'pseudo_action', 
+        'id_media_action'
     ];
 
     public static function createAction($action) {
@@ -63,10 +68,25 @@ class Action extends Model
         return Action::updateOrCreate($data);
     }
 
+    public static function deleteLikeAction($pseudo, $id) {
+        $action= Action::where('code_action', '=' , 2)->where('pseudo_action', '=', $pseudo)->where('id_media_action', '=', $id)->first();
+        $action->delete();
+        // return Action::delete($data);
+        // return Action::destroy($action);
+    }
+
     public static function getAllMediaLikes($id) {
         return Action::where('code_action', '=' , 2)->where('id_media_action', '=', $id)->get();
     }
 
+    public static function getAllUserLikes($pseudo) {
+        return Action::where('code_action', '=' , 2)->where('pseudo_action', '=', $pseudo)->get();
+    }
+
+    public static function isLikedByUser($id,$pseudo) {
+        $isLiked = Action::where('code_action', '=' , 2)->where('pseudo_action', '=', $pseudo)->where('id_media_action', '=', $id)->get();
+        return !$isLiked->isEmpty();
+    }
 
     public function getMediaInfos(){
         return $this->belongsTo(Media::class, "id_media_action", "id_media"); 

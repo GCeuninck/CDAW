@@ -54,13 +54,14 @@ class ShowFilmsController extends Controller
 
         $allLikes = Action::getAllMediaLikes($id);
         $likes = count($allLikes);
-        // $likes = [
-        //     'count' => count($allLikes),
-        //     'isLiked' =>
-        // ];
 
+        if(Auth::check())
+        {
+            $pseudo = Auth::user()->pseudo;
+            $isLiked =Action::isLikedByUser($id,$pseudo);
+        }
 
-        return view('detail', compact('media', 'genres', 'playlists','likes'));
+        return view('detail', compact('media', 'genres', 'playlists','likes','isLiked'));
     }
 
     public function addMediaToUserPlaylists($id, $id_playlist){
@@ -75,6 +76,14 @@ class ShowFilmsController extends Controller
             'id_media_action' => $id
         ];
         Action::createLikeAction($data);
+
+        return redirect('/media/' . $id); 
+    }
+
+    public function dislikeMedia($id){
+        $pseudo =  Auth::user()->pseudo;
+
+        Action::deleteLikeAction($pseudo, $id);
 
         return redirect('/media/' . $id); 
     }
