@@ -147,13 +147,14 @@ class ShowFilmsController extends Controller
         return Datatables::of(Media::whereIn('id_media', $mediasPlaylistId)->get())->make(true);
     }
 
-    public function showHistory($pseudo) {
+    public function showHistory($pseudo) {        
         return view('userHistory', [$pseudo]);
     }
 
     public function showUserHistory($pseudo){
-        $UserHistoryId = Action::where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)->get('id_media_action');
-        return Datatables::of(Media::whereIn('id_media', $UserHistoryId)->get())->make(true);
+        $UserHistoryData = Action::with('getMediaInfos')->where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)
+        ->get();
+        return Datatables::of($UserHistoryData)->make(true);
     }
 
 

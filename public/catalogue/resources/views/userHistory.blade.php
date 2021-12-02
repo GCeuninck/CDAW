@@ -13,6 +13,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Titre</th>
+                    <th>Date de visionnage</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,8 +35,9 @@
                 serverSide: true,
                 ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
                 columns: [
-                    {data: 'id_media', name: 'id_media'},
-                    {data: 'title', name: 'title'},
+                    {data: 'get_media_infos.id_media', name: 'get_media_infos.id_media'},
+                    {data: 'get_media_infos.title', name: 'get_media_infos.title'},
+                    {data: 'date_action', name: 'date_action'},
                 ]
             });
             

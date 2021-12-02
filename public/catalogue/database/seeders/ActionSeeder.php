@@ -37,7 +37,7 @@ class ActionSeeder extends Seeder
                     'date_action' => Carbon::now()->format('Y-m-d'),
                     'pseudo_action' => $user->pseudo,
                     'id_media_action' => $media->id_media,
-                    'comment' => $user->pseudo . ' has seen this media : ' . $media->title,
+                    'comment' => $user->pseudo . ' has seen this media : ' . $media->id_media,
                     'code_status' => KeyValue::getStatus('0')['code'],
                 ];
                 array_push($actions, Action::createAction($actionViewData));
@@ -48,7 +48,7 @@ class ActionSeeder extends Seeder
                     'date_action' => Carbon::now()->format('Y-m-d'),
                     'pseudo_action' => $user->pseudo,
                     'id_media_action' => $media->id_media,
-                    'comment' => $user->pseudo . ' has commented on this media : ' . $media->title,
+                    'comment' => $user->pseudo . ' has commented on this media : ' . $media->id_media,
                     'code_status' => KeyValue::getStatus('0')['code'],
                 ];
                 array_push($actions, Action::createAction($actionCommentData));

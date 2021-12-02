@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\KeyValue;
 use Carbon\Carbon;
+use App\Models\Media;
 
 class Action extends Model
 {
@@ -60,5 +61,9 @@ class Action extends Model
             'code_status' => KeyValue::getStatus('0')['code']
         ];
         return Action::updateOrCreate($data);
+    }
+
+    public function getMediaInfos(){
+        return $this->belongsTo(Media::class, "id_media_action", "id_media"); 
     }
 }
