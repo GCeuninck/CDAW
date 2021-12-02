@@ -98,6 +98,22 @@ h4{
     margin:0;
 }
 
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.end{
+    text-align: end;
+}
+
+/* div.dataTables_info {position:absolute}
+div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
+.dataTables_paginate {
+    width: 100%;
+    text-align: center;
+  } */
+
 .black{
     color: black;
 }

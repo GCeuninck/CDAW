@@ -5,14 +5,13 @@
     <div class="container">
         <h1>Historique</h1>
         <p style="color: red">EN COURS DE CONSTRUCTION</p>
-        <br>
-        <p>  Cette route est protégée par un middleware ! Elle n'est visible que si vous êtes connecté ;)</p>
         
         <table class="table table-bordered yajra-datatable">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Titre</th>
+                    <th>Date de sortie</th>
+                    <th>Type</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,10 +31,15 @@
             var table = $('.yajra-datatable').DataTable({
                 processing: true,
                 serverSide: true,
+                dom :     
+                    "<'row'<'col-sm-6'l><'col-sm-6 end'f>>" +
+                    "<'row'<'col-sm-12'rt>>" +
+                    "<'row'<'col-sm-6'p><'col-sm-6 end'i>>",
                 ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
                 columns: [
-                    {data: 'id_media', name: 'id_media'},
                     {data: 'title', name: 'title'},
+                    {data: 'release_date', name: 'release_date'},
+                    {data: 'code_type', name: 'code_type'},
                 ]
             });
             
