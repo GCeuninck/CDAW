@@ -20,8 +20,10 @@ class ShowFilmsController extends Controller
     //jalon3
     public function showIndex() {
         $n=15;
-        $movies = Media::where('code_type', '=' , 0)->take($n)->get();
-        $series = Media::where('code_type', '=' , 1)->take($n)->get();
+        $sort = 'release_date';
+        $direction = 'desc';
+        $movies = Media::where('code_type', '=' , 0)->take($n)->orderBy($sort, $direction)->get();
+        $series = Media::where('code_type', '=' , 1)->take($n)->orderBy($sort, $direction)->get();
 
         return view('index', compact('movies','series'));
     }
@@ -152,7 +154,7 @@ class ShowFilmsController extends Controller
     }
 
     public function showUserHistory($pseudo){
-        $UserHistoryId = Action::where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)->get('id_media_action');
+        $UserHistoryId = Action::where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)->orderBy('code_action','asc')->get('id_media_action');
         return Datatables::of(Media::whereIn('id_media', $UserHistoryId)->get())->make(true);
     }
 
