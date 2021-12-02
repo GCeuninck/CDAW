@@ -167,10 +167,10 @@ class ShowFilmsController extends Controller
         $mediasPlaylistId = Playlist_media::getAllMediaPlaylist($idPlaylist)->get('id_media_pm');
         return Datatables::of(Media::whereIn('id_media', $mediasPlaylistId)->get())
         ->addIndexColumn()
-            ->addColumn('action', function($row){
+            ->addColumn('action', function($row) use ($pseudo, $idPlaylist){
                 $btn = '<a href="'. URL::asset('/media/' . $row->id_media) . '" class="edit btn btn-warning btn-sm">Voir</a>';
                 $btn = $btn.'
-                    <form action="'. URL::asset(Auth::user()->pseudo .'/playlists/'. 1 . '/' . $row->id_media) . '" method="post">
+                    <form action="'. URL::asset($pseudo .'/playlists/'. $idPlaylist . '/' . $row->id_media) . '" method="post">
                         '.csrf_field().'
                         '.method_field("DELETE").'
                         <button class="edit btn btn-danger btn-sm" type="submit">Supprimer</button>
