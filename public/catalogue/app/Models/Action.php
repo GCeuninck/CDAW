@@ -63,6 +63,11 @@ class Action extends Model
         return Action::updateOrCreate($data);
     }
 
+    public static function getAllMediaLikes($id) {
+        return Action::where('code_action', '=' , 2)->where('id_media_action', '=', $id)->get();
+    }
+
+
     public function getMediaInfos(){
         return $this->belongsTo(Media::class, "id_media_action", "id_media"); 
     }

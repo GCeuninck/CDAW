@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item me-3"><a class="nav-link" href="#">Aide</a></li>
+                        <li class="nav-item me-3"><a class="nav-link" href="https://github.com/GCeuninck/CDAW" target="_blank" rel="noopener noreferrer">Aide</a></li>
                         <li class="nav-item">
                             <a href="{{ route('login') }}">
                                 <button type="button" class="btn btn-warning">Connexion</button>

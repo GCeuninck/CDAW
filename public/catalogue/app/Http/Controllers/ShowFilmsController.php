@@ -53,7 +53,15 @@ class ShowFilmsController extends Controller
             $playlists = Playlist::getUserPlaylists(Auth::user()->pseudo)->get();
         }
 
-        return view('detail', compact('media', 'genres', 'playlists'));
+        $allLikes = Action::getAllMediaLikes($id);
+        $likes = count($allLikes);
+        // $likes = [
+        //     'count' => count($allLikes),
+        //     'isLiked' =>
+        // ];
+
+
+        return view('detail', compact('media', 'genres', 'playlists','likes'));
     }
 
     public function addMediaToUserPlaylists($id, $id_playlist){
