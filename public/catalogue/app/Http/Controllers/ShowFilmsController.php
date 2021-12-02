@@ -146,8 +146,6 @@ class ShowFilmsController extends Controller
     }
 
     public function showHistory($pseudo) {
-        $UserHistoryData = Action::with('getMediaInfos')->where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)
-        ->get();   
         return view('userHistory', [$pseudo]);
     }
 
