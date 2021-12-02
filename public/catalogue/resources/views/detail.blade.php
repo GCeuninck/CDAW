@@ -56,7 +56,7 @@
             <div class="row">
                 <label for="NbLike" class="col-sm-5">Nombre de j'aime</label>
                 <div class="col">
-                    <p Id="NbLike" class="p-justified">TODO</p>
+                    <p Id="NbLike" class="p-justified">{{$likes}}</p>
                 </div>
             </div>
         </div>
