@@ -56,7 +56,12 @@
                         <div class="card-body">
                             <p class="item-center text-truncate">{{ $media->title }}<br>
                                 @if (Auth::check())
-                                    <a ><i class="far fa-heart  "></i></span></a>
+                                    <form method="POST" action="{{ route('media.like', $media->id_media)}}">
+                                        @csrf
+                                            <i class="far fa-heart" onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                            </i>
+                                    </form>
                                     @else
                                         <p/>
                                 @endif

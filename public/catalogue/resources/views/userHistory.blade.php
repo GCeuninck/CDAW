@@ -10,8 +10,7 @@
             <thead>
                 <tr>
                     <th>Titre</th>
-                    <th>Date de sortie</th>
-                    <th>Type</th>
+                    <th>Date de visionnage</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,9 +36,9 @@
                     "<'row'<'col-sm-6'p><'col-sm-6 end'i>>",
                 ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
                 columns: [
-                    {data: 'title', name: 'title'},
-                    {data: 'release_date', name: 'release_date'},
-                    {data: 'code_type', name: 'code_type'},
+                    {data: 'get_media_infos.id_media', name: 'get_media_infos.id_media'},
+                    {data: 'get_media_infos.title', name: 'get_media_infos.title'},
+                    {data: 'date_action', name: 'date_action'},
                 ]
             });
             
