@@ -34,7 +34,7 @@ class Action extends Model
             'comment' => $action['comment'],
             'code_status' => $action['code_status']
         ];
-        return  Action::updateOrCreate($data);
+        return Action::updateOrCreate($data);
     }
 
     public static function createViewAction($action) {
