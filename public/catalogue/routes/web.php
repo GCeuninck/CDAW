@@ -57,6 +57,8 @@ Route::get('/{pseudo}/history/list', [ShowFilmsController::class, 'showUserHisto
 //PLAYLIST
 Route::get('/{pseudo}/playlists', 'App\Http\Controllers\ShowFilmsController@showPlaylists')->middleware('auth');
 Route::get('/{pseudo}/playlists/list/{idPlaylist}', [ShowFilmsController::class, 'showUserPlaylists'])->middleware('auth')->name('playlist.list');
+Route::post('/{pseudo}/playlists/list','App\Http\Controllers\ShowFilmsController@addPlaylist')->middleware('auth')->name('playlist.add');
+Route::delete('/{pseudo}/playlists/list/{idPlaylist}','App\Http\Controllers\ShowFilmsController@removeUserPlaylist')->middleware('auth')->name('playlist.delete');
 Route::delete('/{pseudo}/playlists/{idPlaylist}/{idMedia}','App\Http\Controllers\ShowFilmsController@removeMediaUserPlaylist')->middleware('auth');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

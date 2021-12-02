@@ -71,6 +71,27 @@ class ShowFilmsController extends Controller
         return redirect('/media/' . $id); 
     }
 
+    public function addPlaylist(Request $request, $pseudo) {
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:30',
+        ]);
+
+        $playlistData = [
+            'name_playlist' => $validatedData['name'],
+            'pseudo_playlist' => $pseudo
+        ];
+        
+        Playlist::createPlaylist($playlistData);
+
+        return redirect($pseudo .'/playlists/');
+    }
+
+    public function removeUserPlaylist($pseudo, $idPlaylist){
+        Playlist::deletePlaylist($idPlaylist);
+        return redirect($pseudo .'/playlists/');
+    }
+
     public function removeMediaUserPlaylist($pseudo, $idPlaylist, $idMedia){
         Playlist_media::removeMediaPlaylist($idPlaylist, $idMedia);
         return redirect($pseudo .'/playlists/'); 

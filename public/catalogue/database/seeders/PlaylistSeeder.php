@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Playlist;
 use App\Models\Playlist_media;
@@ -33,7 +32,6 @@ class PlaylistSeeder extends Seeder
             while ($i <= 3){
                 $playlistData = [
                     'name_playlist' => 'playlist' . $i,
-                    'creation_date' =>  Carbon::now()->format('Y-m-d'),
                     'pseudo_playlist' => $user->pseudo
                 ];
                 Playlist::createPlaylist($playlistData);
