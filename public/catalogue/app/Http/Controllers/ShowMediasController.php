@@ -63,7 +63,9 @@ class ShowMediasController extends Controller
             $isLiked = false;
         }
 
-        return view('detail', compact('media', 'genres', 'playlists','likes','isLiked'));
+        $comments = Action::getAllComments($id);
+
+        return view('detail', compact('media', 'genres', 'playlists','likes','isLiked', 'comments'));
     }
 
     public function addComment(Request $request, $id){
