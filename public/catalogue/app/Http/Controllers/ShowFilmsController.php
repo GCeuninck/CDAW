@@ -60,6 +60,9 @@ class ShowFilmsController extends Controller
         {
             $pseudo = Auth::user()->pseudo;
             $isLiked =Action::isLikedByUser($id,$pseudo);
+        }else
+        {
+            $isLiked = false;
         }
 
         return view('detail', compact('media', 'genres', 'playlists','likes','isLiked'));
