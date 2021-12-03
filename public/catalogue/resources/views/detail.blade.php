@@ -129,33 +129,7 @@
             </form>
         @endif
 
-        @foreach ($playlists as $playlist)
-            <hr class="large">
-            <div class="header-align">
-                <h2>{{$playlist->name_playlist}}</h2>
-                <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Supprimer cette playlist</button>
-                </form>
-            </div>
-            <div class="playlistDatatable" data-id="{{ $playlist->id_playlist }}">
-                <table class="table table-bordered yajra-datatable">
-                    <thead>
-                        <tr>
-                            <th>Date d'ajout à la playlist</th>
-                            <th>Titre</th>
-                            <th>Type de média</th>
-                            <th>Date de sortie</th>
-                            <th>Réalisateur</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        @endforeach
+        
     </div>
 </div>
 
