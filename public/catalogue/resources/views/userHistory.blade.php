@@ -8,9 +8,8 @@
         <table class="table table-bordered yajra-datatable">
             <thead>
                 <tr>
-                    <th>Date de visionnage</th>
                     <th>Titre</th>
-                    <th>Type de média</th>
+                    <th>Date de visionnage</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -37,9 +36,8 @@
                     "<'row'<'col-sm-6'p><'col-sm-6 end'i>>",
                 ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
                 columns: [
-                    {data: 'date_action', name: 'date_action'},
                     {data: 'get_media_infos.title', name: 'get_media_infos.title'},
-                    {data: 'get_media_infos.get_media_type.label', name: 'get_media_infos.get_media_type.label'},
+                    {data: 'date_action', name: 'date_action'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
