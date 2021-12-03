@@ -39,7 +39,7 @@ class Playlist_media extends Model
         $playlist_media->delete();
     }
 
-    public static function getAllMediaPlaylist($id_playlist_pm) {
-        return Playlist_media::where('id_playlist_pm', '=', $id_playlist_pm);
+    public function getMediaInfosPlaylist(){
+        return $this->belongsTo(Media::class, "id_media_pm", "id_media"); 
     }
 }
