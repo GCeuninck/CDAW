@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShowFilmsController;
+use App\Http\Controllers\ShowMediasController;
+use App\Http\Controllers\playlistController;
+use App\Http\Controllers\historyController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,42 @@ use App\Http\Controllers\ShowFilmsController;
 |
 */
 
+//INDEX
+Route::get('/', 'App\Http\Controllers\ShowMediasController@showIndex');
+
+//ALL MEDIAS
+//Route::get('/all', 'App\Http\Controllers\ShowMediasController@showAllMedias');
+Route::get('/all/movies/{sort?}', 'App\Http\Controllers\ShowMediasController@showAllMovies')->name('all.movies');
+Route::get('/all/series/{sort?}', 'App\Http\Controllers\ShowMediasController@showAllSeries')->name('all.series');;
+
+//DETAIL
+Route::get('/media/{id}', 'App\Http\Controllers\ShowMediasController@showMediaDetail');
+
+//ROUTES PROTEGEES
+Route::get('/user/playlists', 'App\Http\Controllers\playlistController@showUserPlaylists')->middleware('auth');
+
+//DETAIL
+Route::post('/media/{id}/addPlaylist/{id_playlist}', 'App\Http\Controllers\playlistController@addMediaToUserPlaylists')->middleware('auth')->name('media.addPlaylist');
+Route::post('/media/{id}/like', 'App\Http\Controllers\ShowMediasController@likeMedia')->middleware('auth')->name('media.like');
+Route::post('/media/{id}/dislike', 'App\Http\Controllers\ShowMediasController@dislikeMedia')->middleware('auth')->name('media.dislike');
+Route::post('/media/{id}/comment', 'App\Http\Controllers\ShowMediasController@addComment')->middleware('auth')->name('media.comment');
+
+//HISTORY
+Route::get('/{pseudo}/history', 'App\Http\Controllers\historyController@showHistory')->middleware('auth');
+Route::get('/{pseudo}/history/list', [historyController::class, 'showUserHistory'])->middleware('auth')->name('history.list');
+
+//PLAYLIST
+Route::get('/{pseudo}/playlists', 'App\Http\Controllers\playlistController@showPlaylists')->middleware('auth');
+Route::get('/{pseudo}/playlists/list/{idPlaylist}', [playlistController::class, 'showUserPlaylists'])->middleware('auth')->name('playlist.list');
+Route::post('/{pseudo}/playlists/list','App\Http\Controllers\playlistController@addPlaylist')->middleware('auth')->name('playlist.add');
+Route::delete('/{pseudo}/playlists/list/{idPlaylist}','App\Http\Controllers\playlistController@removeUserPlaylist')->middleware('auth')->name('playlist.delete');
+Route::delete('/{pseudo}/playlists/{idPlaylist}/{idMedia}','App\Http\Controllers\playlistController@removeMediaUserPlaylist')->middleware('auth');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+//JALON 2 - not used
 //GET FILMS ROUTE
 Route::get('/films', 'App\Http\Controllers\ShowFilmsController@showAllFilms');
 
@@ -29,39 +69,3 @@ Route::delete('/films/{id}','App\Http\Controllers\ShowFilmsController@destroy');
 
 //GET CATEGORIES ROUTE
 Route::get('/categories', 'App\Http\Controllers\listeMediasController@getCategories');
-
-
-//INDEX
-Route::get('/', 'App\Http\Controllers\ShowFilmsController@showIndex');
-
-//ALL
-//Route::get('/all', 'App\Http\Controllers\ShowFilmsController@showAllMedias');
-Route::get('/all/movies/{sort?}', 'App\Http\Controllers\ShowFilmsController@showAllMovies')->name('all.movies');
-Route::get('/all/series/{sort?}', 'App\Http\Controllers\ShowFilmsController@showAllSeries')->name('all.series');;
-
-//DETAIL
-Route::get('/media/{id}', 'App\Http\Controllers\ShowFilmsController@showMediaDetail');
-
-//ROUTES PROTEGEES
-Route::get('/user/playlists', 'App\Http\Controllers\ShowFilmsController@showUserPlaylists')->middleware('auth');
-
-//DETAIL
-Route::post('/media/{id}/addPlaylist/{id_playlist}', 'App\Http\Controllers\ShowFilmsController@addMediaToUserPlaylists')->middleware('auth')->name('media.addPlaylist');
-Route::post('/media/{id}/like', 'App\Http\Controllers\ShowFilmsController@likeMedia')->middleware('auth')->name('media.like');
-Route::post('/media/{id}/dislike', 'App\Http\Controllers\ShowFilmsController@dislikeMedia')->middleware('auth')->name('media.dislike');
-Route::post('/media/{id}/comment', 'App\Http\Controllers\ShowFilmsController@addComment')->middleware('auth')->name('media.comment');
-
-//HISTORY
-Route::get('/{pseudo}/history', 'App\Http\Controllers\ShowFilmsController@showHistory')->middleware('auth');
-Route::get('/{pseudo}/history/list', [ShowFilmsController::class, 'showUserHistory'])->middleware('auth')->name('history.list');
-
-//PLAYLIST
-Route::get('/{pseudo}/playlists', 'App\Http\Controllers\ShowFilmsController@showPlaylists')->middleware('auth');
-Route::get('/{pseudo}/playlists/list/{idPlaylist}', [ShowFilmsController::class, 'showUserPlaylists'])->middleware('auth')->name('playlist.list');
-Route::post('/{pseudo}/playlists/list','App\Http\Controllers\ShowFilmsController@addPlaylist')->middleware('auth')->name('playlist.add');
-Route::delete('/{pseudo}/playlists/list/{idPlaylist}','App\Http\Controllers\ShowFilmsController@removeUserPlaylist')->middleware('auth')->name('playlist.delete');
-Route::delete('/{pseudo}/playlists/{idPlaylist}/{idMedia}','App\Http\Controllers\ShowFilmsController@removeMediaUserPlaylist')->middleware('auth');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
