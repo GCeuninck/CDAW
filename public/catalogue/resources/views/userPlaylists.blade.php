@@ -23,8 +23,9 @@
                 <table class="table table-bordered yajra-datatable">
                     <thead>
                         <tr>
-                            <th>Titre</th>
                             <th>Date d'ajout à la playlist</th>
+                            <th>Titre</th>
+                            <th>Type de média</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -79,8 +80,9 @@
                         "url": url,
                     },                    
                     columns: [
-                        {data: 'get_media_infos_playlist.title', name: 'get_media_infos_playlist.title'},
                         {data: 'date_pm', name: 'date_pm'},
+                        {data: 'get_media_infos_playlist.title', name: 'get_media_infos_playlist.title'},
+                        {data: 'get_media_infos_playlist.get_media_type.label', name: 'get_media_infos_playlist.get_media_type.label'},
                         {data: 'action', name: 'action', orderable: false, searchable: false}
                     ]
                 });

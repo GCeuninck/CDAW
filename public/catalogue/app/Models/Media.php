@@ -86,4 +86,10 @@ class Media extends Model
     public function category(){
         return $this->belongsTo(Category::class, "category_id", "id"); //Objet retourné, Id permettant d'identifier l'objet, la clé qui fait référence à l'id
     }
+
+    public function getMediaType()
+    {
+        $code = $this->code_type;
+        return $this->belongsTo(KeyValue::class,'code_type', 'code')->where('type', '=', 'media_type');
+    }
 }
