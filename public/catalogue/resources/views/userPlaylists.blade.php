@@ -24,6 +24,7 @@
                     <thead>
                         <tr>
                             <th>Titre</th>
+                            <th>Date d'ajout à la playlist</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -78,7 +79,8 @@
                         "url": url,
                     },                    
                     columns: [
-                        {data: 'title', name: 'title'},
+                        {data: 'get_media_infos_playlist.title', name: 'get_media_infos_playlist.title'},
+                        {data: 'date_pm', name: 'date_pm'},
                         {data: 'action', name: 'action', orderable: false, searchable: false}
                     ]
                 });

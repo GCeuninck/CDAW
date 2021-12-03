@@ -188,8 +188,9 @@ class ShowFilmsController extends Controller
     }
 
     public function showUserPlaylists($pseudo, $idPlaylist) {
-        $mediasPlaylistId = Playlist_media::getAllMediaPlaylist($idPlaylist)->get('id_media_pm');
-        return Datatables::of(Media::whereIn('id_media', $mediasPlaylistId)->get())
+        $mediasPlaylistData = Playlist_media::with('getMediaInfosPlaylist')->where('id_playlist_pm', '=', $idPlaylist)
+        ->get();
+        return Datatables::of($mediasPlaylistData)
         ->addIndexColumn()
             ->addColumn('action', function($row) use ($pseudo, $idPlaylist){
                 $btn = '<a href="'. URL::asset('/media/' . $row->id_media) . '" class="edit btn btn-warning btn-sm">Voir</a>';
