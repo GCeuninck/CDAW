@@ -29,7 +29,11 @@
             <div class="row">
                 <label for="Author" class="col-sm-5">Auteur/Réalisateur</label>
                 <div class="col">
-                    <p Id="Author" class="p-justified">{{$media->director}}</p>
+                    @if($media->director)
+                        <p Id="Author" class="p-justified">{{$media->director}}</p>
+                    @else
+                        <p Id="Author" class="p-justified">Non renseigné</p>
+                    @endif
                 </div>
             </div>
             <div class="row">
@@ -49,7 +53,26 @@
                 <label for="Duration" class="col-sm-5">Durée</label>
                 <div class="col">
                     @if($media->duration)
-                        <p Id="Duration" class="p-justified">{{ $media->duration }} minutes </p>
+                        <p Id="Duration" class="p-justified">
+                            <?php 
+                                function hoursandmins($time)
+                                {
+                                    if ($time < 1) {
+                                        return;
+                                    }
+                                    $hours = floor($time / 60);
+                                    $minutes = ($time % 60);
+                                    if($hours>0)
+                                    {
+                                            return sprintf('%d heures %02d minutes', $hours, $minutes);
+                                    }else
+                                    {
+                                            return sprintf('%02d minutes', $minutes);
+                                    }
+                                }
+                                echo hoursandmins($media->duration);
+                            ?>
+                        </p>
                     @else
                         <p Id="Duration" class="p-justified">Non renseignée</p>
                     @endif
