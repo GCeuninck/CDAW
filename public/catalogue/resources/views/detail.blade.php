@@ -139,7 +139,25 @@
         @endif
     </div>
     @endif
+
+    <div>
+        <h2>Commentaires</h2>
+        @if( Auth::user())
+            <form id="addComment" action="{{ route('media.comment', $media->id_media)}}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <input type="Comment" class="form-control bottom-1" name="comment" id="comment" aria-describedby="comment" placeholder="Zone de texte du commentaire...">
+                </div>
+                <input type="submit" value="Publier ce commentaire"/>
+            </form>
+        @endif
+
+        
+    </div>
 </div>
+
+
+
 
 <!-- Modal Ajout Playlist-->
 <div class="modal " id="addPlaylistModal" tabindex="-1" aria-labelledby="addPlaylist" aria-hidden="true">

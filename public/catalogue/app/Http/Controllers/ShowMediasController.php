@@ -66,6 +66,23 @@ class ShowMediasController extends Controller
         return view('detail', compact('media', 'genres', 'playlists','likes','isLiked'));
     }
 
+    public function addComment(Request $request, $id){
+
+        $validatedData = $request->validate([
+            'comment' => 'required|max:300',
+        ]);
+
+        $data = [
+            'comment' => $validatedData['comment'],
+            'pseudo_action' => Auth::user()->pseudo,
+            'id_media_action' => $id,
+        ];
+        
+        Action::createCommentAction($data);
+
+        return redirect('/media/' . $id);
+    }
+
     public function likeMedia($id){
         $data = [
             'pseudo_action' => Auth::user()->pseudo,
