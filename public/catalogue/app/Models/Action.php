@@ -89,6 +89,6 @@ class Action extends Model
     }
 
     public function getMediaInfos(){
-        return $this->belongsTo(Media::class, "id_media_action", "id_media"); 
+        return $this->belongsTo(Media::class, "id_media_action", "id_media")->with('getMediaType'); 
     }
 }

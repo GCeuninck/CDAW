@@ -113,4 +113,9 @@ class Media extends Model
     //     return $array;
     // }
 
+    public function getMediaType()
+    {
+        $code = $this->code_type;
+        return $this->belongsTo(KeyValue::class,'code_type', 'code')->where('type', '=', 'media_type');
+    }
 }

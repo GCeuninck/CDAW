@@ -194,7 +194,7 @@ class ShowFilmsController extends Controller
     }
 
     public function showUserPlaylists($pseudo, $idPlaylist) {
-        $mediasPlaylistData = Playlist_media::with('getMediaInfosPlaylist')->where('id_playlist_pm', '=', $idPlaylist)
+        $mediasPlaylistData = Playlist_media::where('id_playlist_pm', '=', $idPlaylist)->with('getMediaInfosPlaylist')
         ->get();
         return Datatables::of($mediasPlaylistData)
         ->addIndexColumn()
@@ -217,7 +217,7 @@ class ShowFilmsController extends Controller
     }
 
     public function showUserHistory($pseudo){
-        $UserHistoryData = Action::with('getMediaInfos')->where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)
+        $UserHistoryData = Action::where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)->with('getMediaInfos')
         ->get();
         return Datatables::of($UserHistoryData)
         ->addIndexColumn()
