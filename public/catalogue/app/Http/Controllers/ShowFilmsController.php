@@ -223,7 +223,6 @@ class ShowFilmsController extends Controller
         ->make(true);
     }
 
-
     //jalon2
     public function showAllFilms() {
         $films = Film::with('category')->get();
