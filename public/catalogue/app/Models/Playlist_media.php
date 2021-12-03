@@ -40,6 +40,6 @@ class Playlist_media extends Model
     }
 
     public function getMediaInfosPlaylist(){
-        return $this->belongsTo(Media::class, "id_media_pm", "id_media"); 
+        return $this->belongsTo(Media::class, "id_media_pm", "id_media")->with('getMediaType'); 
     }
 }
