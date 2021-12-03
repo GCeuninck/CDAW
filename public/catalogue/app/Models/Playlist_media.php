@@ -23,6 +23,8 @@ class Playlist_media extends Model
         'date_pm'
     ];
 
+
+    
     protected $hidden = [];
 
     public static function addMediaPlaylist($id_media, $id_playlist) {
