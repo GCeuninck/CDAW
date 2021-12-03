@@ -49,6 +49,7 @@ class Media extends Model
             $data = [
                 'id_media' => $id_media,
                 'release_date' => isset($response['releaseDate']) ? $response['releaseDate'] : Media::whereId_media($id_media)->release_date,
+                'director' => $response['directors'],
                 'duration' => $response['runtimeMins'],
                 'synopsis' => $response['plotLocal'] ? $response['plotLocal'] : $response['plot'],
                 'actors' => $response['stars'],

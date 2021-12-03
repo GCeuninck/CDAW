@@ -213,9 +213,15 @@ class ShowFilmsController extends Controller
     public function showUserHistory($pseudo){
         $UserHistoryData = Action::with('getMediaInfos')->where('code_action', '=' , 0)->where('pseudo_action', '=', $pseudo)
         ->get();
-        return Datatables::of($UserHistoryData)->make(true);
+        return Datatables::of($UserHistoryData)
+        ->addIndexColumn()
+            ->addColumn('action', function($row){
+                $btn = '<a href="'. URL::asset('/media/' . $row->id_media_action) . '" class="edit btn btn-warning btn-sm">Voir</a>';
+                return $btn;
+            })
+        ->rawColumns(['action'])
+        ->make(true);
     }
-
 
     //jalon2
     public function showAllFilms() {

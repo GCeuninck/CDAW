@@ -10,6 +10,7 @@
                 <tr>
                     <th>Titre</th>
                     <th>Date de visionnage</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                 columns: [
                     {data: 'get_media_infos.title', name: 'get_media_infos.title'},
                     {data: 'date_action', name: 'date_action'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
             
