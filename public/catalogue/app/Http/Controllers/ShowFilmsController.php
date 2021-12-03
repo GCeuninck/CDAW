@@ -181,12 +181,6 @@ class ShowFilmsController extends Controller
 
         return view('allMedias', compact('medias','sort','type'));
     }
-
-    // public function search()
-    // {
-    //     $results = Media::search('The General')->within('title')->get();
-    //     return view('search',compact('results'));
-    // }
     
     public function showPlaylists($pseudo) {
         $playlists = Playlist::getUserPlaylists($pseudo)->get();

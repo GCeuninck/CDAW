@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
 class Media extends Model
 {
     use HasFactory;
 
     protected $table = 'media';
-
-    // protected $primaryKey = 'id_media';
 
     protected $guarded = ['id_media'];
     protected $hidden = [];
@@ -89,27 +86,6 @@ class Media extends Model
     public function category(){
         return $this->belongsTo(Category::class, "category_id", "id"); //Objet retourné, Id permettant d'identifier l'objet, la clé qui fait référence à l'id
     }
-
-    // public function searchableAs()
-    // {
-    //     return 'id_media';
-    // }
-
-    // public function getScoutKey()
-    // {
-    //     return $this->id_media;
-    // }
-
-    // public function getScoutKeyName()
-    // {
-    //     return 'id_media';
-    // }
-
-    // public function toSearchableArray()
-    // {
-    //     $array = $this->only('title');
-    //     return $array;
-    // }
 
     public function getMediaType()
     {

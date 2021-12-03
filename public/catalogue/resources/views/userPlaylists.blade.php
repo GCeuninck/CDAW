@@ -27,6 +27,8 @@
                             <th>Date d'ajout à la playlist</th>
                             <th>Titre</th>
                             <th>Type de média</th>
+                            <th>Date de sortie</th>
+                            <th>Réalisateur</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -84,6 +86,8 @@
                         {data: 'date_pm', name: 'date_pm'},
                         {data: 'get_media_infos_playlist.title', name: 'get_media_infos_playlist.title'},
                         {data: 'get_media_infos_playlist.get_media_type.label', name: 'get_media_infos_playlist.get_media_type.label'},
+                        {data: 'get_media_infos_playlist.release_date', name: 'get_media_infos_playlist.release_date'},
+                        {data: 'get_media_infos_playlist.director', name: 'get_media_infos_playlist.director'},
                         {data: 'action', name: 'action', orderable: false, searchable: false}
                     ]
                 });
