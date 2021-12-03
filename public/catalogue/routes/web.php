@@ -40,7 +40,7 @@ Route::get('/all/movies/{sort?}', 'App\Http\Controllers\ShowFilmsController@show
 Route::get('/all/series/{sort?}', 'App\Http\Controllers\ShowFilmsController@showAllSeries')->name('all.series');
 
 //SEARCH
-Route::get('/search', 'App\Http\Controllers\ShowFilmsController@search');
+// Route::get('/search', 'App\Http\Controllers\ShowFilmsController@search');
 
 //DETAIL
 Route::get('/media/{id}', 'App\Http\Controllers\ShowFilmsController@showMediaDetail');
