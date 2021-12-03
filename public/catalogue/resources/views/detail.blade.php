@@ -19,8 +19,8 @@
             <div class="row">
                 <label for="ReleaseDate" class="col-sm-5">Date de sortie</label>
                 <div class="col">
-                    @if({{$media->release_date}})
-                        <p Id="ReleaseDate" class="p-justified">{{$media->release_date}} </p>
+                    @if($media->release_date)
+                        <p Id="ReleaseDate" class="p-justified"><?php $date = date_create($media->release_date); echo (date_format($date, 'd/m/y')); ?></p>
                     @else
                         <p Id="ReleaseDate" class="p-justified">Non renseignée</p>
                     @endif
@@ -48,7 +48,7 @@
             <div class="row">
                 <label for="Duration" class="col-sm-5">Durée</label>
                 <div class="col">
-                    @if({{$media->duration}})
+                    @if($media->duration)
                         <p Id="Duration" class="p-justified">{{ $media->duration }} minutes </p>
                     @else
                         <p Id="Duration" class="p-justified">Non renseignée</p>
@@ -58,7 +58,7 @@
             <div class="row">
                 <label for="Actors" class="col-sm-5">Acteur(s)</label>
                 <div class="col">
-                    @if({{$media->actors}})
+                    @if($media->actors)
                         <p Id="Actors" class="p-justified">{{$media->actors}} </p>
                     @else
                         <p Id="Actors" class="p-justified">Non renseignés</p>
