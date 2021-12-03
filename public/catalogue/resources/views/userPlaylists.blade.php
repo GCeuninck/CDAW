@@ -1,18 +1,19 @@
 @extends("template_loged")
 
 @section("contentBody")
-    <div class="container">
-        <h1>Playlists</h1>
-        <p style="color: red">EN COURS DE CONSTRUCTION</p>
-        <br>
-        <p>Cette route est protégée par un middleware ! Elle n'est visible que si vous êtes connecté ;)</p>
+    <div class="container bottom-1">
+        <div class="header-align">
+            <h1>Playlists</h1>
 
-        <a data-bs-toggle="modal" data-bs-target="#createPlaylistModal">
-            <button type="button" class="btn btn-warning btn-lg">Créer une playlist</button>
-        </a>
+            <a data-bs-toggle="modal" data-bs-target="#createPlaylistModal">
+                <button type="button" class="btn btn-warning btn-lg">Créer une playlist</button>
+            </a>
+        </div>
 
         @foreach ($playlists as $playlist)
-            <h1>{{$playlist->name_playlist}}</h1>
+        <hr class="large">
+        <div class="header-align">
+            <h2>{{$playlist->name_playlist}}</h2>
             <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
                 @csrf
                 @method('DELETE')
