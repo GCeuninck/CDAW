@@ -18,6 +18,7 @@ class CreateMediaTable extends Migration
             $table->string('title');
             $table->string('poster_link')->nullable();
             $table->string('release_date')->nullable();
+            $table->string('director')->nullable();
             $table->string('actors')->nullable();
             $table->string('duration')->nullable();
             $table->string('genre')->nullable();

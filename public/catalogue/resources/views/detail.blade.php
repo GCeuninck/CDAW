@@ -29,7 +29,7 @@
             <div class="row">
                 <label for="Author" class="col-sm-5">Auteur/Réalisateur</label>
                 <div class="col">
-                    <p Id="Author" class="p-justified">TODO</p>
+                    <p Id="Author" class="p-justified">{{$media->director}}</p>
                 </div>
             </div>
             <div class="row">
