@@ -4,7 +4,6 @@
     
     <div class="container">
         <h1>Historique</h1>
-        <p style="color: red">EN COURS DE CONSTRUCTION</p>
         
         <table class="table table-bordered yajra-datatable">
             <thead>
