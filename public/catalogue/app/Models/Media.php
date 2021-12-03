@@ -4,17 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 
 class Media extends Model
 {
     use HasFactory;
-    use Searchable;
 
     protected $table = 'media';
 
-    protected $primaryKey = 'id_media';
+    // protected $primaryKey = 'id_media';
 
     protected $guarded = ['id_media'];
     protected $hidden = [];
