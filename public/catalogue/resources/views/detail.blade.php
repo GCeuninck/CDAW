@@ -116,7 +116,51 @@
         @endif
     </div>
     @endif
+
+    <div>
+        <h2>Commentaires</h2>
+        @if( Auth::user())
+            <form id="addComment" action="{{ route('media.comment', $media->id_media)}}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <input type="Comment" class="form-control bottom-1" name="comment" id="comment" aria-describedby="comment" placeholder="Zone de texte du commentaire...">
+                </div>
+                <input type="submit" value="Publier ce commentaire"/>
+            </form>
+        @endif
+
+        @foreach ($playlists as $playlist)
+            <hr class="large">
+            <div class="header-align">
+                <h2>{{$playlist->name_playlist}}</h2>
+                <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Supprimer cette playlist</button>
+                </form>
+            </div>
+            <div class="playlistDatatable" data-id="{{ $playlist->id_playlist }}">
+                <table class="table table-bordered yajra-datatable">
+                    <thead>
+                        <tr>
+                            <th>Date d'ajout à la playlist</th>
+                            <th>Titre</th>
+                            <th>Type de média</th>
+                            <th>Date de sortie</th>
+                            <th>Réalisateur</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        @endforeach
+    </div>
 </div>
+
+
+
 
 <!-- Modal Ajout Playlist-->
 <div class="modal " id="addPlaylistModal" tabindex="-1" aria-labelledby="addPlaylist" aria-hidden="true">
