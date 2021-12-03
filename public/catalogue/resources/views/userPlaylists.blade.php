@@ -11,15 +11,15 @@
         </div>
 
         @foreach ($playlists as $playlist)
-        <hr class="large">
-        <div class="header-align">
-            <h2>{{$playlist->name_playlist}}</h2>
-            <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Supprimer cette playlist</button>
-            </form>
-            <br/>
+            <hr class="large">
+            <div class="header-align">
+                <h2>{{$playlist->name_playlist}}</h2>
+                <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Supprimer cette playlist</button>
+                </form>
+            </div>
             <div class="playlistDatatable" data-id="{{ $playlist->id_playlist }}">
                 <table class="table table-bordered yajra-datatable">
                     <thead>
