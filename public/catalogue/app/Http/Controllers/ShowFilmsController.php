@@ -193,13 +193,13 @@ class ShowFilmsController extends Controller
         return Datatables::of($mediasPlaylistData)
         ->addIndexColumn()
             ->addColumn('action', function($row) use ($pseudo, $idPlaylist){
-                $btn = '<a href="'. URL::asset('/media/' . $row->id_media) . '" class="edit btn btn-warning btn-sm">Voir</a>';
+                $btn = '<div class="row"><div class="col-sm-2"><a href="'. URL::asset('/media/' . $row->id_media) . '" class="edit btn btn-warning ">Voir</a></div>';
                 $btn = $btn.'
-                    <form action="'. URL::asset($pseudo .'/playlists/'. $idPlaylist . '/' . $row->id_media) . '" method="post">
+                    <div class="col-sm-2"><form action="'. URL::asset($pseudo .'/playlists/'. $idPlaylist . '/' . $row->id_media) . '" method="post">
                         '.csrf_field().'
                         '.method_field("DELETE").'
-                        <button class="edit btn btn-danger btn-sm" type="submit">Supprimer</button>
-                    </form>';
+                        <button class="edit btn btn-danger btn-align" type="submit">Supprimer</button>
+                    </form></div></div>';
                 return $btn;
             })
         ->rawColumns(['action'])
