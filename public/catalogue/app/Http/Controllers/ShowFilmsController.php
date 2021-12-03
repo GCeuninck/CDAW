@@ -184,9 +184,6 @@ class ShowFilmsController extends Controller
     
     public function showPlaylists($pseudo) {
         $playlists = Playlist::getUserPlaylists($pseudo)->get();
-        $mediasPlaylistData = Playlist_media::where('id_playlist_pm', '=', '1')->with('getMediaInfosPlaylist')->get();
-        
-        echo($mediasPlaylistData[0]);
         return view('userPlaylists', compact('pseudo', 'playlists'));
     }
 
