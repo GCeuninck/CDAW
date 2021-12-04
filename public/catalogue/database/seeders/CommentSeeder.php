@@ -8,9 +8,9 @@ use Illuminate\Support\Str;
 
 use App\Models\User;
 use App\Models\Media;
-use App\Models\Action;
+use App\Models\Comment;
 
-class ActionSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -28,11 +28,13 @@ class ActionSeeder extends Seeder
             $i = 1;
             while ($i <= 3){
                 $media = $medias[$i];
-                $actionViewData = [
-                    'pseudo_action' => $user->pseudo,
-                    'id_media_action' => $media->id_media,
+
+                $commentData = [
+                    'comment' => $user->pseudo . ' has commented on this media : ' . $media->id_media,
+                    'pseudo_comment' => $user->pseudo,
+                    'id_media_comment' => $media->id_media,
                 ];
-                Action::createViewAction($actionViewData);
+                Comment::createComment($commentData);
                 $i++;
             }
         }

@@ -21,8 +21,7 @@ class CreateActionTable extends Migration
             $table->foreign('pseudo_action')->references('pseudo')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('id_media_action');
             $table->foreign('id_media_action')->references('id_media')->on('media')->onDelete('cascade')->onUpdate('cascade');
-            $table->text('comment')->nullable();
-            $table->foreignId('code_status')->references('code')->on('keyvalue')->nullable()->default(0)->onUpdate('cascade');
+            
             $table->timestamps();
 
             $table->primary(['code_action', 'pseudo_action', 'id_media_action']);

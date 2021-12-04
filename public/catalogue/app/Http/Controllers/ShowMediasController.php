@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Film;
-use App\Models\Category;
 use App\Models\Media;
 use App\Models\Action;
 use App\Models\Tag;
 use App\Models\KeyValue;
 use App\Models\Playlist;
 use App\Models\Playlist_media;
-use DataTables;
+use App\Models\Comment;
 use Auth;
-use URL;
 
 class ShowMediasController extends Controller
 {
@@ -63,7 +60,7 @@ class ShowMediasController extends Controller
             $isLiked = false;
         }
 
-        $comments = Action::getAllComments($id);
+        $comments = Comment::getAllMediaComments($id);
 
         return view('detail', compact('media', 'genres', 'playlists','likes','isLiked', 'comments'));
     }
@@ -74,13 +71,13 @@ class ShowMediasController extends Controller
             'comment' => 'required|max:300',
         ]);
 
-        $data = [
+        $commentData = [
             'comment' => $validatedData['comment'],
-            'pseudo_action' => Auth::user()->pseudo,
-            'id_media_action' => $id,
+            'pseudo_comment' => Auth::user()->pseudo,
+            'id_media_comment' => $id,
         ];
         
-        Action::createCommentAction($data);
+        Comment::createComment($commentData);
 
         return redirect('/media/' . $id);
     }
