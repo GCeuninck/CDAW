@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Playlist;
 use App\Models\Playlist_media;
 use DataTables;
 use URL;
+use Auth;
 
 class playlistController extends Controller
 {
@@ -44,22 +46,44 @@ class playlistController extends Controller
 
     public function showPlaylists($pseudo) {
         $playlists = Playlist::getUserPlaylists($pseudo)->get();
-        return view('userPlaylists', compact('pseudo', 'playlists'));
+        $currentUserRole = '';
+        if(Auth::Check()){
+            $currentUserRole = User::getUserInfos(Auth::user()->pseudo)->code_role;
+        }
+        return view('userPlaylists', compact('pseudo', 'playlists', 'currentUserRole'));
     }
 
     public function showUserPlaylists($pseudo, $idPlaylist) {
         $mediasPlaylistData = Playlist_media::where('id_playlist_pm', '=', $idPlaylist)->with('getMediaInfosPlaylist')
         ->get();
+
+        $currentUserRole = '';
+        $currentUserPseudo = '';
+        if(Auth::check()){
+            $currentUser = User::getUserInfos(Auth::user()->pseudo);
+            $currentUserRole = $currentUser->code_role;
+            $currentUserPseudo = $currentUser->pseudo;
+        }
+
         return Datatables::of($mediasPlaylistData)
         ->addIndexColumn()
-            ->addColumn('action', function($row) use ($pseudo, $idPlaylist){
-                $btn = '<div class="row"><div class="col-sm-3"><a href="'. URL::asset('/media/' . $row->id_media_pm) . '" class="edit btn btn-warning ">Voir</a></div>';
-                $btn = $btn.'
-                    <div class="col-sm-3"><form action="'. URL::asset($pseudo .'/playlists/'. $idPlaylist . '/' . $row->id_media_pm) . '" method="post">
-                        '.csrf_field().'
-                        '.method_field("DELETE").'
-                        <button class="edit btn btn-danger btn-align" type="submit">Supprimer</button>
-                    </form></div></div>';
+            ->addColumn('action', function($row) use ($pseudo, $idPlaylist, $currentUserRole, $currentUserPseudo){
+                $btn = '<div class="row">
+                    <div class="col-sm-3">
+                        <a href="'. URL::asset('/media/' . $row->id_media_pm) . '" class="edit btn btn-warning ">Voir</a>
+                    </div>';
+                
+                if($currentUserRole == '1' or $pseudo == $currentUserPseudo){
+                    $btn = $btn.'
+                    <div class="col-sm-3">
+                        <form action="'. URL::asset($pseudo .'/playlists/'. $idPlaylist . '/' . $row->id_media_pm) . '" method="post">
+                            '.csrf_field().'
+                            '.method_field("DELETE").'
+                            <button class="edit btn btn-danger btn-align" type="submit">Supprimer</button>
+                        </form>
+                    </div>';
+                }
+                $btn = $btn . '</div>';
                 return $btn;
             })
         ->rawColumns(['action'])

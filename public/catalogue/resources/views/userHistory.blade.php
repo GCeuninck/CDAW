@@ -3,7 +3,7 @@
 @section("contentBody")
     
     <div class="container">
-        <h1>Historique</h1>
+        <h1>Historique de {{ $pseudo }}</h1>
         
         <table class="table table-bordered yajra-datatable">
             <thead>

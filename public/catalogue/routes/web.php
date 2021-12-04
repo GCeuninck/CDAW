@@ -48,8 +48,8 @@ Route::get('/{pseudo}/history', 'App\Http\Controllers\historyController@showHist
 Route::get('/{pseudo}/history/list', [historyController::class, 'showUserHistory'])->middleware('auth')->name('history.list');
 
 //PLAYLIST
-Route::get('/{pseudo}/playlists', 'App\Http\Controllers\playlistController@showPlaylists')->middleware('auth');
-Route::get('/{pseudo}/playlists/list/{idPlaylist}', [playlistController::class, 'showUserPlaylists'])->middleware('auth')->name('playlist.list');
+Route::get('/{pseudo}/playlists', 'App\Http\Controllers\playlistController@showPlaylists');
+Route::get('/{pseudo}/playlists/list/{idPlaylist}', [playlistController::class, 'showUserPlaylists'])->name('playlist.list');
 Route::post('/{pseudo}/playlists/list','App\Http\Controllers\playlistController@addPlaylist')->middleware('auth')->name('playlist.add');
 Route::delete('/{pseudo}/playlists/list/{idPlaylist}','App\Http\Controllers\playlistController@removeUserPlaylist')->middleware('auth')->name('playlist.delete');
 Route::delete('/{pseudo}/playlists/{idPlaylist}/{idMedia}','App\Http\Controllers\playlistController@removeMediaUserPlaylist')->middleware('auth');

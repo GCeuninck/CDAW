@@ -1,24 +1,29 @@
-@extends("template_loged")
+@extends( Auth::check()  ?  'template_loged' : 'template' )
 
 @section("contentBody")
     <div class="container bottom-1">
         <div class="header-align">
-            <h1>Playlists</h1>
+            <h1>Playlists de {{ $pseudo }}</h1>
 
-            <a data-bs-toggle="modal" data-bs-target="#createPlaylistModal">
-                <button type="button" class="btn btn-warning btn-lg">Créer une playlist</button>
-            </a>
+            @if(Auth::check() and Auth::user()->pseudo == $pseudo)
+                <a data-bs-toggle="modal" data-bs-target="#createPlaylistModal">
+                    <button type="button" class="btn btn-warning btn-lg">Créer une playlist</button>
+                </a>
+            @endif
         </div>
 
         @foreach ($playlists as $playlist)
             <hr class="large">
             <div class="header-align">
                 <h2>{{$playlist->name_playlist}}</h2>
-                <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Supprimer cette playlist</button>
-                </form>
+
+                @if(Auth::check() and (Auth::user()->pseudo == $pseudo or $currentUserRole == '1'))
+                    <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Supprimer cette playlist</button>
+                    </form>
+                @endif
             </div>
             <div class="playlistDatatable" data-id="{{ $playlist->id_playlist }}">
                 <table class="table table-bordered yajra-datatable">
@@ -70,12 +75,15 @@
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
     <script type="text/javascript">
-        $(function () {
+        
+        $(function (){
             $('.playlistDatatable').each(
-                function () {
-                var $process_id = $(this).data("id");
-                var url = '{{ url("/" . Auth::user()->pseudo . "/playlists/list/idPlaylist") }}';
-                url = url.replace('idPlaylist', $process_id);
+            function () {
+                var pseudo = {!! json_encode($pseudo, JSON_HEX_TAG) !!};
+                var process_id = $(this).data("id");
+                var url = '{{ url("/pseudoPlaylist/playlists/list/idPlaylist") }}';
+                url = url.replace('pseudoPlaylist', pseudo);
+                url = url.replace('idPlaylist', process_id);
                 var table = $(this).find('.yajra-datatable').DataTable({
                     processing: true,
                     serverSide: true,

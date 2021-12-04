@@ -41,6 +41,21 @@ class UserController extends Controller
         ->addIndexColumn()
             ->addColumn('action', function($row) use($currentUserRole, $currentUserPseudo){
                 $btn = '<div class="row">';
+                $btn = $btn.'
+                    <div class="col-sm-2">
+                        <a href="'. URL::asset($row->pseudo . '/playlists') . '" class="edit btn btn-primary btn-align">
+                            Voir les playlists
+                        </a>
+                    </div>';
+                if($row->code_role != '2' and $row->code_role != '1' and $currentUserRole == '1'){
+                    $btn = $btn.'
+                    <div class="col-sm-2">
+                        <form action="'. URL::asset('/users/list/promote/' . $row->pseudo) . '" method="post">
+                            '.csrf_field().'
+                            <button class="edit btn btn-success btn-align" type="submit">Promouvoir</button>
+                        </form>
+                    </div>';
+                }
                 if($row->code_role != '2' and $row->code_role != '1' and $currentUserRole == '1'){
                     $btn = $btn.'
                     <div class="col-sm-2">
@@ -56,15 +71,6 @@ class UserController extends Controller
                         <form action="'. URL::asset('/users/list/unban/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-warning btn-align" type="submit">Débannir</button>
-                        </form>
-                    </div>';
-                }
-                if($row->code_role != '2' and $row->code_role != '1' and $currentUserRole == '1'){
-                    $btn = $btn.'
-                    <div class="col-sm-2">
-                        <form action="'. URL::asset('/users/list/promote/' . $row->pseudo) . '" method="post">
-                            '.csrf_field().'
-                            <button class="edit btn btn-success btn-align" type="submit">Promouvoir</button>
                         </form>
                     </div>';
                 }
