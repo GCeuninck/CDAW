@@ -34,6 +34,25 @@ class playlistController extends Controller
         return redirect($pseudo .'/playlists/');
     }
 
+    public function createAndAddPlaylist(Request $request, $id) {
+
+        $pseudo = Auth::user()->pseudo;
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:30',
+        ]);
+
+        $playlistData = [
+            'name_playlist' => $validatedData['name'],
+            'pseudo_playlist' => $pseudo
+        ];
+        
+        $playlist = Playlist::createPlaylist($playlistData);
+        Playlist_media::addMediaPlaylist($id, $playlist->id_playlist);
+
+        return redirect($pseudo .'/playlists/');
+    }
+
     public function removeUserPlaylist($pseudo, $idPlaylist){
         Playlist::deletePlaylist($idPlaylist);
         return redirect($pseudo .'/playlists/');

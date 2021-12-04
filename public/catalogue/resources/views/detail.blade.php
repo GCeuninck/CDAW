@@ -217,6 +217,17 @@
                         @endforeach
                     </tbody>
                 </table>
+                <hr>
+                <div class="text-center">
+                    <div class="bottom-1">OU</div>
+                    <form action="{{ route('media.createAndAdd', [$media->id_media])}}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" class="form-control bottom-1" name="name" id="name" aria-describedby="nom" placeholder="Nom de votre playlist"></inpu>
+                         </div>
+                        <button class="btn btn-dark" type="submit">En créer une nouvelle</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
