@@ -88,16 +88,6 @@
             <x-jet-input id="birthday" type="date" class="mt-1 block w-full"  wire:model.defer="state.birthday"  autocomplete="birthday"  />
             <x-jet-input-error for="birthday" class="mt-2" />
         </div> 
-
-        <!--Avatar -->
-        <!-- <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="avatar" value="{{ __('Avatar') }}" />
-
-            <div id="preview"></div>
-
-            <x-jet-input id="upload" type="file" class="mt-1 block w-full"  value="Upload" />
-            <x-jet-input-error for="avatar" class="mt-2" />
-        </div>   -->
     </x-slot>
 
     <x-slot name="actions">

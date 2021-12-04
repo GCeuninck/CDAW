@@ -5,7 +5,7 @@ use App\Http\Controllers\ShowFilmsController;
 use App\Http\Controllers\ShowMediasController;
 use App\Http\Controllers\playlistController;
 use App\Http\Controllers\historyController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +22,12 @@ use App\Http\Controllers\historyController;
 Route::get('/', 'App\Http\Controllers\ShowMediasController@showIndex');
 
 //ALL MEDIAS
+Route::get('/{type}/sort/{sort?}/search/{search?}','App\Http\Controllers\ShowMediasController@showMedias')->name('medias');
+
+//OLD
 //Route::get('/all', 'App\Http\Controllers\ShowMediasController@showAllMedias');
-Route::get('/all/movies/{sort?}', 'App\Http\Controllers\ShowMediasController@showAllMovies')->name('all.movies');
-Route::get('/all/series/{sort?}', 'App\Http\Controllers\ShowMediasController@showAllSeries')->name('all.series');;
+// Route::get('/all/movies/{sort?}', 'App\Http\Controllers\ShowMediasController@showAllMovies')->name('all.movies');
+// Route::get('/all/series/{sort?}', 'App\Http\Controllers\ShowMediasController@showAllSeries')->name('all.series');
 
 //DETAIL
 Route::get('/media/{id}', 'App\Http\Controllers\ShowMediasController@showMediaDetail');
@@ -48,6 +51,11 @@ Route::get('/{pseudo}/playlists/list/{idPlaylist}', [playlistController::class, 
 Route::post('/{pseudo}/playlists/list','App\Http\Controllers\playlistController@addPlaylist')->middleware('auth')->name('playlist.add');
 Route::delete('/{pseudo}/playlists/list/{idPlaylist}','App\Http\Controllers\playlistController@removeUserPlaylist')->middleware('auth')->name('playlist.delete');
 Route::delete('/{pseudo}/playlists/{idPlaylist}/{idMedia}','App\Http\Controllers\playlistController@removeMediaUserPlaylist')->middleware('auth');
+
+//USERS
+Route::get('/users', 'App\Http\Controllers\UserController@showAllUsers');
+Route::get('/users/list', [UserController::class, 'showUsersDatatable'])->name('users.list');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

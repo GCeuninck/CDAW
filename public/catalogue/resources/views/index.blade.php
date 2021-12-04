@@ -6,7 +6,7 @@
 <div class="container px-4">
     <div class="header-align">
         <h1>Films</h1>
-        <a href="{{ route('all.movies', ['sort' => 'new'] ) }}">
+        <a href="{{ route('medias', ['type' => 'movies', 'sort' => 'new'] ) }}">
             <span> Voir tous les films</span>
         </a>
     </div>
@@ -18,13 +18,7 @@
                     <div class="card item width-18">
                         <img class="card-img-top carroussel-img" src="{{ $media->poster_link }}" alt="Card image cap">
                         <div class="card-body">
-                            <p class="item-center text-truncate">{{ $media->title }}<br>
-                            @if (Auth::check())
-                                <a ><i class="far fa-heart  "></i></span></a>
-                                @else
-                                    </p>
-                            @endif
-                            </p>
+                            <p class="item-center text-truncate">{{ $media->title }}</p>
                         </div>
                     </div>
                 </a>
@@ -42,7 +36,7 @@
 <div class="container px-4 bottom-1">
     <div class="header-align">
         <h1>Séries</h1>
-        <a href="{{ route('all.series', ['sort' => 'new'] ) }}">
+        <a href="{{ route('medias', ['type' => 'series', 'sort' => 'new'] ) }}">
             <span> Voir toutes les séries</span>
         </a>
     </div>
@@ -54,18 +48,7 @@
                     <div class="card item width-18">
                         <img class="card-img-top carroussel-img" src="{{ $media->poster_link }}" alt="Image">
                         <div class="card-body">
-                            <p class="item-center text-truncate">{{ $media->title }}<br>
-                                @if (Auth::check())
-                                    <form method="POST" action="{{ route('media.like', $media->id_media)}}">
-                                        @csrf
-                                            <i class="far fa-heart" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
-                                            </i>
-                                    </form>
-                                    @else
-                                        <p/>
-                                @endif
-                            </p>
+                            <p class="item-center text-truncate">{{ $media->title }}</p>
                         </div>
                     </div>
                 </a>

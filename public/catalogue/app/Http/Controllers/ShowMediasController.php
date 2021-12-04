@@ -101,13 +101,7 @@ class ShowMediasController extends Controller
         return redirect('/media/' . $id); 
     }
 
-    public function showAllMedias() {
-        $medias = Media::paginate(30);
-
-        return view('allMedias', compact('medias'));
-    }
-
-    public function showAllMovies($sort='id_media',$direction='desc') {
+    public function showMedias($type='all',$sort='', $search='') {
         switch($sort)
         {
             case 'new':
@@ -128,40 +122,96 @@ class ShowMediasController extends Controller
                 break;
             default:
                 $sort_on=$sort;
+                $direction='desc';
                 break;
         }
-        $medias = Media::getAllMovies($sort_on,$direction);
-        $type='movies';
-
-        return view('allMedias', compact('medias','sort','type'));
-    }
-
-    public function showAllSeries($sort='id_media',$direction='desc') {
-        switch($sort)
+        
+        switch($type)
         {
-            case 'new':
-                $sort_on='release_date';
-                $direction='desc';
+            case 'movies':
+                $type_code=0;
                 break;
-            case 'old':
-                $sort_on='release_date';
-                $direction='asc';
+            case 'series':
+                $type_code=1;
                 break;
-            case 'alpha':
-                $sort_on='title';
-                $direction='asc';
-                break;
-            case 'zeta':
-                $sort_on='title';
-                $direction='desc';
+            case 'all':
+                $type_code='all';
+
                 break;
             default:
-                $sort_on=$sort;
+                $type_code='all';
                 break;
         }
-        $medias = Media::getAllSeries($sort_on,$direction);
-        $type='series';
+
+
+        $medias = Media::getMedias($sort_on, $direction, $search, $type_code);
 
         return view('allMedias', compact('medias','sort','type'));
     }
+
+
+    //UNUSED
+    // public function showAllMedias() {
+    //     $medias = Media::paginate(30);
+
+    //     return view('allMedias', compact('medias'));
+    // }
+
+    // public function showAllMovies($sort='id_media',$direction='desc') {
+    //     switch($sort)
+    //     {
+    //         case 'new':
+    //             $sort_on='release_date';
+    //             $direction='desc';
+    //             break;
+    //         case 'old':
+    //             $sort_on='release_date';
+    //             $direction='asc';
+    //             break;
+    //         case 'alpha':
+    //             $sort_on='title';
+    //             $direction='asc';
+    //             break;
+    //         case 'zeta':
+    //             $sort_on='title';
+    //             $direction='desc';
+    //             break;
+    //         default:
+    //             $sort_on=$sort;
+    //             break;
+    //     }
+    //     $medias = Media::getAllMovies($sort_on,$direction);
+    //     $type='movies';
+
+    //     return view('allMedias', compact('medias','sort','type'));
+    // }
+
+    // public function showAllSeries($sort='id_media',$direction='desc') {
+    //     switch($sort)
+    //     {
+    //         case 'new':
+    //             $sort_on='release_date';
+    //             $direction='desc';
+    //             break;
+    //         case 'old':
+    //             $sort_on='release_date';
+    //             $direction='asc';
+    //             break;
+    //         case 'alpha':
+    //             $sort_on='title';
+    //             $direction='asc';
+    //             break;
+    //         case 'zeta':
+    //             $sort_on='title';
+    //             $direction='desc';
+    //             break;
+    //         default:
+    //             $sort_on=$sort;
+    //             break;
+    //     }
+    //     $medias = Media::getAllSeries($sort_on,$direction);
+    //     $type='series';
+
+    //     return view('allMedias', compact('medias','sort','type'));
+    // }
 }

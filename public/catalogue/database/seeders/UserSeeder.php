@@ -33,6 +33,7 @@ class UserSeeder extends Seeder
             array_push($users,$user);
         };
        
+        //normal users
         foreach($users as $input)
         {
             $role = KeyValue::getRole('0');
@@ -44,5 +45,16 @@ class UserSeeder extends Seeder
                 'code_role' => $role['code']
             ]);
         }
+
+
+        //admin
+        $roleAdmin = KeyValue::getRole('1');
+
+        User::create([
+            'pseudo' => 'Root1',
+            'email' => 'Root1@gmail.com',
+            'password' => Hash::make('PasswordRoot1'),
+            'code_role' => $roleAdmin['code']
+        ]);
     }
 }

@@ -34,10 +34,10 @@
                 Trier
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="{{ route('all.'.$type, ['sort' => 'new'] ) }}">Les plus récents</a></li>
-                <li><a class="dropdown-item" href="{{ route('all.'.$type, ['sort' => 'old'] ) }}">Les plus anciens</a></li>
-                <li><a class="dropdown-item" href="{{ route('all.'.$type, ['sort' => 'alpha'] ) }}">Ordre alphabétique</a></li>
-                <li><a class="dropdown-item" href="{{ route('all.'.$type, ['sort' => 'zeta'] ) }}">Ordre alphabétique inversé</a></li>
+                <li><a class="dropdown-item" href="{{ route('medias', ['type' => $type, 'sort' => 'new'] ) }}">Les plus récents</a></li>
+                <li><a class="dropdown-item" href="{{ route('medias', ['type' => $type, 'sort' => 'old'] ) }}">Les plus anciens</a></li>
+                <li><a class="dropdown-item" href="{{ route('medias', ['type' => $type, 'sort' => 'alpha'] ) }}">Ordre alphabétique</a></li>
+                <li><a class="dropdown-item" href="{{ route('medias', ['type' => $type, 'sort' => 'zeta'] ) }}">Ordre alphabétique inversé</a></li>
             </ul>
         </div>
     </div>

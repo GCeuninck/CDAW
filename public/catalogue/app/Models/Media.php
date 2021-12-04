@@ -83,6 +83,29 @@ class Media extends Model
         return Media::where('code_type', '=' , 1)->orderBy($sort, $direction)->paginate(30);
     }
 
+    public static function getMedias($sort, $direction, $search, $type){
+        if($type!='all')
+        {
+            if($search != '')
+            {
+                $medias = Media::where('code_type', '=' , $type)->where('title', 'like', "{$search}%")->orderBy($sort, $direction)->paginate(30);
+            }else
+            {
+                $medias =  Media::where('code_type', '=' , $type)->orderBy($sort, $direction)->paginate(30);
+            }
+        }else
+        {
+            if($search != '')
+            {
+                $medias = Media::where('title', 'like', "{$search}%")->orderBy($sort, $direction)->paginate(30);
+            }else
+            {
+                $medias = Media::orderBy($sort, $direction)->paginate(30);
+            }
+        }
+        return $medias;
+    }
+
     public function category(){
         return $this->belongsTo(Category::class, "category_id", "id"); //Objet retourné, Id permettant d'identifier l'objet, la clé qui fait référence à l'id
     }
