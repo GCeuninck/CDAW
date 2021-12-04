@@ -25,14 +25,15 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
                         <li>      
-                            <form class="d-flex">
+                        <form class="d-flex" action="{{ route('medias.search' ) }}" method="POST">
+                                @csrf
                                 <!-- Boutton type de recherche-->
-                                <select class="mdb-select md-form ms-5" searchable="Search here..">
-                                    <option value="1">Tous</option>
-                                    <option value="2">Films</option>
-                                    <option value="3">Séries</option>
+                                <select name="type" id="type" class="mdb-select md-form ms-5" searchable="Search here..">
+                                    <option value="all">Tous</option>
+                                    <option value="movies">Films</option>
+                                    <option value="series">Séries</option>
                                   </select>
-                                <input class="form-control ms-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
+                                <input class="form-control ms-2" type="search" name="search" id="search" placeholder="Rechercher" aria-label="Rechercher">
                                 <button class="btn btn-outline-light ms-2" type="submit">Rechercher</button>
                           </form>
                         </li>

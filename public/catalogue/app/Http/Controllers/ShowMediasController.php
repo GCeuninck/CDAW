@@ -142,10 +142,24 @@ class ShowMediasController extends Controller
                 break;
         }
 
-
         $medias = Media::getMedias($sort_on, $direction, $search, $type_code);
 
-        return view('allMedias', compact('medias','sort','type'));
+        return view('allMedias', compact('medias','sort','type','search'));
+    }
+
+    public function searchMedia(Request $request){
+
+        $validatedData = $request->validate([
+            'type' => 'required',
+            'search' => 'required',
+        ]);
+
+        $searchData = [
+            'type' => $validatedData['type'],
+            'search' => $validatedData['search']
+        ];
+
+        return redirect( '/' . $searchData['type'] . '/sort/new/search/'. $searchData['search'] );
     }
 
 

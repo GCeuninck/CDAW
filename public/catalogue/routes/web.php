@@ -23,6 +23,8 @@ Route::get('/', 'App\Http\Controllers\ShowMediasController@showIndex');
 
 //ALL MEDIAS
 Route::get('/{type}/sort/{sort?}/search/{search?}','App\Http\Controllers\ShowMediasController@showMedias')->name('medias');
+Route::post('/medias/search','App\Http\Controllers\ShowMediasController@searchMedia')->name('medias.search');
+
 
 //OLD
 //Route::get('/all', 'App\Http\Controllers\ShowMediasController@showAllMedias');
