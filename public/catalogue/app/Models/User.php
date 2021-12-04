@@ -70,6 +70,10 @@ class User extends Authenticatable
         return User::all();
     }
 
+    public static function getUserInfos($pseudo) {
+        return User::where('pseudo','=', $pseudo)->first();
+    }
+
     public static function createOrUpdateUser($user) {
         return User::updateOrCreate($user);
     }
@@ -90,4 +94,5 @@ class User extends Authenticatable
     {
         return $this->belongsTo(KeyValue::class,'code_role', 'code')->where('type', '=', 'role');
     }
+
 }
