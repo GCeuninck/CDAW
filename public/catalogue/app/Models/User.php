@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Auth;
+
 
 class User extends Authenticatable
 {
@@ -70,5 +72,17 @@ class User extends Authenticatable
 
     public static function createOrUpdateUser($user) {
         return User::updateOrCreate($user);
+    }
+
+    public static function isAdmin() {
+        if(Auth::check())
+        {
+            $pseudo = Auth::user()->pseudo;
+        }else
+        {
+            return false;
+        }
+
+        return User::where('pseudo', '=' , $pseudo)->where('code_role', '=' , 1)->first();
     }
 }

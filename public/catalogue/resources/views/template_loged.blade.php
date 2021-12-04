@@ -31,7 +31,6 @@
                                     <option value="1">Tous</option>
                                     <option value="2">Films</option>
                                     <option value="3">Séries</option>
-                                    <!-- <option value="4">Animes</option> -->
                                   </select>
                                 <input class="form-control ms-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
                                 <button class="btn btn-outline-light ms-2" type="submit">Rechercher</button>
