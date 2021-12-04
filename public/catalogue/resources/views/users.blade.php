@@ -10,6 +10,7 @@
                 <tr>
                     <th>Pseudo</th>
                     <th>Role</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                 columns: [
                     {data: 'pseudo', name: 'pseudo'},
                     {data: 'get_role_infos.label', name: 'get_role_infos.label'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
             

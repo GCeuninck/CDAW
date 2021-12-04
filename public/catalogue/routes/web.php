@@ -57,7 +57,10 @@ Route::delete('/{pseudo}/playlists/{idPlaylist}/{idMedia}','App\Http\Controllers
 //USERS
 Route::get('/users', 'App\Http\Controllers\UserController@showAllUsers');
 Route::get('/users/list', [UserController::class, 'showUsersDatatable'])->name('users.list');
-
+Route::post('/users/list/ban/{pseudo}','App\Http\Controllers\UserController@banUser')->middleware('auth')->name('user.ban');
+Route::post('/users/list/unban/{pseudo}','App\Http\Controllers\UserController@unbanUser')->middleware('auth')->name('user.unban');
+Route::post('/users/list/promote/{pseudo}','App\Http\Controllers\UserController@promoteUser')->middleware('auth')->name('user.promote');
+Route::post('/users/list/dismiss/{pseudo}','App\Http\Controllers\UserController@dismissUser')->middleware('auth')->name('user.dismiss');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
