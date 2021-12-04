@@ -152,7 +152,16 @@
             </form>
         @endif
 
-        
+        @foreach ($comments as $comment)
+            <hr class="large">
+            <div>
+                <h5>Publié par {{$comment->pseudo_comment}}</h2>
+                <p>le {{$comment->date_comment}}</p>
+            </div>
+            <div class="border">
+                <p>{{$comment->comment}}</p>
+            </div> 
+        @endforeach
     </div>
 </div>
 

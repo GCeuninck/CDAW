@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\KeyValue;
 use App\Models\Media;
+use App\Models\Comment;
 use Carbon\Carbon;
 
 class Action extends Model
@@ -22,9 +23,7 @@ class Action extends Model
     protected $fillable = [
         'code_action',
         'label_action', 
-        'date_action', 
-        'comment',
-        'code_status',
+        'date_action',
         'pseudo_action', 
         'id_media_action'
     ];
@@ -36,8 +35,6 @@ class Action extends Model
             'date_action' => $action['date_action'],
             'pseudo_action' => $action['pseudo_action'],
             'id_media_action' => $action['id_media_action'],
-            'comment' => $action['comment'],
-            'code_status' => $action['code_status']
         ];
         return Action::updateOrCreate($data);
     }
@@ -49,8 +46,6 @@ class Action extends Model
             'date_action' => Carbon::now()->format('Y-m-d'),
             'pseudo_action' => $action['pseudo_action'],
             'id_media_action' => $action['id_media_action'],
-            'comment' => $action['pseudo_action'] . ' has seen this media : ' . $action['id_media_action'],
-            'code_status' => KeyValue::getStatus('0')['code']
         ];
         return Action::updateOrCreate($data);
     }
@@ -62,8 +57,6 @@ class Action extends Model
             'date_action' => Carbon::now()->format('Y-m-d'),
             'pseudo_action' => $action['pseudo_action'],
             'id_media_action' => $action['id_media_action'],
-            'comment' => $action['pseudo_action'] . ' liked this media : ' . $action['id_media_action'],
-            'code_status' => KeyValue::getStatus('0')['code']
         ];
         return Action::updateOrCreate($data);
     }
@@ -71,19 +64,6 @@ class Action extends Model
     public static function deleteLikeAction($pseudo, $id) {
         $action= Action::where('code_action', '=' , 2)->where('pseudo_action', '=', $pseudo)->where('id_media_action', '=', $id)->first();
         $action->delete();
-    }
-
-    public static function createCommentAction($action){
-        $data = [
-            'code_action' => '1',
-            'label_action' => 'comment',
-            'date_action' => Carbon::now()->format('Y-m-d'),
-            'pseudo_action' => $action['pseudo_action'],
-            'id_media_action' => $action['id_media_action'],
-            'comment' => $action['comment'],
-            'code_status' => '0'
-        ];
-        return Action::updateOrCreate($data);
     }
 
     public static function getAllMediaLikes($id) {
@@ -97,10 +77,6 @@ class Action extends Model
     public static function isLikedByUser($id,$pseudo) {
         $isLiked = Action::where('code_action', '=' , 2)->where('pseudo_action', '=', $pseudo)->where('id_media_action', '=', $id)->get();
         return !$isLiked->isEmpty();
-    }
-
-    public static function getAllComments($id) {
-        return Action::where('code_action', '=' , 1)->where('id_media_action', '=', $id)->get();
     }
 
     public function getMediaInfos(){
