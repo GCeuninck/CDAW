@@ -70,6 +70,13 @@
     <div class="d-flex justify-content-center">
         {{ $medias->onEachSide(1)->links() }}
     </div>
+
+    <!-- Si pas de résulat de recherche -->
+    @if($medias->isEmpty())
+    <div id="columns" class="bottom-1">
+        <span>Aucun résultat .... <br>Réssayer tu dois ....</span>
+    </div>  
+    @endif
 </div>
 
 

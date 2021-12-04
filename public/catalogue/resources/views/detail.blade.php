@@ -170,6 +170,13 @@
                 <p>{{$comment->comment}}</p>
             </div> 
         @endforeach
+
+        <!-- Si pas de commentaires -->
+        @if($comments->isEmpty())
+        <div id="columns" class="bottom-1">
+            <span>Aucun commentaire pour le moment ....</span>
+        </div>  
+        @endif
     </div>
 </div>
 
