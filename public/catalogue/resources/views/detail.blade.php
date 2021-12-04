@@ -170,10 +170,19 @@
                 <p>{{$comment->comment}}</p>
             </div> 
         @endforeach
+
+        <div class="d-flex justify-content-center">
+            {{ $comments->onEachSide(1)->links() }}
+        </div>
+
+        <!-- Si pas de commentaires -->
+        @if($comments->isEmpty())
+        <div id="columns" class="bottom-1">
+            <span>Aucun commentaire pour le moment ....</span>
+        </div>  
+        @endif
     </div>
 </div>
-
-
 
 
 <!-- Modal Ajout Playlist-->

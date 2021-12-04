@@ -34,6 +34,6 @@ class Comment extends Model
     }
 
     public static function getAllMediaComments($id) {
-        return Comment::where('id_media_comment', '=', $id)->get();
+        return Comment::where('id_media_comment', '=', $id)->paginate(5);
     }
 }

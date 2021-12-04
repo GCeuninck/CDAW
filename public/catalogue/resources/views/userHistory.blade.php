@@ -13,6 +13,7 @@
                     <th>Type de média</th>
                     <th>Date de sortie</th>
                     <th>Réalisateur</th>
+                    <th>Favoris</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -35,7 +36,7 @@
                 serverSide: true,
                 dom :     
                     "<'row'<'col-sm-6'l><'col-sm-6 end'f>>" +
-                    "<'row'<'col-sm-12'rt>>" +
+                    "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col-sm-6'p><'col-sm-6 end'i>>",
                 ajax: "{{ route('history.list', ['pseudo' => Auth::user()->pseudo]) }}",
                 columns: [
@@ -44,6 +45,7 @@
                     {data: 'get_media_infos.get_media_type.label', name: 'get_media_infos.get_media_type.label'},
                     {data: 'get_media_infos.release_date', name: 'get_media_infos.release_date'},
                     {data: 'get_media_infos.director', name: 'get_media_infos.director'},
+                    {data: 'liked', name: 'liked', orderable: true, searchable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
