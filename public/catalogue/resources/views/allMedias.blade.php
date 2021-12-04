@@ -24,24 +24,27 @@
             <div>
             @switch($sort)
                 @case('new')
-                    <p>Les plus récents</p>
+                    <span>Les plus récents</span>
                     @break
 
                 @case('old')
-                    <p>Les plus anciens</p>
+                    <span>Les plus anciens</span>
                     @break
 
                 @case('alpha')
-                    <p>Par ordre alphabétique</p>
+                    <span>Par ordre alphabétique</span>
                     @break
 
                 @case('zeta')
-                    <p>Par ordre alphabétique inverse</p>
+                    <span>Par ordre alphabétique inverse</span>
                     @break
 
                 @default
                     <span ></span>
             @endswitch
+            @if(!empty($search))
+                <span> | Recherche effectuée : "{{$search}}"</span>
+            @endif
             </div>
         </div>
         <div class="dropdown">
