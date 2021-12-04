@@ -179,6 +179,7 @@ hr.large {
     margin: 25px auto;
 }
 
+
 /* GIRDVIEW LISTE MEDIAS
  SOURCE: https://codepen.io/dudleystorey/pen/yqrhw */
 
@@ -188,7 +189,7 @@ hr.large {
         column-gap: 15px;
         width: 90%;
         max-width: 1200px; 
-        margin: 25px auto;
+        margin: 25px auto 0;
     }
 
     div#columns figure {
@@ -229,5 +230,3 @@ hr.large {
     #columns figure { width: 100%; }
     }
 
-/* PAGINATION
-SOURCE: https://codepen.io/robertcooper_rc/pen/XeabLa */
