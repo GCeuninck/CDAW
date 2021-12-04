@@ -27,7 +27,6 @@ class UserController extends Controller
         return view('users', compact('isAdmin'));
     }
 
-    //TODO
     public function showUsersDatatable(){
         $UsersData = User::with('getRoleInfos')->get();
         $currentUserRole = '';
@@ -41,10 +40,10 @@ class UserController extends Controller
         return Datatables::of($UsersData)
         ->addIndexColumn()
             ->addColumn('action', function($row) use($currentUserRole, $currentUserPseudo){
-                $btn = '';
+                $btn = '<div class="row">';
                 if($row->code_role != '2' and $row->code_role != '1' and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <form action="'. URL::asset('/users/list/ban/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-danger btn-align" type="submit">Bannir</button>
@@ -53,7 +52,7 @@ class UserController extends Controller
                 }
                 if($row->code_role == '2' and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <form action="'. URL::asset('/users/list/unban/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-warning btn-align" type="submit">Débannir</button>
@@ -62,7 +61,7 @@ class UserController extends Controller
                 }
                 if($row->code_role != '2' and $row->code_role != '1' and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <form action="'. URL::asset('/users/list/promote/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-success btn-align" type="submit">Promouvoir</button>
@@ -71,16 +70,17 @@ class UserController extends Controller
                 }
                 if($row->code_role == '1' and $row->pseudo != $currentUserPseudo and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <form action="'. URL::asset('/users/list/dismiss/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-info btn-align" type="submit">Destituer</button>
                         </form>
                     </div>';
                 }
+                $btn = $btn . '</div>';
                 return $btn;
             })
-        ->rawColumns(['action'])->make(true);
+            ->rawColumns(['action'])->make(true);
     }
 
     public function banUser($pseudo)

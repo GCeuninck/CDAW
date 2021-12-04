@@ -31,7 +31,7 @@
                 processing: true,
                 serverSide: true,
                 dom :     
-                    "<'row'<'col-sm-6'l><'col-sm-6 end'f>>" +
+                "<'row'<'col-sm-6'l><'col-sm-6 end'f>>" +
                     "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col-sm-6'p><'col-sm-6 end'i>>",
                 ajax: "{{ route('users.list') }}",
