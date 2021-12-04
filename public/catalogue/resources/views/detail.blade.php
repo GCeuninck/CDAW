@@ -20,7 +20,15 @@
                 <label for="ReleaseDate" class="col-sm-5">Date de sortie</label>
                 <div class="col">
                     @if($media->release_date)
-                        <p Id="ReleaseDate" class="p-justified"><?php $date = date_create($media->release_date); echo (date_format($date, 'd/m/Y')); ?></p>
+                        <p Id="ReleaseDate" class="p-justified">
+                            <?php 
+                            if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $media->release_date)) {
+                                $date = date_create($media->release_date); 
+                                echo (date_format($date, 'd/m/Y'));
+                            } else {
+                                echo($media->release_date);
+                            } ?>
+                        </p>
                     @else
                         <p Id="ReleaseDate" class="p-justified">Non renseignée</p>
                     @endif
