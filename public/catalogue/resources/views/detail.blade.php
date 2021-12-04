@@ -171,6 +171,10 @@
             </div> 
         @endforeach
 
+        <div class="d-flex justify-content-center">
+            {{ $comments->onEachSide(1)->links() }}
+        </div>
+
         <!-- Si pas de commentaires -->
         @if($comments->isEmpty())
         <div id="columns" class="bottom-1">
@@ -179,8 +183,6 @@
         @endif
     </div>
 </div>
-
-
 
 
 <!-- Modal Ajout Playlist-->
