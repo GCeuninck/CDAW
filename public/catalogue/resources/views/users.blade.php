@@ -2,7 +2,7 @@
 
 @section("contentBody")        
 
-<div class="container">
+    <div class="container">
         <h1>Utilisateurs</h1>
         
         <table class="table table-bordered yajra-datatable">
@@ -36,7 +36,7 @@
                 ajax: "{{ route('users.list') }}",
                 columns: [
                     {data: 'pseudo', name: 'pseudo'},
-                    {data: 'code_role', name: 'code_role'},
+                    {data: 'get_role_infos.label', name: 'get_role_infos.label'},
                 ]
             });
             

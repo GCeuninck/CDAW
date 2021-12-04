@@ -24,8 +24,8 @@ class UserController extends Controller
     }
 
     //TODO
-    public function showUsersDatatable($pseudo){
-        $UsersData = User::all();
-        return Datatables::of($UsersData);
+    public function showUsersDatatable(){
+        $UsersData = User::with('getRoleInfos')->get();
+        return Datatables::of($UsersData)->make(true);
     }
 }

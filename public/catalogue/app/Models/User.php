@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+
 use Auth;
 
 
@@ -41,7 +42,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'code_role',
         'password',
         'remember_token',
         'two_factor_recovery_codes',
@@ -84,5 +84,10 @@ class User extends Authenticatable
         }
 
         return User::where('pseudo', '=' , $pseudo)->where('code_role', '=' , 1)->first();
+    }
+
+    public function getRoleInfos()
+    {
+        return $this->belongsTo(KeyValue::class,'code_role', 'code')->where('type', '=', 'role');
     }
 }
