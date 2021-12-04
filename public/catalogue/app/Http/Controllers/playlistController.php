@@ -53,9 +53,9 @@ class playlistController extends Controller
         return Datatables::of($mediasPlaylistData)
         ->addIndexColumn()
             ->addColumn('action', function($row) use ($pseudo, $idPlaylist){
-                $btn = '<div class="row"><div class="col-sm-3"><a href="'. URL::asset('/media/' . $row->id_media) . '" class="edit btn btn-warning ">Voir</a></div>';
+                $btn = '<div class="row"><div class="col-sm-3"><a href="'. URL::asset('/media/' . $row->id_media_pm) . '" class="edit btn btn-warning ">Voir</a></div>';
                 $btn = $btn.'
-                    <div class="col-sm-3"><form action="'. URL::asset($pseudo .'/playlists/'. $idPlaylist . '/' . $row->id_media) . '" method="post">
+                    <div class="col-sm-3"><form action="'. URL::asset($pseudo .'/playlists/'. $idPlaylist . '/' . $row->id_media_pm) . '" method="post">
                         '.csrf_field().'
                         '.method_field("DELETE").'
                         <button class="edit btn btn-danger btn-align" type="submit">Supprimer</button>
