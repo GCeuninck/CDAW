@@ -154,7 +154,7 @@
             <form id="addComment" action="{{ route('media.comment', $media->id_media)}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <input type="Comment" class="form-control bottom-1" name="comment" id="comment" aria-describedby="comment" placeholder="Zone de texte du commentaire...">
+                    <textarea  class="form-control bottom-1" name="comment" id="comment" aria-describedby="comment" placeholder="Zone de texte du commentaire..."></textarea>
                 </div>
                 <input type="submit" value="Publier ce commentaire"/>
             </form>
@@ -167,7 +167,7 @@
                 <p>le {{$comment->date_comment}}</p>
             </div>
             <div class="border">
-                <p>{{$comment->comment}}</p>
+                <div class="line-jump">{{$comment->comment}}</div>
             </div> 
         @endforeach
 

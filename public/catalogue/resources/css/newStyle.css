@@ -179,6 +179,10 @@ hr.large {
     margin: 25px auto;
 }
 
+.line-jump {
+    white-space: pre;
+}
+
 
 /* GIRDVIEW LISTE MEDIAS
  SOURCE: https://codepen.io/dudleystorey/pen/yqrhw */
