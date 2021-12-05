@@ -40,4 +40,6 @@ class Playlist extends Model
         $playlist = Playlist::getPlaylist($id_playlist);
         $playlist->delete();
     }
+
+    
 }

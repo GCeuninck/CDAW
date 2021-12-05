@@ -1,4 +1,4 @@
-@extends( Auth::user()  ?  'template_loged' : 'template' )
+@extends( Auth::check()  ?  'template_loged' : 'template' )
 
 
 @section("contentBody")        

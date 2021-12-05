@@ -12,7 +12,7 @@ class historyController extends Controller
 {
    
     public function showHistory($pseudo) {
-        return view('userHistory', [$pseudo]);
+        return view('userHistory', compact('pseudo'));
     }
 
     public function showUserHistory($pseudo){
