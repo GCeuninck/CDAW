@@ -52,7 +52,9 @@ Route::get('/{pseudo}/history/list', [historyController::class, 'showUserHistory
 Route::get('/{pseudo}/playlists', 'App\Http\Controllers\playlistController@showPlaylists');
 Route::get('/{pseudo}/playlists/list/{idPlaylist}', [playlistController::class, 'showUserPlaylists'])->name('playlist.list');
 Route::post('/{pseudo}/playlists/list','App\Http\Controllers\playlistController@addPlaylist')->middleware('auth')->name('playlist.add');
+Route::post('/{pseudo}/playlists/list/{idPlaylist}','App\Http\Controllers\playlistController@subUserPlaylist')->middleware('auth')->name('playlist.sub');
 Route::delete('/{pseudo}/playlists/list/{idPlaylist}','App\Http\Controllers\playlistController@removeUserPlaylist')->middleware('auth')->name('playlist.delete');
+Route::delete('/{pseudo}/playlists/sub/{idPlaylist}','App\Http\Controllers\playlistController@removeSubPlaylist')->middleware('auth')->name('playlist.deleteSub');
 Route::delete('/{pseudo}/playlists/{idPlaylist}/{idMedia}','App\Http\Controllers\playlistController@removeMediaUserPlaylist')->middleware('auth');
 
 //USERS

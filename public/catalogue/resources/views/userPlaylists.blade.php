@@ -17,6 +17,13 @@
             <div class="header-align">
                 <h2>{{$playlist->name_playlist}}</h2>
 
+                @if(Auth::check() and (Auth::user()->pseudo != $pseudo))
+                    <form action="{{ route('playlist.sub', [$pseudo, $playlist->id_playlist])}}" method="post">
+                        @csrf
+                        <button class="btn btn-warning" type="submit">S'abonner à cette playlist</button>
+                    </form>
+                @endif
+
                 @if(Auth::check() and (Auth::user()->pseudo == $pseudo or $currentUserRole == '1'))
                     <form action="{{ route('playlist.delete', [$pseudo, $playlist->id_playlist])}}" method="post">
                         @csrf
@@ -24,8 +31,62 @@
                         <button class="btn btn-danger" type="submit">Supprimer cette playlist</button>
                     </form>
                 @endif
+
             </div>
             <div class="playlistDatatable" data-id="{{ $playlist->id_playlist }}">
+                <table class="table table-bordered yajra-datatable">
+                    <thead>
+                        <tr>
+                            <th>Date d'ajout à la playlist</th>
+                            <th>Titre</th>
+                            <th>Type de média</th>
+                            <th>Date de sortie</th>
+                            <th>Réalisateur</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        @endforeach
+    </div>
+
+    <div class="container bottom-1">
+        <div class="header-align">
+            <h1>Abonnements de {{ $pseudo }}</h1>
+        </div>
+
+        @if($subPlaylists->isEmpty())
+        <div class="bottom-1">
+            <span>Aucun abonnement</span>
+        </div>  
+        @endif
+
+        @foreach ($subPlaylists as $subPlaylist)
+            <hr class="large">
+            <div class="header-align">
+                <h2>{{$subPlaylist->getPlaylistInfos->name_playlist}}</h2>
+                <h4>créée par {{$subPlaylist->getPlaylistInfos->pseudo_playlist}}</h4>
+
+                @if(Auth::check() and (Auth::user()->pseudo != $subPlaylist->getPlaylistInfos->pseudo_playlist and Auth::user()->pseudo != $pseudo))
+                    <form action="{{ route('playlist.sub', [$pseudo, $subPlaylist->getPlaylistInfos->id_playlist])}}" method="post">
+                        @csrf
+                        <button class="btn btn-warning" type="submit">S'abonner à cette playlist</button>
+                    </form>
+                @endif
+
+                @if(Auth::check() and (Auth::user()->pseudo == $pseudo or $currentUserRole == '1'))
+                    <form action="{{ route('playlist.deleteSub', [$pseudo, $subPlaylist->getPlaylistInfos->id_playlist])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Supprimer des abonnements</button>
+                    </form>
+                @endif
+
+            </div>
+            
+            <div class="playlistDatatable" data-id="{{ $subPlaylist->getPlaylistInfos->id_playlist }}">
                 <table class="table table-bordered yajra-datatable">
                     <thead>
                         <tr>
