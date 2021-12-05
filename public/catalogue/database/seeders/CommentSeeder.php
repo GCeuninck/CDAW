@@ -42,13 +42,13 @@ class CommentSeeder extends Seeder
             'pseudo_comment' => $users[1]->pseudo,
             'id_media_comment' => Media::getMedia('tt1160419')->id_media,
         ];
-        Comment::createComment($comment1);
+        Comment::createComment($comment3);
 
         $comment4 = [
             'comment' => "J'adore !",
             'pseudo_comment' => $users[1]->pseudo,
             'id_media_comment' => Media::getMedia('tt9174558')->id_media,
         ];
-        Comment::createComment($comment2);
+        Comment::createComment($comment4);
     }
 }
