@@ -39,8 +39,9 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item border-right "><a class="nav-link me-2 ms-2" href="{{URL::asset('/' . Auth::user()->pseudo . '/playlists')}}">Playlist</a></li>
-                        <li class="nav-item border-right"><a class="nav-link me-2 ms-2" href="{{URL::asset('/' . Auth::user()->pseudo . '/history')}}">Historique</a>   </li>
+                        <li class="nav-item border-right "><a class="nav-link me-2 ms-2" href="{{URL::asset('/users')}}">Liste des utilisateurs</a></li>
+                        <li class="nav-item border-right "><a class="nav-link me-2 ms-2" href="{{URL::asset('/' . Auth::user()->pseudo . '/playlists')}}">Mes playlists</a></li>
+                        <li class="nav-item border-right"><a class="nav-link me-2 ms-2" href="{{URL::asset('/' . Auth::user()->pseudo . '/history')}}">Mon historique</a>   </li>
                         <li class="nav-item"><a class="nav-link me-2 ms-2" href="https://github.com/GCeuninck/CDAW" target="_blank" rel="noopener noreferrer">Aide</a> </li>
 
                         <li class="nav-item me-2"><div class="dropdown">

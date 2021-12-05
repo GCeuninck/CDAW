@@ -78,11 +78,16 @@ class playlistController extends Controller
         $playlists = Playlist::getUserPlaylists($pseudo)->get();
         $subPlaylists = Subscription::getUserSubscription($pseudo)->get();
 
+        
+
         $currentUserRole = '';
+        $currentUserSubIdList = array();
         if(Auth::Check()){
             $currentUserRole = User::getUserInfos(Auth::user()->pseudo)->code_role;
+            $currentUserSubIdList = Subscription::getUserSubscription(Auth::user()->pseudo)->pluck('id_playlist_sub')->toArray();
         }
-        return view('userPlaylists', compact('pseudo', 'playlists', 'subPlaylists', 'currentUserRole'));
+        
+        return view('userPlaylists', compact('pseudo', 'playlists', 'subPlaylists', 'currentUserRole', 'currentUserSubIdList'));
     }
 
 
