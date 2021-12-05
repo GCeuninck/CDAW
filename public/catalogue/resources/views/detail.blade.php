@@ -198,33 +198,39 @@
             <h5 class="modal-title  " id="addPlaylist">Ajouter à une de vos playlist</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            
             <div class="modal-body">
-                <table id="playlist_table" class="display" cellpadding="10" cellspacing="10">
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Date de création</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($playlists as $playlist)
-                        <tr>
-                            <td>{{$playlist->name_playlist}}</td>
-                            <td>{{$playlist->creation_date}}</td>
-                            <td>
-                                <form action="{{ route('media.addPlaylist', [$media->id_media, $playlist->id_playlist])}}" method="post">
-                                    @csrf
-                                    <button class="btn btn-warning" type="submit">Ajouter</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <hr>
+                @if(!$playlists->isEmpty())
+                    <table id="playlist_table" class="display" cellpadding="10" cellspacing="10">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Date de création</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($playlists as $playlist)
+                            <tr>
+                                <td>{{$playlist->name_playlist}}</td>
+                                <td>{{$playlist->creation_date}}</td>
+                                <td>
+                                    <form action="{{ route('media.addPlaylist', [$media->id_media, $playlist->id_playlist])}}" method="post">
+                                        @csrf
+                                        <button class="btn btn-warning" type="submit">Ajouter</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <hr>
+                @endif
+                
                 <div class="text-center">
-                    <div class="bottom-1">OU</div>
+                    @if(!$playlists->isEmpty())
+                        <div class="bottom-1">OU</div>
+                    @endif
                     <form action="{{ route('media.createAndAdd', [$media->id_media])}}" method="post">
                         @csrf
                         <div class="form-group">
