@@ -20,21 +20,92 @@ class ActionSeeder extends Seeder
     public function run()
     {
         $users = User::getUsers();
-        $nbMedia = 50;
-        $medias = Media::take($nbMedia)->get();
 
-        foreach ($users as $user){
-            
-            $i = 1;
-            while ($i <= 3){
-                $media = $medias[$i];
-                $actionViewData = [
-                    'pseudo_action' => $user->pseudo,
-                    'id_media_action' => $media->id_media,
-                ];
-                Action::createViewAction($actionViewData);
-                $i++;
-            }
-        }
+        //User1 : Visionnage
+        $actionView1 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt15097216')->id_media,
+        ];
+        Action::createViewAction($actionView1);
+
+        $actionView2 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt12361178')->id_media,
+        ];
+        Action::createViewAction($actionView2);
+
+        $actionView3 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt1160419')->id_media,
+        ];
+        Action::createViewAction($actionView3);
+
+        $actionView4 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt9174558')->id_media,
+        ];
+        Action::createViewAction($actionView4);
+
+        $actionView5 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt6741278')->id_media,
+        ];
+        Action::createViewAction($actionView5);
+
+        $actionView6 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt9140342')->id_media,
+        ];
+        Action::createViewAction($actionView6);
+
+        //User1 : Aimer
+        $actionLike1 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt1160419')->id_media,
+        ];
+        Action::createLikeAction($actionLike1);
+
+        $actionLike2 = [
+            'pseudo_action' => $users[0]->pseudo,
+            'id_media_action' => Media::getMedia('tt9174558')->id_media,
+        ];
+        Action::createLikeAction($actionLike2);
+
+        //User2 : Visionnage
+        $actionView7 = [
+            'pseudo_action' => $users[1]->pseudo,
+            'id_media_action' => Media::getMedia('tt15097216')->id_media,
+        ];
+        Action::createViewAction($actionView7);
+
+        $actionView8 = [
+            'pseudo_action' => $users[1]->pseudo,
+            'id_media_action' => Media::getMedia('tt12361178')->id_media,
+        ];
+        Action::createViewAction($actionView8);
+
+        $actionView9 = [
+            'pseudo_action' => $users[1]->pseudo,
+            'id_media_action' => Media::getMedia('tt1160419')->id_media,
+        ];
+        Action::createViewAction($actionView9);
+
+        $actionView10 = [
+            'pseudo_action' => $users[1]->pseudo,
+            'id_media_action' => Media::getMedia('tt9174558')->id_media,
+        ];
+        Action::createViewAction($actionView10);
+
+        $actionView11 = [
+            'pseudo_action' => $users[1]->pseudo,
+            'id_media_action' => Media::getMedia('tt6741278')->id_media,
+        ];
+        Action::createViewAction($actionView11);
+
+        $actionView12 = [
+            'pseudo_action' => $users[1]->pseudo,
+            'id_media_action' => Media::getMedia('tt9140342')->id_media,
+        ];
+        Action::createViewAction($actionView12);
     }
 }

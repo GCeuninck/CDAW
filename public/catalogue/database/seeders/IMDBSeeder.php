@@ -20,7 +20,6 @@ class IMDBSeeder extends Seeder
      */
     public function run()
     {
-        //Etape 1
         $imdbMovies = MediaList::getMoviesFromIMDB();
         $imdbSeries = MediaList::getSeriesFromIMDB();
 
@@ -47,5 +46,12 @@ class IMDBSeeder extends Seeder
                 ]
             );
         }
+
+        Media::getMediaDetailFromIMDB(Media::getMedia('tt15097216')->id_media);
+        Media::getMediaDetailFromIMDB(Media::getMedia('tt12361178')->id_media);
+        Media::getMediaDetailFromIMDB(Media::getMedia('tt1160419')->id_media);
+        Media::getMediaDetailFromIMDB(Media::getMedia('tt9174558')->id_media);
+        Media::getMediaDetailFromIMDB(Media::getMedia('tt6741278')->id_media);
+        Media::getMediaDetailFromIMDB(Media::getMedia('tt9140342')->id_media);
     }
 }

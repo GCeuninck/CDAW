@@ -19,42 +19,45 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $max = 10;
+        $n = 5;
         $users = [];
         
-        for ($i = 1; $i <= $max; $i++)
+        for ($i = 1; $i <= $n; $i++)
         {
             $user = [
                 'pseudo' => 'User'. $i,
                 'email' => 'User'. $i .'@gmail.com',
                 'password' =>'Password'. $i
             ];
-
             array_push($users,$user);
         };
        
         //normal users
         foreach($users as $input)
         {
-            $role = KeyValue::getRole('0');
-
             User::create([
                 'pseudo' => $input['pseudo'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
-                'code_role' => $role['code']
+                'code_role' => '0'
             ]);
         }
 
 
         //admin
-        $roleAdmin = KeyValue::getRole('1');
-
         User::create([
             'pseudo' => 'Root1',
             'email' => 'Root1@gmail.com',
             'password' => Hash::make('PasswordRoot1'),
-            'code_role' => $roleAdmin['code']
+            'code_role' => '1'
+        ]);
+
+        //blocked user
+        User::create([
+            'pseudo' => 'User'. ($n+1),
+            'email' => 'User'. ($n+1) .'@gmail.com',
+            'password' => Hash::make('Password'. ($n+1)),
+            'code_role' => '2'
         ]);
     }
 }

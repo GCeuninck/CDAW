@@ -20,23 +20,35 @@ class CommentSeeder extends Seeder
     public function run()
     {
         $users = User::getUsers();
-        $nbMedia = 50;
-        $medias = Media::take($nbMedia)->get();
 
-        foreach ($users as $user){
-            
-            $i = 1;
-            while ($i <= 3){
-                $media = $medias[$i];
+        //User1 : 2 commentaires sur un même film
+        $comment1 = [
+            'comment' => "J'adore ce film, je recommande !",
+            'pseudo_comment' => $users[0]->pseudo,
+            'id_media_comment' => Media::getMedia('tt1160419')->id_media,
+        ];
+        Comment::createComment($comment1);
 
-                $commentData = [
-                    'comment' => $user->pseudo . ' has commented on this media : ' . $media->id_media,
-                    'pseudo_comment' => $user->pseudo,
-                    'id_media_comment' => $media->id_media,
-                ];
-                Comment::createComment($commentData);
-                $i++;
-            }
-        }
+        $comment2 = [
+            'comment' => "Mieux que la première version",
+            'pseudo_comment' => $users[0]->pseudo,
+            'id_media_comment' => Media::getMedia('tt1160419')->id_media,
+        ];
+        Comment::createComment($comment2);
+
+        //User2 : 1 commentaire sur un film et une série
+        $comment3 = [
+            'comment' => "Star Wars restera supérieur dans mon coeur...",
+            'pseudo_comment' => $users[1]->pseudo,
+            'id_media_comment' => Media::getMedia('tt1160419')->id_media,
+        ];
+        Comment::createComment($comment1);
+
+        $comment4 = [
+            'comment' => "J'adore !",
+            'pseudo_comment' => $users[1]->pseudo,
+            'id_media_comment' => Media::getMedia('tt9174558')->id_media,
+        ];
+        Comment::createComment($comment2);
     }
 }
