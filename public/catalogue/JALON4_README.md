@@ -86,7 +86,7 @@ Cette page peut donc permettre de consulter l'ensemble des médias aimés en tri
 
 ### **4. Playlist**
 
-Un utilisateur connecté peut accéder à ses playlists et abonnements depuis la barre de navigation. Cette page contient l'ensemble des playlists créées par l'utilisateur et permet d'en créer de nouvelles (vide) en indiquant un nom de playlist ou de supprimer les playlists et abonnements existants. 
+Un utilisateur connecté peut accéder à ses playlists et abonnements depuis la barre de navigation. Cette page contient l'ensemble des playlists créées par l'utilisateur et permet d'en créer de nouvelles (vide) en indiquant un nom de playlist ou de supprimer les playlists et abonnements existants.
 
 Chaque playlist contient un tableau des médias appartenant à la playlist, avec les informations suivantes :
 
@@ -122,6 +122,7 @@ En plus de voir les playlists des utilisateurs, un administrateur peut :
 ### **6. Visualiser les playlists et abonnements des utilisateurs**
 
 Lorsqu'un utilisateur visualise les playlists et abonnements d'un autre utilisateur, il a la possibilité de :
+
 - S'abonner à une playlist créée par l'utilisateur visionné.
 - S'abonner à une playlist dont l'utilisateur visionné est abonné.
 - Voir un média d'une playlist créée ou abonnée.
@@ -160,6 +161,7 @@ La date de sortie étant initialement au format AAAA, l'ordre des médias triés
 Nous avons également des soucis de temps pour implémenter l'ensemble des attentes. Nous avons préféré peaufiner les fonctionnalités déjà implémentées pour s'assurer qu'elles soeint bien mises en valeur et sans bug.
 
 Nous avons par exemple mis de côté :
+
 - Le rôle de modérateur.
 - Certaines fonctionalités du rôle d'administrateur (modération des commentaires).
 - Génération automatique de playlists.
@@ -167,4 +169,4 @@ Nous avons par exemple mis de côté :
 
 ## Vidéo de présentation
 
-Vidéo : TODO
+Vidéo : youtu.be/B49kYWO1b18
