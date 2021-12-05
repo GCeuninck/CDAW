@@ -12,12 +12,18 @@
             @endif
         </div>
 
+        @if($playlists->isEmpty())
+        <div class="bottom-1">
+            <span>Aucune playlist</span>
+        </div>  
+        @endif
+
         @foreach ($playlists as $playlist)
             <hr class="large">
             <div class="header-align">
                 <h2>{{$playlist->name_playlist}}</h2>
 
-                @if(Auth::check() and (Auth::user()->pseudo != $pseudo))
+                @if(Auth::check() and (Auth::user()->pseudo != $pseudo and !in_array($playlist->id_playlist, $currentUserSubIdList)))
                     <form action="{{ route('playlist.sub', [$pseudo, $playlist->id_playlist])}}" method="post">
                         @csrf
                         <button class="btn btn-warning" type="submit">S'abonner à cette playlist</button>
@@ -69,7 +75,7 @@
                 <h2>{{$subPlaylist->getPlaylistInfos->name_playlist}}</h2>
                 <h4>créée par {{$subPlaylist->getPlaylistInfos->pseudo_playlist}}</h4>
 
-                @if(Auth::check() and (Auth::user()->pseudo != $subPlaylist->getPlaylistInfos->pseudo_playlist and Auth::user()->pseudo != $pseudo))
+                @if(Auth::check() and (Auth::user()->pseudo != $subPlaylist->getPlaylistInfos->pseudo_playlist and Auth::user()->pseudo != $pseudo and !in_array($subPlaylist->getPlaylistInfos->id_playlist, $currentUserSubIdList)))
                     <form action="{{ route('playlist.sub', [$pseudo, $subPlaylist->getPlaylistInfos->id_playlist])}}" method="post">
                         @csrf
                         <button class="btn btn-warning" type="submit">S'abonner à cette playlist</button>
