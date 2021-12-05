@@ -10,7 +10,7 @@
 Pour accéder à notre site, il faut :
 
 - Se connecter à PhpMyAdmin (root/root) et y créer la base de données "medias" de type "utf8_general_ci".
-- Créer et mettre à jour la structure des tables via les fichiers de migration. 
+- Créer et mettre à jour la structure des tables via les fichiers de migration.
 
 Pour ce faire :  
 
@@ -129,7 +129,7 @@ Durant ce projet nous avons rencontrés plusieurs obstacles.
 
 Pour alimenter nos bases de données, nous avons fait appel à l'API IMDB où nous récupérons un top des 250 meilleurs films et séries.
 
-Cependant ces appels d'API ne contiennent que peu d'informatiosn sur les médias. On ne retrouve quasimment que le titre, le lien vers le poster de mauvaise qualité et l'année de sortie. 
+Cependant ces appels d'API ne contiennent que peu d'informatiosn sur les médias. On ne retrouve quasimment que le titre, le lien vers le poster de mauvaise qualité et l'année de sortie.
 
 Il est certes possible de refaire un appel d'API sur chaque média pour obtenir ses détails mais nous sommes limité à 100 appels par jour avec notre version gratuite d'IMDB.
 
