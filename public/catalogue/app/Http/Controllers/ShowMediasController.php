@@ -7,6 +7,7 @@ use App\Models\Media;
 use App\Models\Action;
 use App\Models\Tag;
 use App\Models\KeyValue;
+use App\Models\User;
 use App\Models\Playlist;
 use App\Models\Playlist_media;
 use App\Models\Comment;
@@ -61,8 +62,9 @@ class ShowMediasController extends Controller
         }
 
         $comments = Comment::getAllMediaComments($id);
+        $isBlocked = User::isBlocked();
 
-        return view('detail', compact('media', 'genres', 'playlists','likes','isLiked', 'comments'));
+        return view('detail', compact('media', 'genres', 'playlists','likes','isLiked', 'comments','isBlocked'));
     }
 
     public function addComment(Request $request, $id){

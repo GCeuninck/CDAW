@@ -90,6 +90,19 @@ class User extends Authenticatable
         return User::where('pseudo', '=' , $pseudo)->where('code_role', '=' , 1)->first();
     }
 
+    public static function isBlocked() {
+        if(Auth::check())
+        {
+            $pseudo = Auth::user()->pseudo;
+        }else
+        {
+            return false;
+        }
+
+        $user = User::where('pseudo', '=' , $pseudo)->where('code_role', '=' , 2)->first();
+        return !empty($user);
+    }
+
     public function getRoleInfos()
     {
         return $this->belongsTo(KeyValue::class,'code_role', 'code')->where('type', '=', 'role');

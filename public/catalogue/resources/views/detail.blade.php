@@ -150,14 +150,19 @@
 
     <div>
         <h2>Commentaires</h2>
-        @if( Auth::user())
-            <form id="addComment" action="{{ route('media.comment', $media->id_media)}}" method="POST">
+
+        @if($isBlocked)
+        <div id="columns" class="bottom-1">
+            <span>Vous avez été bloqué par un administrateur. Vous ne pouvez donc pas commenter.</span>
+        </div>  
+        @elseif (Auth::user())
+        <form id="addComment" action="{{ route('media.comment', $media->id_media)}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <textarea  class="form-control bottom-1" name="comment" id="comment" aria-describedby="comment" placeholder="Zone de texte du commentaire..."></textarea>
                 </div>
                 <input type="submit" value="Publier ce commentaire"/>
-            </form>
+        </form>
         @endif
 
         @foreach ($comments as $comment)

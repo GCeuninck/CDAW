@@ -42,14 +42,14 @@ class UserController extends Controller
             ->addColumn('action', function($row) use($currentUserRole, $currentUserPseudo){
                 $btn = '<div class="row">';
                 $btn = $btn.'
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <a href="'. URL::asset($row->pseudo . '/playlists') . '" class="edit btn btn-primary btn-align">
                             Voir les playlists
                         </a>
                     </div>';
                 if($row->code_role != '2' and $row->code_role != '1' and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <form action="'. URL::asset('/users/list/promote/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-success btn-align" type="submit">Promouvoir</button>
@@ -58,16 +58,16 @@ class UserController extends Controller
                 }
                 if($row->code_role != '2' and $row->code_role != '1' and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <form action="'. URL::asset('/users/list/ban/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
-                            <button class="edit btn btn-danger btn-align" type="submit">Bannir</button>
+                            <button class="edit btn btn-danger btn-align" type="submit">Bloquer</button>
                         </form>
                     </div>';
                 }
                 if($row->code_role == '2' and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <form action="'. URL::asset('/users/list/unban/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-warning btn-align" type="submit">Débannir</button>
@@ -76,7 +76,7 @@ class UserController extends Controller
                 }
                 if($row->code_role == '1' and $row->pseudo != $currentUserPseudo and $currentUserRole == '1'){
                     $btn = $btn.'
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <form action="'. URL::asset('/users/list/dismiss/' . $row->pseudo) . '" method="post">
                             '.csrf_field().'
                             <button class="edit btn btn-info btn-align" type="submit">Destituer</button>
